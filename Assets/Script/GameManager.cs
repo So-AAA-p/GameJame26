@@ -165,7 +165,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
         UpdateLanguageUI();
         UpdateFontSizeUI();
-        OnLanguageChanged?.Invoke(); // Benachrichtigt alle Texte
+        OnLanguageChanged?.Invoke(); 
     }
 
     public void SelectGerman()
@@ -174,7 +174,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
         UpdateLanguageUI();
         UpdateFontSizeUI();
-        OnLanguageChanged?.Invoke(); // Benachrichtigt alle Texte
+        OnLanguageChanged?.Invoke();
     }
 
     private void UpdateLanguageUI()
@@ -199,11 +199,9 @@ public class GameManager : MonoBehaviour
     {
         if (usernameInput != null)
         {
-            // Gespeicherten Namen laden (falls vorhanden)
             string savedName = PlayerPrefs.GetString("PlayerUsername", "");
             usernameInput.text = savedName;
 
-            // Automatisch speichern, wenn der Spieler den Text ändert
             usernameInput.onValueChanged.AddListener(SaveUsername);
         }
     }
@@ -213,9 +211,21 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
     }
 
-    // Hilfsfunktion: So kannst du den Namen später überall im Spiel/Dialog abrufen!
     public static string GetUsername()
     {
         return PlayerPrefs.GetString("PlayerUsername", "Spieler");
+    }
+
+    [Header("In-Game Menu")]
+    public GameObject menuPanel; // Ziehe hier das InGameMenuPanel rein
+
+    // Diese Methode rufst du über den Herz-Button auf:
+    public void ToggleMenu()
+    {
+        if (menuPanel != null)
+        {
+            // Schaltet das Panel um (An -> Aus / Aus -> An)
+            menuPanel.SetActive(!menuPanel.activeSelf);
+        }
     }
 }

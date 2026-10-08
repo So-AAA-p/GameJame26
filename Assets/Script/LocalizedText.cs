@@ -4,10 +4,10 @@ using TMPro;
 public class LocalizedText : MonoBehaviour
 {
     [TextArea(1, 3)]
-    public string germanText; // Deutscher Text
+    public string germanText;
 
     [TextArea(1, 3)]
-    public string englishText; // Englischer Text
+    public string englishText;
 
     private TextMeshProUGUI textComponent;
 
@@ -18,7 +18,6 @@ public class LocalizedText : MonoBehaviour
 
     private void OnEnable()
     {
-        // Registriert den Text beim Sprachwechsel-System
         GameManager.OnLanguageChanged += UpdateText;
         UpdateText();
     }
@@ -32,7 +31,6 @@ public class LocalizedText : MonoBehaviour
     {
         if (textComponent == null) return;
 
-        // Liest die Sprache aus den PlayerPrefs ("DE" oder "EN")
         string lang = PlayerPrefs.GetString("Language", "EN");
 
         if (lang == "DE")

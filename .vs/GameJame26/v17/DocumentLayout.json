@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|c:\\users\\josep\\documents\\github\\gamejame26\\assets\\script\\localizedtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\localizedtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|c:\\users\\josep\\documents\\github\\gamejame26\\assets\\script\\storymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\storymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|c:\\users\\josep\\documents\\github\\gamejame26\\assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\script\\localizedtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\localizedtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -23,12 +27,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "StoryManager.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\StoryManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\StoryManager.cs",
+              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\StoryManager.cs",
+              "RelativeToolTip": "Assets\\Script\\StoryManager.cs",
+              "ViewState": "AgIAADcAAAAAAAAAAAAkwAgAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-08T09:17:16.162Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "LocalizedText.cs",
               "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\LocalizedText.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\LocalizedText.cs",
               "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\LocalizedText.cs",
               "RelativeToolTip": "Assets\\Script\\LocalizedText.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAC4AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-08T02:01:11.296Z",
               "EditorCaption": ""
@@ -41,7 +58,7 @@
               "RelativeDocumentMoniker": "Assets\\Script\\GameManager.cs",
               "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\GameManager.cs",
               "RelativeToolTip": "Assets\\Script\\GameManager.cs",
-              "ViewState": "AgIAAEgAAAAAAAAAAAAgwGwAAAAqAAAAAAAAAA==",
+              "ViewState": "AgIAABEAAAAAAAAAAAAAwBkAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-10-08T00:57:00.941Z",
               "EditorCaption": ""

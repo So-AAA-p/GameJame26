@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 24e7550c503906d41aba11c04f2dd773
+guid: b7f7e6550a8fdcd48b757a73b1a9d298
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -8157507519084581027
-    second: E769ECE0-2225-471A-82A8-7E33BA41CB64_0
+      213: -7215157383507970015
+    second: MC Speech bubbles_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -102,13 +102,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: E769ECE0-2225-471A-82A8-7E33BA41CB64_0
+      name: MC Speech bubbles_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 711
-        height: 432
+        width: 736
+        height: 161
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -117,8 +117,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d5fa268b126bace80800000000000000
-      internalID: -8157507519084581027
+      spriteID: 1287875569c9edb90800000000000000
+      internalID: -7215157383507970015
       vertices: []
       indices: 
       edges: []
@@ -137,7 +137,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      E769ECE0-2225-471A-82A8-7E33BA41CB64_0: -8157507519084581027
+      MC Speech bubbles_0: -7215157383507970015
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

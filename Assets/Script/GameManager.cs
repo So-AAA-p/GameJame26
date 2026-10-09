@@ -45,9 +45,9 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI pointsDisplayText;
 
     [Header("Points Pop-Up Visuals")]
-    public TextMeshProUGUI pointPopUpText; // Das Pop-up TextMeshPro Objekt
-    public Color gainColor = Color.green;  // Farbe für gewonnene Punkte
-    public Color spendColor = Color.red;   // Farbe für ausgegebene Punkte
+    public TextMeshProUGUI pointPopUpText;
+    public Color gainColor = Color.green;
+    public Color spendColor = Color.red;
     private Coroutine popUpCoroutine;
 
     [Header("Dice UI Visuals")]
@@ -101,7 +101,11 @@ public class GameManager : MonoBehaviour
     public void OpenHomescreen() => SceneManager.LoadScene("Homescreen");
     public void OpenSettings() => SceneManager.LoadScene("Settings");
     public void OpenCredits() => SceneManager.LoadScene("Credits");
-    public void StartGame() => SceneManager.LoadScene("GameScene");
+
+    public void StartGame()
+    {
+        SceneManager.LoadScene("ApartmentScene");
+    }
 
     public void QuitGame()
     {

@@ -3,40 +3,20 @@
   "nodes": [
     {
       "id": "intro_1",
-      "text": "Gop Gop!",
+      "text": "A new city. A new beginning. Before we start...",
+      "autoAdvanceDelay": 2.0,
       "nextId": "intro_2"
     },
     {
       "id": "intro_2",
-      "text": "Beebeeb!",
-      "nextId": "choice_gop"
+      "text": "what’s your name?",
+      "isNameInput": true,
+      "nextId": "intro_3"
     },
     {
-      "id": "choice_gop",
-      "text": "do you want to be my gop",
-      "isChoice": true,
-      "options": [
-        {
-          "text": "nahhh",
-          "cost": 0,
-          "nextId": "path_rejection"
-        },
-        {
-          "text": "yess girl",
-          "cost": 13,
-          "nextId": "path_success"
-        }
-      ]
-    },
-    {
-      "id": "path_rejection",
-      "text": "okay.",
-      "nextId": ""
-    },
-    {
-      "id": "path_success",
-      "text": "slayy",
-      "nextId": ""
+      "id": "intro_3",
+      "text": "Nice to meet you {Name}. Let’s begin.",
+      "nextId": "next_scene_or_node"
     }
   ]
 }

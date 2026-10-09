@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
     private int currentResIndex = 2;
 
     [Header("In-Game Menu & Animation")]
-    public GameObject menuPanel; 
+    public GameObject menuPanel;
     public CanvasGroup menuCanvasGroup;
     public float animSpeed = 5f;
 
@@ -40,9 +40,15 @@ public class GameManager : MonoBehaviour
     private bool isMenuOpen = false;
 
     [Header("Würfel & Punkte System (DnD W20)")]
-    public int currentPoints = 0; 
+    public int currentPoints = 0;
     public int specialAnswerCost = 13;
     public TextMeshProUGUI pointsDisplayText;
+
+    [Header("Points Pop-Up Visuals")]
+    public TextMeshProUGUI pointPopUpText; // Das Pop-up TextMeshPro Objekt
+    public Color gainColor = Color.green;  // Farbe für gewonnene Punkte
+    public Color spendColor = Color.red;   // Farbe für ausgegebene Punkte
+    private Coroutine popUpCoroutine;
 
     [Header("Dice UI Visuals")]
     public UnityEngine.UI.Image diceImageDisplay;
@@ -70,47 +76,45 @@ public class GameManager : MonoBehaviour
 
         UpdatePointsUI();
 
+        if (pointPopUpText != null)
+        {
+            pointPopUpText.gameObject.SetActive(false);
+        }
+
         if (storyManager == null)
         {
-            storyManager = FindObjectOfType<StoryManager>();
+            storyManager = FindAnyObjectByType<StoryManager>();
         }
 
         if (menuPanel != null)
         {
             menuPanel.SetActive(false);
         }
-    }
-    public void OpenHomescreen()
-    {
-        SceneManager.LoadScene("Homescreen");
+
+        if (choicePanel != null)
+        {
+            choicePanel.SetActive(false);
+        }
     }
 
-    public void OpenSettings()
-    {
-        SceneManager.LoadScene("Settings");
-    }
-
-    public void OpenCredits()
-    {
-        SceneManager.LoadScene("Credits");
-    }
-
-    public void StartGame()
-    {
-        SceneManager.LoadScene("GameScene");
-    }
+    #region Scene Navigation
+    public void OpenHomescreen() => SceneManager.LoadScene("Homescreen");
+    public void OpenSettings() => SceneManager.LoadScene("Settings");
+    public void OpenCredits() => SceneManager.LoadScene("Credits");
+    public void StartGame() => SceneManager.LoadScene("GameScene");
 
     public void QuitGame()
     {
         Debug.Log("Spiel wird beendet...");
         Application.Quit();
     }
+    #endregion
 
+    #region Menu Animation Logic
     public void ToggleMenu()
     {
         if (menuPanel == null) return;
 
-        // Falls bereits eine Animation läuft, wird sie gestoppt
         if (menuAnimationCoroutine != null)
         {
             StopCoroutine(menuAnimationCoroutine);
@@ -140,11 +144,8 @@ public class GameManager : MonoBehaviour
         while (t < 1f)
         {
             t += Time.deltaTime * animSpeed;
-
-            // Sanftes Vergrößern / Verkleinern
             menuPanel.transform.localScale = Vector3.Lerp(startScale, targetScale, t);
 
-            // Sanftes Ein- / Ausblenden
             if (menuCanvasGroup != null)
             {
                 menuCanvasGroup.alpha = Mathf.Lerp(startAlpha, targetAlpha, t);
@@ -156,12 +157,14 @@ public class GameManager : MonoBehaviour
         menuPanel.transform.localScale = targetScale;
         if (menuCanvasGroup != null) menuCanvasGroup.alpha = targetAlpha;
 
-        // Deaktiviert das Panel komplett, sobald das Einkleinern fertig ist
         if (disableAtEnd)
         {
             menuPanel.SetActive(false);
         }
     }
+    #endregion
+
+    #region Dice & Choice System
     public void SetupAnswerButtonTexts(string standardText, string specialText)
     {
         if (standardAnswerButton != null)
@@ -184,6 +187,7 @@ public class GameManager : MonoBehaviour
         if (standardAnswerButton != null) standardAnswerButton.SetActive(false);
         if (specialAnswerButton != null) specialAnswerButton.SetActive(false);
     }
+
     public void RollW20()
     {
         if (isRolling) return;
@@ -200,8 +204,8 @@ public class GameManager : MonoBehaviour
         float elapsed = 0f;
         float interval = 0.05f;
 
-        Vector3 originalScale = diceButton.transform.localScale;
-        Quaternion originalRotation = diceButton.transform.localRotation;
+        Vector3 originalScale = diceButton != null ? diceButton.transform.localScale : Vector3.one;
+        Quaternion originalRotation = diceButton != null ? diceButton.transform.localRotation : Quaternion.identity;
 
         while (elapsed < animationDuration)
         {
@@ -241,7 +245,10 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Final Gewürfelt: {finalRoll} | Gesamte Punkte: {currentPoints}");
         UpdatePointsUI();
 
-        yield return new WaitForSeconds(1.2f);
+        // Zeige Pop-Up für gewonnene Punkte
+        ShowPointPopUp($"+{finalRoll} Punkte", gainColor);
+
+        yield return new WaitForSeconds(0.5f);
 
         if (standardAnswerButton != null) standardAnswerButton.SetActive(true);
 
@@ -255,7 +262,7 @@ public class GameManager : MonoBehaviour
                 btn.interactable = CanChooseSpecialAnswer();
             }
         }
-       
+
         isRolling = false;
     }
 
@@ -274,13 +281,12 @@ public class GameManager : MonoBehaviour
 
         if (storyManager != null)
         {
-            storyManager.ResumeAfterChoice();
+            storyManager.ResumeAfterChoice(isSpecial);
         }
     }
 
     public bool CanChooseSpecialAnswer() => currentPoints >= specialAnswerCost;
 
-    // 3. Aufrufen, wenn Spezial-Antwort gedrückt wird
     public void SelectSpecialAnswer()
     {
         if (CanChooseSpecialAnswer())
@@ -288,16 +294,17 @@ public class GameManager : MonoBehaviour
             currentPoints -= specialAnswerCost;
             Debug.Log($"Spezial-Antwort gewählt! Verbleibende Punkte: {currentPoints}");
             UpdatePointsUI();
+
+            // Zeige Pop-Up für ausgegebene Punkte
+            ShowPointPopUp($"-{specialAnswerCost} Punkte", spendColor);
         }
     }
 
-    // 4. Aufrufen, wenn Standard-Antwort gedrückt wird (kostenlos)
     public void SelectStandardAnswer()
     {
         Debug.Log("Standard-Antwort gewählt. Punkte bleiben erhalten.");
     }
 
-    // 5. Punkte-Anzeige auf dem UI aktualisieren
     private void UpdatePointsUI()
     {
         if (pointsDisplayText != null)
@@ -305,6 +312,54 @@ public class GameManager : MonoBehaviour
             pointsDisplayText.text = "Punkte: " + currentPoints;
         }
     }
+
+    private void ShowPointPopUp(string text, Color color)
+    {
+        if (pointPopUpText == null) return;
+
+        if (popUpCoroutine != null)
+        {
+            StopCoroutine(popUpCoroutine);
+        }
+
+        popUpCoroutine = StartCoroutine(AnimatePointPopUp(text, color));
+    }
+
+    private IEnumerator AnimatePointPopUp(string text, Color color)
+    {
+        pointPopUpText.text = text;
+        pointPopUpText.color = color;
+        pointPopUpText.gameObject.SetActive(true);
+
+        RectTransform rectTransform = pointPopUpText.rectTransform;
+        Vector3 startPos = rectTransform.anchoredPosition;
+        Vector3 targetPos = startPos + new Vector3(0, 30f, 0); // Schwebt 30 Einheiten nach oben
+
+        float duration = 1.2f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float t = elapsed / duration;
+
+            // Sanftes Nach-Oben-Schweben
+            rectTransform.anchoredPosition = Vector3.Lerp(startPos, targetPos, t);
+
+            // Ausblenden (Alpha reduzieren)
+            Color c = color;
+            c.a = Mathf.Lerp(1f, 0f, t);
+            pointPopUpText.color = c;
+
+            yield return null;
+        }
+
+        pointPopUpText.gameObject.SetActive(false);
+        rectTransform.anchoredPosition = startPos; // Position zurücksetzen
+    }
+    #endregion
+
+    #region Settings & Preferences
     public void IncreaseFontSize()
     {
         if (currentSizeIndex < fontSizes.Length - 1)
@@ -335,22 +390,11 @@ public class GameManager : MonoBehaviour
         if (fontSizeDisplayText != null)
         {
             string lang = PlayerPrefs.GetString("Language", "EN");
-
-            if (lang == "DE")
-            {
-                fontSizeDisplayText.text = fontSizeNamesDE[currentSizeIndex];
-            }
-            else
-            {
-                fontSizeDisplayText.text = fontSizeNamesEN[currentSizeIndex];
-            }
+            fontSizeDisplayText.text = (lang == "DE") ? fontSizeNamesDE[currentSizeIndex] : fontSizeNamesEN[currentSizeIndex];
         }
     }
-    public int GetCurrentFontSize()
-    {
-        return fontSizes[PlayerPrefs.GetInt("FontSizeIndex", 1)];
-    }
 
+    public int GetCurrentFontSize() => fontSizes[PlayerPrefs.GetInt("FontSizeIndex", 1)];
 
     public void IncreaseResolution()
     {
@@ -427,24 +471,23 @@ public class GameManager : MonoBehaviour
             }
         }
     }
+
     private void LoadUsername()
     {
         if (usernameInput != null)
         {
             string savedName = PlayerPrefs.GetString("PlayerUsername", "");
             usernameInput.text = savedName;
-
             usernameInput.onValueChanged.AddListener(SaveUsername);
         }
     }
+
     public void SaveUsername(string newName)
     {
         PlayerPrefs.SetString("PlayerUsername", newName);
         PlayerPrefs.Save();
     }
 
-    public static string GetUsername()
-    {
-        return PlayerPrefs.GetString("PlayerUsername", "Spieler");
-    }
+    public static string GetUsername() => PlayerPrefs.GetString("PlayerUsername", "Spieler");
+    #endregion
 }

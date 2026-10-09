@@ -1,10 +1,42 @@
 {
-  "lines": [
-    "Gop Gop!",
-    "Beebeeb!",
-    "do you want to be my gop"
-  ],
-  "standardOptionText": "nahhh",
-  "specialOptionText": "yess girl",
-  "followUpLine": "okay."
+  "startNodeId": "intro_1",
+  "nodes": [
+    {
+      "id": "intro_1",
+      "text": "Gop Gop!",
+      "nextId": "intro_2"
+    },
+    {
+      "id": "intro_2",
+      "text": "Beebeeb!",
+      "nextId": "choice_gop"
+    },
+    {
+      "id": "choice_gop",
+      "text": "do you want to be my gop",
+      "isChoice": true,
+      "options": [
+        {
+          "text": "nahhh",
+          "cost": 0,
+          "nextId": "path_rejection"
+        },
+        {
+          "text": "yess girl",
+          "cost": 13,
+          "nextId": "path_success"
+        }
+      ]
+    },
+    {
+      "id": "path_rejection",
+      "text": "okay.",
+      "nextId": ""
+    },
+    {
+      "id": "path_success",
+      "text": "slayy",
+      "nextId": ""
+    }
+  ]
 }

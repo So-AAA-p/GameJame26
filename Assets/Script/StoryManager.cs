@@ -4,12 +4,28 @@ using UnityEngine;
 using TMPro;
 
 [System.Serializable]
-public class DialogueData
+public class DialogueOption
 {
-    public List<string> lines;
-    public string standardOptionText;
-    public string specialOptionText;
-    public string followUpLine;
+    public string text;
+    public int cost;
+    public string nextId;
+}
+
+[System.Serializable]
+public class DialogueNode
+{
+    public string id;
+    public string text;
+    public bool isChoice;
+    public List<DialogueOption> options;
+    public string nextId;
+}
+
+[System.Serializable]
+public class StoryData
+{
+    public string startNodeId;
+    public List<DialogueNode> nodes;
 }
 
 public class StoryManager : MonoBehaviour
@@ -22,78 +38,90 @@ public class StoryManager : MonoBehaviour
     public float typingSpeed = 0.05f;
 
     [Header("Dialogue File")]
-    public TextAsset dialogueJsonFile; // Hier ziehst du einfach deine JSON-Datei rein!
+    public TextAsset dialogueJsonFile;
 
-    private Queue<string> sentences = new Queue<string>();
+    private Dictionary<string, DialogueNode> nodeMap = new Dictionary<string, DialogueNode>();
+    private DialogueNode currentNode;
     private Coroutine typingCoroutine;
     private bool isTyping = false;
-    private string currentSentence;
-    private DialogueData currentDialogueData;
     private bool isWaitingForChoice = false;
 
     private void Start()
     {
         if (gameManager == null)
         {
-            gameManager = FindObjectOfType<GameManager>();
+            gameManager = FindAnyObjectByType<GameManager>();
         }
 
         if (dialogueJsonFile != null)
         {
-            LoadDialogueFromJson(dialogueJsonFile.text);
+            LoadStoryFromJson(dialogueJsonFile.text);
         }
     }
 
     private void Update()
     {
         if (isWaitingForChoice) return;
-        // Bei Linksklick oder Leertaste -> Nächster Satz
+
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
-            DisplayNextSentence();
+            AdvanceDialogue();
         }
     }
 
-    public void LoadDialogueFromJson(string jsonText)
+    public void LoadStoryFromJson(string jsonText)
     {
-        DialogueData loadedData = JsonUtility.FromJson<DialogueData>(jsonText);
-        StartDialogue(loadedData.lines);
-    }
+        StoryData storyData = JsonUtility.FromJson<StoryData>(jsonText);
 
-    public void StartDialogue(List<string> lines)
-    {
-        sentences.Clear();
-        isWaitingForChoice = false;
-
-        foreach (string line in lines)
+        if (storyData != null && storyData.nodes != null)
         {
-            sentences.Enqueue(line);
-        }
+            nodeMap.Clear();
+            foreach (DialogueNode node in storyData.nodes)
+            {
+                if (!nodeMap.ContainsKey(node.id))
+                {
+                    nodeMap.Add(node.id, node);
+                }
+            }
 
-        DisplayNextSentence();
+            if (!string.IsNullOrEmpty(storyData.startNodeId) && nodeMap.ContainsKey(storyData.startNodeId))
+            {
+                DisplayNode(storyData.startNodeId);
+            }
+        }
+        else
+        {
+            Debug.LogError("Fehler beim Laden des JSONs!");
+        }
     }
 
-    public void DisplayNextSentence()
+    public void DisplayNode(string nodeId)
     {
-        // Wenn aktuell noch getippt wird, springe direkt zum vollständigen Text
-        if (isTyping)
-        {
-            StopCoroutine(typingCoroutine);
-            dialogueText.text = currentSentence;
-            isTyping = false;
-            CheckIfSentenceTriggersChoice();
-            return;
-        }
-
-        // Keine Sätze mehr in der Queue? Dialog beendet!
-        if (sentences.Count == 0)
+        if (string.IsNullOrEmpty(nodeId) || !nodeMap.ContainsKey(nodeId))
         {
             EndDialogue();
             return;
         }
 
-        currentSentence = sentences.Dequeue();
-        typingCoroutine = StartCoroutine(TypeSentence(currentSentence));
+        currentNode = nodeMap[nodeId];
+        typingCoroutine = StartCoroutine(TypeSentence(currentNode.text));
+    }
+
+    public void AdvanceDialogue()
+    {
+        if (isTyping)
+        {
+            StopCoroutine(typingCoroutine);
+            dialogueText.text = currentNode.text;
+            isTyping = false;
+            OnNodeTextFinished();
+            return;
+        }
+
+        if (currentNode != null && !currentNode.isChoice)
+        {
+            DisplayNode(currentNode.nextId);
+        }
     }
 
     private IEnumerator TypeSentence(string sentence)
@@ -108,29 +136,44 @@ public class StoryManager : MonoBehaviour
         }
 
         isTyping = false;
-        CheckIfSentenceTriggersChoice();
+        OnNodeTextFinished();
     }
-    private void CheckIfSentenceTriggersChoice()
+
+    private void OnNodeTextFinished()
     {
-        // Sobald die Frage "do you want to be my gop" getippt wurde, Wahl-UI öffnen
-        if (currentSentence == "do you want to be my gop" && sentences.Count == 0)
+        // Sobald der Satz zu Ende getippt ist: Ist es ein Entscheidungs-Knoten?
+        if (currentNode != null && currentNode.isChoice)
         {
             isWaitingForChoice = true;
-            if (gameManager != null)
+
+            if (gameManager == null)
             {
-                gameManager.SetupAnswerButtonTexts(currentDialogueData.standardOptionText, currentDialogueData.specialOptionText);
+                gameManager = FindAnyObjectByType<GameManager>();
+            }
+
+            if (gameManager != null && currentNode.options != null && currentNode.options.Count >= 2)
+            {
+                // Setzt Kosten und Texte für die Buttons dynamisch
+                gameManager.specialAnswerCost = currentNode.options[1].cost;
+                gameManager.SetupAnswerButtonTexts(currentNode.options[0].text, currentNode.options[1].text);
                 gameManager.ShowChoiceUI();
             }
         }
     }
-    public void ResumeAfterChoice()
+
+    public void ResumeAfterChoice(bool isSpecial)
     {
         isWaitingForChoice = false;
 
-        if (currentDialogueData != null && !string.IsNullOrEmpty(currentDialogueData.followUpLine))
+        if (currentNode != null && currentNode.isChoice && currentNode.options != null)
         {
-            sentences.Enqueue(currentDialogueData.followUpLine);
-            DisplayNextSentence();
+            int optionIndex = isSpecial ? 1 : 0;
+
+            if (optionIndex < currentNode.options.Count)
+            {
+                string targetNodeId = currentNode.options[optionIndex].nextId;
+                DisplayNode(targetNodeId);
+            }
         }
     }
 

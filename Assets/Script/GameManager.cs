@@ -32,21 +32,31 @@ public class GameManager : MonoBehaviour
     private int currentResIndex = 2;
 
     [Header("In-Game Menu & Animation")]
-    public GameObject menuPanel; // Dein InGameMenuPanel
-    public CanvasGroup menuCanvasGroup; // CanvasGroup auf dem InGameMenuPanel
+    public GameObject menuPanel; 
+    public CanvasGroup menuCanvasGroup;
     public float animSpeed = 5f;
 
     private Coroutine menuAnimationCoroutine;
     private bool isMenuOpen = false;
 
     [Header("Würfel & Punkte System (DnD W20)")]
-    public int currentPoints = 0; // Aktueller Punktestand
-    public int specialAnswerCost = 13; // Kosten/Schwelle für Spezial-Antwort
+    public int currentPoints = 0; 
+    public int specialAnswerCost = 13;
     public TextMeshProUGUI pointsDisplayText;
 
     [Header("Dice UI Visuals")]
-    public UnityEngine.UI.Image diceImageDisplay; // Das Image-Objekt auf deinem Canvas
+    public UnityEngine.UI.Image diceImageDisplay;
     public Sprite[] diceSprites;
+
+    [Header("Choice & UI Elements")]
+    public GameObject choicePanel;
+    public GameObject diceButton;
+    public GameObject standardAnswerButton;
+    public GameObject specialAnswerButton;
+    public StoryManager storyManager;
+
+    private bool isRolling = false;
+
     private void Start()
     {
         currentSizeIndex = PlayerPrefs.GetInt("FontSizeIndex", 1);
@@ -57,6 +67,13 @@ public class GameManager : MonoBehaviour
 
         UpdateLanguageUI();
         LoadUsername();
+
+        UpdatePointsUI();
+
+        if (storyManager == null)
+        {
+            storyManager = FindObjectOfType<StoryManager>();
+        }
 
         if (menuPanel != null)
         {
@@ -145,24 +162,123 @@ public class GameManager : MonoBehaviour
             menuPanel.SetActive(false);
         }
     }
-    public void RollW20()
+    public void SetupAnswerButtonTexts(string standardText, string specialText)
     {
-        int roll = UnityEngine.Random.Range(1, 21); // Random 1 bis 20
-        currentPoints += roll;
-        Debug.Log($"Gewürfelt: {roll} | Gesamte Gesprächspunkte: {currentPoints}");
-
-        // Würfel-Bild im UI aktualisieren (falls Sprite-Array vorhanden)
-        if (diceImageDisplay != null && diceSprites != null && diceSprites.Length >= 20)
+        if (standardAnswerButton != null)
         {
-            diceImageDisplay.sprite = diceSprites[roll - 1];
+            TextMeshProUGUI tmp = standardAnswerButton.GetComponentInChildren<TextMeshProUGUI>();
+            if (tmp != null) tmp.text = standardText;
         }
 
-        UpdatePointsUI();
+        if (specialAnswerButton != null)
+        {
+            TextMeshProUGUI tmp = specialAnswerButton.GetComponentInChildren<TextMeshProUGUI>();
+            if (tmp != null) tmp.text = specialText;
+        }
     }
-    public bool CanChooseSpecialAnswer()
+
+    public void ShowChoiceUI()
     {
-        return currentPoints >= specialAnswerCost;
+        if (choicePanel != null) choicePanel.SetActive(true);
+        if (diceButton != null) diceButton.SetActive(true);
+        if (standardAnswerButton != null) standardAnswerButton.SetActive(false);
+        if (specialAnswerButton != null) specialAnswerButton.SetActive(false);
     }
+    public void RollW20()
+    {
+        if (isRolling) return;
+        StartCoroutine(AnimateAndRollDice());
+    }
+
+    private IEnumerator AnimateAndRollDice()
+    {
+        isRolling = true;
+
+        int finalRoll = UnityEngine.Random.Range(1, 21);
+
+        float animationDuration = 1.0f;
+        float elapsed = 0f;
+        float interval = 0.05f;
+
+        Vector3 originalScale = diceButton.transform.localScale;
+        Quaternion originalRotation = diceButton.transform.localRotation;
+
+        while (elapsed < animationDuration)
+        {
+            elapsed += interval;
+
+            if (diceSprites != null && diceSprites.Length >= 20 && diceImageDisplay != null)
+            {
+                int randomSpriteIndex = UnityEngine.Random.Range(0, diceSprites.Length);
+                diceImageDisplay.sprite = diceSprites[randomSpriteIndex];
+            }
+
+            if (diceButton != null)
+            {
+                float randomAngle = UnityEngine.Random.Range(-15f, 15f);
+                diceButton.transform.localRotation = Quaternion.Euler(0, 0, randomAngle);
+
+                float scalePulse = 1f + UnityEngine.Random.Range(-0.08f, 0.08f);
+                diceButton.transform.localScale = originalScale * scalePulse;
+            }
+
+            interval = Mathf.Lerp(0.05f, 0.15f, elapsed / animationDuration);
+            yield return new WaitForSeconds(interval);
+        }
+
+        if (diceButton != null)
+        {
+            diceButton.transform.localRotation = originalRotation;
+            diceButton.transform.localScale = originalScale;
+        }
+
+        if (diceImageDisplay != null && diceSprites != null && diceSprites.Length >= 20)
+        {
+            diceImageDisplay.sprite = diceSprites[finalRoll - 1];
+        }
+
+        currentPoints += finalRoll;
+        Debug.Log($"Final Gewürfelt: {finalRoll} | Gesamte Punkte: {currentPoints}");
+        UpdatePointsUI();
+
+        yield return new WaitForSeconds(1.2f);
+
+        if (standardAnswerButton != null) standardAnswerButton.SetActive(true);
+
+        if (specialAnswerButton != null)
+        {
+            specialAnswerButton.SetActive(true);
+
+            Button btn = specialAnswerButton.GetComponent<Button>();
+            if (btn != null)
+            {
+                btn.interactable = CanChooseSpecialAnswer();
+            }
+        }
+       
+        isRolling = false;
+    }
+
+    public void OnAnswerSelected(bool isSpecial)
+    {
+        if (isSpecial)
+        {
+            SelectSpecialAnswer();
+        }
+        else
+        {
+            SelectStandardAnswer();
+        }
+
+        if (choicePanel != null) choicePanel.SetActive(false);
+
+        if (storyManager != null)
+        {
+            storyManager.ResumeAfterChoice();
+        }
+    }
+
+    public bool CanChooseSpecialAnswer() => currentPoints >= specialAnswerCost;
 
     // 3. Aufrufen, wenn Spezial-Antwort gedrückt wird
     public void SelectSpecialAnswer()

@@ -178,7 +178,11 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Procreate assets
 
-    Dice: Asset by RunbitDice'
+    Dice: Asset by RunbitDice
+
+    Backgrounds: Pinterest.com
+
+'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -834,6 +838,12 @@ MonoBehaviour:
   currentPoints: 0
   specialAnswerCost: 13
   pointsDisplayText: {fileID: 0}
+  diceImageDisplay: {fileID: 0}
+  diceSprites: []
+  choicePanel: {fileID: 0}
+  diceButton: {fileID: 0}
+  standardAnswerButton: {fileID: 0}
+  specialAnswerButton: {fileID: 0}
 --- !u!4 &717154443
 Transform:
   m_ObjectHideFlags: 0

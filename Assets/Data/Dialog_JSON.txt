@@ -1,6 +1,10 @@
 {
   "lines": [
     "Gop Gop!",
-    "Beebeeb!"
-  ]
+    "Beebeeb!",
+    "do you want to be my gop"
+  ],
+  "standardOptionText": "nahhh",
+  "specialOptionText": "yess girl",
+  "followUpLine": "okay."
 }

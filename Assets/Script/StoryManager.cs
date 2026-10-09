@@ -7,12 +7,16 @@ using TMPro;
 public class DialogueData
 {
     public List<string> lines;
+    public string standardOptionText;
+    public string specialOptionText;
+    public string followUpLine;
 }
 
 public class StoryManager : MonoBehaviour
 {
     [Header("UI References")]
-    public TextMeshProUGUI dialogueText; // Das Textfeld in der Sprechblase
+    public TextMeshProUGUI dialogueText;
+    public GameManager gameManager;
 
     [Header("Typewriter Settings")]
     public float typingSpeed = 0.05f;
@@ -24,9 +28,16 @@ public class StoryManager : MonoBehaviour
     private Coroutine typingCoroutine;
     private bool isTyping = false;
     private string currentSentence;
+    private DialogueData currentDialogueData;
+    private bool isWaitingForChoice = false;
 
     private void Start()
     {
+        if (gameManager == null)
+        {
+            gameManager = FindObjectOfType<GameManager>();
+        }
+
         if (dialogueJsonFile != null)
         {
             LoadDialogueFromJson(dialogueJsonFile.text);
@@ -35,6 +46,7 @@ public class StoryManager : MonoBehaviour
 
     private void Update()
     {
+        if (isWaitingForChoice) return;
         // Bei Linksklick oder Leertaste -> Nächster Satz
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
@@ -51,6 +63,7 @@ public class StoryManager : MonoBehaviour
     public void StartDialogue(List<string> lines)
     {
         sentences.Clear();
+        isWaitingForChoice = false;
 
         foreach (string line in lines)
         {
@@ -68,6 +81,7 @@ public class StoryManager : MonoBehaviour
             StopCoroutine(typingCoroutine);
             dialogueText.text = currentSentence;
             isTyping = false;
+            CheckIfSentenceTriggersChoice();
             return;
         }
 
@@ -94,6 +108,30 @@ public class StoryManager : MonoBehaviour
         }
 
         isTyping = false;
+        CheckIfSentenceTriggersChoice();
+    }
+    private void CheckIfSentenceTriggersChoice()
+    {
+        // Sobald die Frage "do you want to be my gop" getippt wurde, Wahl-UI öffnen
+        if (currentSentence == "do you want to be my gop" && sentences.Count == 0)
+        {
+            isWaitingForChoice = true;
+            if (gameManager != null)
+            {
+                gameManager.SetupAnswerButtonTexts(currentDialogueData.standardOptionText, currentDialogueData.specialOptionText);
+                gameManager.ShowChoiceUI();
+            }
+        }
+    }
+    public void ResumeAfterChoice()
+    {
+        isWaitingForChoice = false;
+
+        if (currentDialogueData != null && !string.IsNullOrEmpty(currentDialogueData.followUpLine))
+        {
+            sentences.Enqueue(currentDialogueData.followUpLine);
+            DisplayNextSentence();
+        }
     }
 
     private void EndDialogue()

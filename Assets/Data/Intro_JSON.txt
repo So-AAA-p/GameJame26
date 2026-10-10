@@ -1,0 +1,51 @@
+{
+  "startNodeId": "intro_1",
+  "nodes": [
+    {
+      "id": "intro_1",
+      "text": "A new city. A new beginning. Before we start...",
+      "nextId": "intro_2"
+    },
+    {
+      "id": "intro_2",
+      "text": "what's your name?",
+      "isNameInput": true,
+      "nextId": "intro_3"
+    },
+    {
+      "id": "intro_3",
+      "text": "Nice to meet you {Name}. Let's begin.",
+      "nextId": "mc_1"
+    },
+    {
+      "id": "mc_1",
+      "text": "So... this is it.",
+      "useMCBubble": true,
+      "removeBlur": true,
+      "clearBeforeTyping": true,
+      "nextId": "mc_2"
+    },
+    {
+      "id": "mc_2",
+      "text": "The first floor is huge, and the second floor is perfect to live in.",
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "mc_3"
+    },
+    {
+      "id": "mc_3",
+      "text": "This apartment is perfect for my coffee shop, it's right above the store.",
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "mc_4"
+    },
+    {
+      "id": "mc_4",
+      "text": "I've dreamed about this for years. I can already smell the coffee.",
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "loadScene": "CoffeeShopScene",
+      "nextId": ""
+    }
+  ]
+}

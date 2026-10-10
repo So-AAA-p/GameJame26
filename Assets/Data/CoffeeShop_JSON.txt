@@ -1,0 +1,41 @@
+{
+  "startNodeId": "shop_1",
+  "nodes": [
+    {
+      "id": "shop_1",
+      "text": "Okay, let's get to work. The coffee machine needs to go here, behind the counter.",
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_2"
+    },
+    {
+      "id": "shop_2",
+      "text": "Two tables over here and two more by the window.",
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_3"
+    },
+    {
+      "id": "shop_3",
+      "text": "Chairs here... and here. A few plants in the corner would be nice too.",
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_4"
+    },
+    {
+      "id": "shop_4",
+      "text": "Not bad. Not bad at all.",
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_5"
+    },
+    {
+      "id": "shop_5",
+      "text": "I'm exhausted though. Moving in and setting up in one day. Time for bed.",
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "loadScene": "ApartmentNightScene",
+      "nextId": ""
+    }
+  ]
+}

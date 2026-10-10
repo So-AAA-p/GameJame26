@@ -1,0 +1,14 @@
+{
+  "startNodeId": "night_1",
+  "nodes": [
+    {
+      "id": "night_1",
+      "text": "Tomorrow is the big day. Goodnight, little cafe.",
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "fadeToBlack": true,
+      "loadScene": "CoffeeShopScene",
+      "nextId": ""
+    }
+  ]
+}

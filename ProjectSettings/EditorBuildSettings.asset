@@ -17,5 +17,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ApartmentScene.unity
     guid: 3ca66bd4df28e164e8913088edc7f4e8
+  - enabled: 1
+    path: Assets/Scenes/CoffeeShopScene.unity
+    guid: 20386277d4534ad4bb5be7fc38d7b8dd
+  - enabled: 1
+    path: Assets/Scenes/ApartmentNightScene.unity
+    guid: 503003d60895fff48935956181f1bf1c
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

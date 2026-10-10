@@ -8,6 +8,7 @@ using System.Collections;
 public class GameManager : MonoBehaviour
 {
     public static event Action OnLanguageChanged;
+    public string nextSceneStartNode = "";
 
     [Header("Language Settings")]
     public Image englishHeart;
@@ -61,6 +62,9 @@ public class GameManager : MonoBehaviour
     public GameObject specialAnswerButton;
     public StoryManager storyManager;
 
+    [Header("Story Progress")]
+    public string currentDayKey = "shop_1";
+
     private bool isRolling = false;
 
     private void Start()
@@ -95,6 +99,20 @@ public class GameManager : MonoBehaviour
         {
             choicePanel.SetActive(false);
         }
+    }
+    private void Awake()
+    {
+        // Prüfen, ob es schon einen GameManager gibt
+        int numGameManagers = FindObjectsByType<GameManager>(FindObjectsSortMode.None).Length;
+        if (numGameManagers > 1)
+        {
+            // WICHTIG: Wenn schon einer da ist, zerstören wir SOFORT das neue Duplikat, 
+            // damit der alte (der sich die Daten gemerkt hat) weiterlebt!
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
     }
 
     #region Scene Navigation
@@ -249,7 +267,6 @@ public class GameManager : MonoBehaviour
         Debug.Log($"Final Gewürfelt: {finalRoll} | Gesamte Punkte: {currentPoints}");
         UpdatePointsUI();
 
-        // Zeige Pop-Up für gewonnene Punkte
         ShowPointPopUp($"+{finalRoll} Punkte", gainColor);
 
         yield return new WaitForSeconds(0.5f);
@@ -299,7 +316,6 @@ public class GameManager : MonoBehaviour
             Debug.Log($"Spezial-Antwort gewählt! Verbleibende Punkte: {currentPoints}");
             UpdatePointsUI();
 
-            // Zeige Pop-Up für ausgegebene Punkte
             ShowPointPopUp($"-{specialAnswerCost} Punkte", spendColor);
         }
     }
@@ -337,7 +353,7 @@ public class GameManager : MonoBehaviour
 
         RectTransform rectTransform = pointPopUpText.rectTransform;
         Vector3 startPos = rectTransform.anchoredPosition;
-        Vector3 targetPos = startPos + new Vector3(0, 30f, 0); // Schwebt 30 Einheiten nach oben
+        Vector3 targetPos = startPos + new Vector3(0, 30f, 0);
 
         float duration = 1.2f;
         float elapsed = 0f;
@@ -347,10 +363,8 @@ public class GameManager : MonoBehaviour
             elapsed += Time.deltaTime;
             float t = elapsed / duration;
 
-            // Sanftes Nach-Oben-Schweben
             rectTransform.anchoredPosition = Vector3.Lerp(startPos, targetPos, t);
 
-            // Ausblenden (Alpha reduzieren)
             Color c = color;
             c.a = Mathf.Lerp(1f, 0f, t);
             pointPopUpText.color = c;
@@ -359,7 +373,7 @@ public class GameManager : MonoBehaviour
         }
 
         pointPopUpText.gameObject.SetActive(false);
-        rectTransform.anchoredPosition = startPos; // Position zurücksetzen
+        rectTransform.anchoredPosition = startPos;
     }
     #endregion
 

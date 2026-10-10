@@ -1,13 +1,22 @@
 fileFormatVersion: 2
-guid: 838e07e6fe2a5a143a6e34fc66d9b99b
+guid: 4f558a1b4b8d8784898e99ec0a3dc6a0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 9028518481746031930
-    second: Speech bubbles choice_0
+      213: 7502555890636904223
+    second: IMG_1677_0
   - first:
-      213: -5967863663335880588
-    second: Speech bubbles choice_1
+      213: -1519246913004786532
+    second: IMG_1677_1
+  - first:
+      213: 4457331847245625145
+    second: IMG_1677_2
+  - first:
+      213: 932229183658574775
+    second: IMG_1677_3
+  - first:
+      213: -4030150816471099010
+    second: IMG_1677_4
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -105,13 +114,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Speech bubbles choice_0
+      name: IMG_1677_0
       rect:
         serializedVersion: 2
-        x: 17
-        y: 4
-        width: 700
-        height: 149
+        x: 276
+        y: 33
+        width: 655
+        height: 1086
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,20 +129,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a35758859bdbb4d70800000000000000
-      internalID: 9028518481746031930
+      spriteID: f175de015de6e1860800000000000000
+      internalID: 7502555890636904223
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Speech bubbles choice_1
+      name: IMG_1677_1
       rect:
         serializedVersion: 2
-        x: 716
-        y: 119
-        width: 20
-        height: 8
+        x: 1193
+        y: 798
+        width: 6
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,8 +151,74 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 47847e60e93ed2da0800000000000000
-      internalID: -5967863663335880588
+      spriteID: c9cad306bfc8aeae0800000000000000
+      internalID: -1519246913004786532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_1677_2
+      rect:
+        serializedVersion: 2
+        x: 1168
+        y: 746
+        width: 31
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9377c19f2bf9bdd30800000000000000
+      internalID: 4457331847245625145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_1677_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 29
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b3c83dd081ffec00800000000000000
+      internalID: 932229183658574775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: IMG_1677_4
+      rect:
+        serializedVersion: 2
+        x: 696
+        y: 0
+        width: 26
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e795df06f270218c0800000000000000
+      internalID: -4030150816471099010
       vertices: []
       indices: 
       edges: []
@@ -162,8 +237,11 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Speech bubbles choice_0: 9028518481746031930
-      Speech bubbles choice_1: -5967863663335880588
+      IMG_1677_0: 7502555890636904223
+      IMG_1677_1: -1519246913004786532
+      IMG_1677_2: 4457331847245625145
+      IMG_1677_3: 932229183658574775
+      IMG_1677_4: -4030150816471099010
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

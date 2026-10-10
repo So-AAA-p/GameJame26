@@ -8,6 +8,7 @@
       "clearBeforeTyping": true,
       "fadeToBlack": true,
       "loadScene": "CoffeeShopScene",
+      "overrideStartNode": "shop_day2_1",
       "nextId": ""
     }
   ]

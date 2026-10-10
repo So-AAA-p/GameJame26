@@ -21,12 +21,15 @@ public class DialogueNode
     public bool isChoice;
     public bool isNameInput;
     public bool useMCBubble;
+    public bool useIntroPanel;
+    public bool useSideCharacterBubble; // <-- NEU: Flag für Nebencharaktere
     public bool removeBlur;
     public bool clearBeforeTyping;
     public string loadScene;
     public List<DialogueOption> options;
     public string nextId;
     public bool fadeToBlack;
+    public string overrideStartNode;
 }
 
 [System.Serializable]
@@ -42,9 +45,13 @@ public class StoryManager : MonoBehaviour
     public GameObject introBubblePanel;
     public TextMeshProUGUI introText;
 
-    [Header("UI References - Main Dialogue")]
+    [Header("UI References - Main Dialogue (MC)")]
     public GameObject speechBubblePanel;
     public TextMeshProUGUI dialogueText;
+
+    [Header("UI References - Side Characters (Elderly Ladies)")] // <-- NEU
+    public GameObject sideCharacterBubblePanel;                   // <-- NEU
+    public TextMeshProUGUI sideCharacterText;                     // <-- NEU
 
     public Image backgroundImage;
     public GameManager gameManager;
@@ -63,10 +70,13 @@ public class StoryManager : MonoBehaviour
     [Header("Fade UI")]
     public GameObject blackScreenPanel;
 
+    [Header("UI References - Character Visuals")]
+    public GameObject elderlyLadysCharacterImage;
+
     private Dictionary<string, DialogueNode> nodeMap = new Dictionary<string, DialogueNode>();
     private DialogueNode currentNode;
     private TextMeshProUGUI currentActiveTextComponent;
-    
+
     private Coroutine typingCoroutine;
     private Coroutine blurCoroutine;
 
@@ -90,8 +100,16 @@ public class StoryManager : MonoBehaviour
 
         if (introBubblePanel != null) introBubblePanel.SetActive(true);
         if (speechBubblePanel != null) speechBubblePanel.SetActive(false);
+        if (sideCharacterBubblePanel != null) sideCharacterBubblePanel.SetActive(false); // <-- NEU
 
         currentActiveTextComponent = introText;
+
+        // AUTOMATISCHER SICHERHEITS-FIX BEIM LADEN DER NACHT-SZENE
+        if (SceneManager.GetActiveScene().name == "ApartmentNightScene")
+        {
+            PlayerPrefs.SetString("NextStartNode", "shop_day2_1");
+            PlayerPrefs.Save();
+        }
 
         if (dialogueJsonFile != null)
         {
@@ -103,7 +121,6 @@ public class StoryManager : MonoBehaviour
     {
         if (isWaitingForChoice || isWaitingForNameInput) return;
 
-        // Per Mausklick oder Leertaste weiterschalten
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
             AdvanceDialogue();
@@ -125,9 +142,26 @@ public class StoryManager : MonoBehaviour
                 }
             }
 
-            if (!string.IsNullOrEmpty(storyData.startNodeId) && nodeMap.ContainsKey(storyData.startNodeId))
+            string targetStartId = storyData.startNodeId;
+
+            if (SceneManager.GetActiveScene().name == "CoffeeShopScene")
             {
-                DisplayNode(storyData.startNodeId);
+                string savedStartNode = PlayerPrefs.GetString("NextStartNode", "");
+                if (!string.IsNullOrEmpty(savedStartNode))
+                {
+                    targetStartId = savedStartNode;
+                    PlayerPrefs.DeleteKey("NextStartNode");
+                    PlayerPrefs.Save();
+                }
+            }
+
+            if (!string.IsNullOrEmpty(targetStartId) && nodeMap.ContainsKey(targetStartId))
+            {
+                DisplayNode(targetStartId);
+            }
+            else
+            {
+                Debug.LogError("StartNode konnte nicht gefunden werden: " + targetStartId);
             }
         }
         else
@@ -146,28 +180,47 @@ public class StoryManager : MonoBehaviour
 
         currentNode = nodeMap[nodeId];
 
-        // 1. Panel & Text-Komponente umschalten
-        if (currentNode.useMCBubble)
+        // Alle Panels vorab deaktivieren
+        if (introBubblePanel != null) introBubblePanel.SetActive(false);
+        if (speechBubblePanel != null) speechBubblePanel.SetActive(false);
+        if (sideCharacterBubblePanel != null) sideCharacterBubblePanel.SetActive(false);
+
+        // Silhouette steuern
+        if (elderlyLadysCharacterImage != null)
         {
-            if (introBubblePanel != null) introBubblePanel.SetActive(false);
+            if (currentNode.id.StartsWith("shop_day2_") && currentNode.id != "shop_day2_1" && currentNode.id != "shop_day2_15" && currentNode.id != "shop_day2_16")
+            {
+                elderlyLadysCharacterImage.SetActive(true);
+            }
+            else
+            {
+                elderlyLadysCharacterImage.SetActive(false);
+            }
+        }
+
+        // TEXT-PANELS AUSWÄHLEN:
+        if (currentNode.useIntroPanel) // <-- NEU: Wenn es ein Erzähltext ist
+        {
+            if (introBubblePanel != null) introBubblePanel.SetActive(true);
+            currentActiveTextComponent = introText;
+        }
+        else if (currentNode.useMCBubble)
+        {
             if (speechBubblePanel != null) speechBubblePanel.SetActive(true);
             currentActiveTextComponent = dialogueText;
         }
         else
         {
-            if (introBubblePanel != null) introBubblePanel.SetActive(true);
-            if (speechBubblePanel != null) speechBubblePanel.SetActive(false);
-            currentActiveTextComponent = introText;
+            if (sideCharacterBubblePanel != null) sideCharacterBubblePanel.SetActive(true);
+            currentActiveTextComponent = sideCharacterText;
         }
 
-        // 2. Blur ausblenden, falls getriggert
         if (currentNode.removeBlur)
         {
             if (blurCoroutine != null) StopCoroutine(blurCoroutine);
             blurCoroutine = StartCoroutine(FadeOutBlur());
         }
 
-        // 3. Text davor leeren
         if (currentNode.clearBeforeTyping && currentActiveTextComponent != null)
         {
             currentActiveTextComponent.text = "";
@@ -179,7 +232,6 @@ public class StoryManager : MonoBehaviour
 
     public void AdvanceDialogue()
     {
-        // 1. Wenn der Text noch tippt: Sofort vollständig anzeigen
         if (isTyping)
         {
             StopCoroutine(typingCoroutine);
@@ -192,12 +244,16 @@ public class StoryManager : MonoBehaviour
             return;
         }
 
-        // 2. Wenn der Text fertig getippt ist und geklickt wird:
         if (currentNode != null && !currentNode.isChoice && !currentNode.isNameInput)
         {
-            // Falls eine neue Szene geladen werden soll
             if (!string.IsNullOrEmpty(currentNode.loadScene))
             {
+                if (SceneManager.GetActiveScene().name == "ApartmentNightScene")
+                {
+                    PlayerPrefs.SetString("NextStartNode", "shop_day2_1");
+                    PlayerPrefs.Save();
+                }
+
                 if (currentNode.fadeToBlack)
                 {
                     StartCoroutine(FadeOutAndLoadNextScene(currentNode.loadScene));
@@ -209,7 +265,14 @@ public class StoryManager : MonoBehaviour
                 return;
             }
 
-            DisplayNode(currentNode.nextId);
+            if (!string.IsNullOrEmpty(currentNode.nextId))
+            {
+                DisplayNode(currentNode.nextId);
+            }
+            else
+            {
+                EndDialogue();
+            }
         }
     }
 
@@ -231,9 +294,10 @@ public class StoryManager : MonoBehaviour
         OnNodeTextFinished();
     }
 
+    private void OnNodeTestFinished() { }
+
     private void OnNodeTextFinished()
     {
-        // 1. Namensfeld aktivieren
         if (currentNode != null && currentNode.isNameInput)
         {
             isWaitingForNameInput = true;
@@ -241,7 +305,6 @@ public class StoryManager : MonoBehaviour
             return;
         }
 
-        // 2. Entscheidungs-Buttons aktivieren
         if (currentNode != null && currentNode.isChoice)
         {
             isWaitingForChoice = true;
@@ -255,8 +318,6 @@ public class StoryManager : MonoBehaviour
             }
             return;
         }
-
-        // (Hinweis: loadScene lassen wir hier draußen, damit es erst beim echten Weiterklick passiert!)
     }
 
     private IEnumerator FadeOutBlur()
@@ -353,7 +414,6 @@ public class StoryManager : MonoBehaviour
             canvasGroup.alpha = 1f;
         }
 
-        // Szene laden
         if (!string.IsNullOrEmpty(sceneName))
         {
             SceneManager.LoadScene(sceneName);

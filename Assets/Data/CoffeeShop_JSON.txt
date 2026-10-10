@@ -35,6 +35,134 @@
       "useMCBubble": true,
       "clearBeforeTyping": true,
       "loadScene": "ApartmentNightScene",
+      "overrideStartNode": "shop_day2_1",
+      "nextId": ""
+    },
+    {
+      "id": "shop_day2_1",
+      "text": "Okay first day...let's do this!",
+      "useMCBubble": true,
+      "useSideCharacterBubble": false,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day2_2"
+    },
+    {
+      "id": "shop_day2_2",
+      "text": "Elderly Lady 1: Good morning, dear! Oh my, what a lovely place!",
+      "useMCBubble": false,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day2_3"
+    },
+    {
+      "id": "shop_day2_3",
+      "text": "Elderly Lady 2: And it smells wonderful in here. We've been waiting for a nice cafe in this neighborhood for years.",
+      "useMCBubble": false,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day2_4"
+    },
+    {
+      "id": "shop_day2_4",
+      "text": "Good morning! Welcome and thank you so much. What can I get for you?",
+      "useMCBubble": true,
+      "useSideCharacterBubble": false,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day2_5"
+    },
+    {
+      "id": "shop_day2_5",
+      "text": "Elderly Lady 1: Two cappuccinos, please, and one of those delicious-looking croissants.",
+      "useMCBubble": false,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day2_6"
+    },
+    {
+      "id": "shop_day2_6",
+      "text": "Coming right up!",
+      "useMCBubble": true,
+      "useSideCharacterBubble": false,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day2_7"
+    },
+    {
+      "id": "shop_day2_7",
+      "text": "Elderly Lady 2: Wonderful, just wonderful. You've got a real talent, dear.",
+      "useMCBubble": false,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day2_8"
+    },
+    {
+      "id": "shop_day2_8",
+      "text": "Elderly Lady 2: <i>(whispering)</i> But listen, dear... be careful around here at night.",
+      "useMCBubble": false,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day2_9"
+    },
+    {
+      "id": "shop_day2_9",
+      "text": "Why is that?",
+      "useSideCharacterBubble": false,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day2_10"
+    },
+    {
+      "id": "shop_day2_10",
+      "text": "Elderly Lady 2: <i>(whispering)</i> There are mafia groups in this area. They're often out on the streets after dark and they fight each other.",
+      "useMCBubble": false,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day2_11"
+    },
+    {
+      "id": "shop_day2_11",
+      "text": "Elderly Lady 1: <i>(whispering)</i> It's best to stay indoors once it gets late. Just a friendly warning.",
+      "useMCBubble": false,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day2_12"
+    },
+    {
+      "id": "shop_day2_12",
+      "text": "I'll keep that in mind.",
+      "useMCBubble": true,
+      "useSideCharacterBubble": false,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day2_13"
+    },
+    {
+      "id": "shop_day2_13",
+      "text": "Elderly Lady 2: Good. Now, we'll certainly be back tomorrow!",
+      "useMCBubble": false,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day2_14"
+    },
+    {
+      "id": "shop_day2_14",
+      "text": "I'd love that. Have a nice day, ladies!",
+      "useMCBubble": true,
+      "useSideCharacterBubble": false,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day2_15"
+    },
+    {
+      "id": "shop_day2_15",
+      "text": "(They leave. The bell rings again.)",
+      "useMCBubble": false,
+      "useIntroPanel": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day2_16"
+    },
+    {
+      "id": "shop_day2_16",
+      "text": "Mafia, huh... <i>(quietly)</i> I hope that's a rumor.",
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
       "nextId": ""
     }
   ]

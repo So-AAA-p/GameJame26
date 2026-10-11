@@ -469,12 +469,14 @@
       "nextId": "storage_end_4"
     },
     {
-      "id": "storage_end_4",
+     "id": "storage_end_4",
       "text": "What did I just get myself into?",
       "useMCBubble": true,
       "isThought": true,
-      "fadeToBlack": true,
       "clearBeforeTyping": true,
+      "fadeToBlack": true,
+      "loadScene": "CoffeeShopScene",
+      "overrideStartNode": "shop_day4_1",
       "nextId": ""
     },
     {
@@ -834,6 +836,8 @@
       "isThought": true,
       "clearBeforeTyping": true,
       "fadeToBlack": true,
+      "loadScene": "CoffeeShopScene",
+      "overrideStartNode": "shop_day4_1",
       "nextId": ""
     }
   ]

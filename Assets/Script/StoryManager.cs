@@ -27,6 +27,7 @@ public class DialogueNode
     public bool showElderlyLadys;
     public bool showCustomer;
     public bool showLoveInterestH;
+    public bool showLoveInterestV;
     public bool showMafiaMen;
     public bool useSideCharacterBubble;
     public bool removeBlur;
@@ -86,6 +87,7 @@ public class StoryManager : MonoBehaviour
     public GameObject loveInterestCharacterImage;
     public GameObject customerCharacterImage;
     public GameObject mafiaMenImage;
+    public GameObject vinkCharacterImage;
 
     [Header("UI References - Points System")]
     public GameObject pointsPanel;
@@ -246,6 +248,10 @@ public class StoryManager : MonoBehaviour
             loveInterestCharacterImage.SetActive(currentNode.showLoveInterestH);
         }
 
+        if (vinkCharacterImage != null)
+        {
+            vinkCharacterImage.SetActive(currentNode.showLoveInterestV);
+        }
         if (customerCharacterImage != null)
         {
             customerCharacterImage.SetActive(currentNode.showCustomer);

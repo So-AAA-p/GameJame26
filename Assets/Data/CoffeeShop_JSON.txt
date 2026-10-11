@@ -500,6 +500,240 @@
       "loadScene": "StorageRoomNightScene",
       "overrideStartNode": "storage_ignore_1",
       "nextId": ""
+    },
+    {
+      "id": "shop_day4_1",
+      "text": "(Next day, around noon. Sunlight falls through the windows. The café is pleasantly busy. The door bell rings.)",
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_2"
+    },
+    {
+      "id": "shop_day4_2",
+      "text": "(A tall man steps in, wearing a light beige coat, a simple gray sweater, and jeans.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_3"
+    },
+    {
+      "id": "shop_day4_3",
+      "text": "(He looks around the café with a relaxed smile. Then his eyes wander briefly to the back door, then to the floor near the storage room.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_4"
+    },
+    {
+      "id": "shop_day4_4",
+      "text": "Welcome! Take a seat wherever you like. I'll be right with you.",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_5"
+    },
+    {
+      "id": "shop_day4_5",
+      "text": "???: (warmly, with a slight accent) Thank you. Nice place. It smells like home.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_6"
+    },
+    {
+      "id": "shop_day4_6",
+      "text": "(He sits at the counter. {Name} hands him the menu.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_7"
+    },
+    {
+      "id": "shop_day4_7",
+      "text": "Can I get you something to drink?",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_8"
+    },
+    {
+      "id": "shop_day4_8",
+      "text": "???: What would you recommend?",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_9"
+    },
+    {
+      "id": "shop_day4_9",
+      "text": "(smiling) The cappuccino—and if you like sweet things, the cinnamon roll.",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_10"
+    },
+    {
+      "id": "shop_day4_10",
+      "text": "???: (leaning on his hand) Then I'll take both. I trust your taste.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_11"
+    },
+    {
+      "id": "shop_day4_11",
+      "text": "({Name} sets the cup down in front of him.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_12"
+    },
+    {
+      "id": "shop_day4_12",
+      "text": "???: (takes a sip, closes his eyes for a second) Mmm. That's really good. You made this yourself?",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_13"
+    },
+    {
+      "id": "shop_day4_13",
+      "text": "Yes. I opened the café just a few days ago.",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_14"
+    },
+    {
+      "id": "shop_day4_14",
+      "text": "???: (casually, his eyes drifting toward the back door again) A few days... So you must have seen a lot of the neighborhood already. Quiet, isn't it?",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_15"
+    },
+    {
+      "id": "shop_day4_15",
+      "text": "(a little tense) Mostly, yes...",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_16"
+    },
+    {
+      "id": "shop_day4_16",
+      "text": "???: I heard there was some noise in the alley last night. Did you notice anything? A stranger, maybe someone hurt?",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_17"
+    },
+    {
+     "id": "shop_day4_17",
+      "text": "He seems nice. But why is he asking this?",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day4_choice"
+    },
+    {
+      "id": "shop_day4_choice",
+      "text": "How should I respond?",
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "showPoints": true,
+      "isChoice": true,
+      "options": [
+        {
+          "text": "Say you didn't notice anything.",
+          "cost": 0,
+          "nextId": "shop_vink_notnoticed_1"
+        },
+        {
+          "text": "Ask why he wants to know.",
+          "cost": 7,
+          "nextId": "shop_vink_ask_1"
+        },
+        {
+          "text": "Tell him the truth.",
+          "cost": 14,
+          "nextId": "shop_vink_truth_1"
+        }
+      ]
+    },
+    {
+      "id": "shop_vink_notnoticed_1",
+      "text": "No, I didn't notice anything. I was busy with the customers.",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_notnoticed_2"
+    },
+    {
+      "id": "shop_vink_notnoticed_2",
+      "text": "???: I see. Good. Then you slept well. That's the most important thing.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_merge_1"
+    },
+    {
+      "id": "shop_vink_ask_1",
+      "text": "Why do you want to know?",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_ask_2"
+    },
+    {
+      "id": "shop_vink_ask_2",
+      "text": "???: (blinks, then laughs) Fair question! Straight to the point.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_ask_3"
+    },
+    {
+      "id": "shop_vink_ask_3",
+      "text": "???: Let's say I'm a curious person and I like to know who lives in my neighborhood.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_merge_1"
+    },
+    {
+      "id": "shop_vink_truth_1",
+      "text": "Actually... yes. A man was hurt in the alley. I helped him.",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_truth_2"
+    },
+    {
+      "id": "shop_vink_truth_2",
+      "text": "???: (his smile stays, but his eyes sharpen for a moment) You helped him.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_truth_3"
+    },
+    {
+      "id": "shop_vink_truth_3",
+      "text": "Was that wrong?",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_truth_4"
+    },
+    {
+      "id": "shop_vink_truth_4",
+      "text": "???: (softly, the warmth returns) No. Not wrong. Just... brave. Maybe a little reckless.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_merge_1"
     }
   ]
 }

@@ -249,6 +249,8 @@
       "isThought": true,
       "clearBeforeTyping": true,
       "fadeToBlack": true,
+      "loadScene": "CoffeeShopScene",
+      "overrideStartNode": "shop_day4_1",
       "nextId": ""
     }
   ]

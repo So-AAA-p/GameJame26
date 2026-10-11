@@ -1,9 +1,10 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using TMPro;
-using System;
-using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -59,6 +60,7 @@ public class GameManager : MonoBehaviour
     public GameObject choicePanel;
     public GameObject diceButton;
     public GameObject standardAnswerButton;
+    public GameObject mediumAnswerButton;
     public GameObject specialAnswerButton;
     public StoryManager storyManager;
 
@@ -66,7 +68,8 @@ public class GameManager : MonoBehaviour
     public string currentDayKey = "shop_1";
 
     private bool isRolling = false;
-    private bool hasRolled = false; // Hier deklarieren
+    private bool hasRolled = false;
+    private List<DialogueOption> currentOptions;
 
     private void Awake()
     {
@@ -139,6 +142,7 @@ public class GameManager : MonoBehaviour
         choicePanel = null;
         diceButton = null;
         standardAnswerButton = null;
+        mediumAnswerButton = null;
         specialAnswerButton = null;
         pointsDisplayText = null;
         pointPopUpText = null;
@@ -154,12 +158,14 @@ public class GameManager : MonoBehaviour
                     diceButton = obj;
                     diceImageDisplay = diceButton.GetComponent<UnityEngine.UI.Image>();
                 }
-                if (obj.name == "AnswerButton1") standardAnswerButton = obj;
-                if (obj.name == "AnswerButton2") specialAnswerButton = obj;
+                // Hier findet er die Buttons in jeder Szene ganz automatisch anhand ihres Namens:
+                if(obj.name == "standardAnswer") standardAnswerButton = obj;
+                if (obj.name == "MediumAnswer") mediumAnswerButton = obj;
+                if (obj.name == "SpecialAnswer") specialAnswerButton = obj;
             }
         }
 
-        // 2. TextMeshPro-Komponenten direkt über die Szene finden, unabhängig vom exakten GameObject-Namen
+        // 2. TextMeshPro-Komponenten direkt über die Szene finden
         TextMeshProUGUI[] allTexts = Resources.FindObjectsOfTypeAll<TextMeshProUGUI>();
         foreach (TextMeshProUGUI txt in allTexts)
         {
@@ -186,26 +192,8 @@ public class GameManager : MonoBehaviour
             Button btn = diceButton.GetComponent<Button>();
             if (btn != null)
             {
+                btn.onClick.RemoveAllListeners();
                 btn.onClick.AddListener(() => RollW20());
-            }
-        }
-
-        // 4. Klick-Listener für die Antwort-Buttons neu binden
-        if (standardAnswerButton != null)
-        {
-            Button btn = standardAnswerButton.GetComponent<Button>();
-            if (btn != null)
-            {
-                btn.onClick.AddListener(() => OnAnswerSelected(false));
-            }
-        }
-
-        if (specialAnswerButton != null)
-        {
-            Button btn = specialAnswerButton.GetComponent<Button>();
-            if (btn != null)
-            {
-                btn.onClick.AddListener(() => OnAnswerSelected(true));
             }
         }
 
@@ -380,70 +368,166 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        if (standardAnswerButton != null) standardAnswerButton.SetActive(true);
-
-        if (specialAnswerButton != null)
+        if (currentOptions != null)
         {
-            specialAnswerButton.SetActive(true);
-
-            Button btn = specialAnswerButton.GetComponent<Button>();
-            if (btn != null)
+            // 1. Standard-Button (Immer da für Option 0)
+            if (standardAnswerButton != null && currentOptions.Count > 0)
             {
-                btn.interactable = CanChooseSpecialAnswer();
+                standardAnswerButton.SetActive(true);
+                TextMeshProUGUI tmp = standardAnswerButton.GetComponentInChildren<TextMeshProUGUI>();
+                if (tmp != null) tmp.text = currentOptions[0].text;
+
+                Button btn = standardAnswerButton.GetComponent<Button>();
+                if (btn != null)
+                {
+                    btn.onClick.RemoveAllListeners();
+                    string nextId = currentOptions[0].nextId;
+                    int cost = currentOptions[0].cost;
+                    btn.onClick.AddListener(() => OnAnswerOptionSelected(cost, nextId));
+                    btn.interactable = currentPoints >= cost;
+                }
+            }
+
+            // 2. Medium-Button (Nur wenn es exakt 3 oder mehr Optionen gibt)
+            if (mediumAnswerButton != null)
+            {
+                if (currentOptions.Count >= 3)
+                {
+                    mediumAnswerButton.SetActive(true);
+                    TextMeshProUGUI tmp = mediumAnswerButton.GetComponentInChildren<TextMeshProUGUI>();
+                    if (tmp != null) tmp.text = currentOptions[1].text;
+
+                    Button btn = mediumAnswerButton.GetComponent<Button>();
+                    if (btn != null)
+                    {
+                        btn.onClick.RemoveAllListeners();
+                        string nextId = currentOptions[1].nextId;
+                        int cost = currentOptions[1].cost;
+                        btn.onClick.AddListener(() => OnAnswerOptionSelected(cost, nextId));
+                        btn.interactable = currentPoints >= cost;
+                    }
+                }
+                else
+                {
+                    mediumAnswerButton.SetActive(false);
+                }
+            }
+
+            // 3. Special-Button (Bei 2 Optionen ist es Index 1, bei 3+ Optionen ist es Index 2)
+            if (specialAnswerButton != null)
+            {
+                int specialIndex = (currentOptions.Count >= 3) ? 2 : (currentOptions.Count == 2 ? 1 : -1);
+
+                if (specialIndex >= 0 && specialIndex < currentOptions.Count)
+                {
+                    specialAnswerButton.SetActive(true);
+                    TextMeshProUGUI tmp = specialAnswerButton.GetComponentInChildren<TextMeshProUGUI>();
+                    if (tmp != null) tmp.text = currentOptions[specialIndex].text;
+
+                    Button btn = specialAnswerButton.GetComponent<Button>();
+                    if (btn != null)
+                    {
+                        btn.onClick.RemoveAllListeners();
+                        string nextId = currentOptions[specialIndex].nextId;
+                        int cost = currentOptions[specialIndex].cost;
+                        btn.onClick.AddListener(() => OnAnswerOptionSelected(cost, nextId));
+                        btn.interactable = currentPoints >= cost;
+                    }
+                }
+                else
+                {
+                    specialAnswerButton.SetActive(false);
+                }
             }
         }
 
         isRolling = false;
+
+        isRolling = false;
     }
 
-    public void OnAnswerSelected(bool isSpecial)
+    public void SetupChoiceButtons(List<DialogueOption> options)
     {
-        // 1. Choice-Panel sofort wieder schließen
+        currentOptions = options;
+
+        if (standardAnswerButton != null) standardAnswerButton.SetActive(false);
+        if (mediumAnswerButton != null) mediumAnswerButton.SetActive(false);
+        if (specialAnswerButton != null) specialAnswerButton.SetActive(false);
+    }
+
+    // 1. Standard-Antwort (immer kostenlos, cost = 0)
+    public void SelectStandardAnswer()
+    {
         if (choicePanel != null) choicePanel.SetActive(false);
 
-        // 2. Punkte abziehen, wenn die Spezial-Antwort gewählt wurde
-        if (isSpecial)
-        {
-            currentPoints -= specialAnswerCost;
-            if (currentPoints < 0) currentPoints = 0; // Sicherheitshalber nicht unter 0 fallen lassen
-
-            UpdatePointsUI();
-            ShowPointPopUp($"-{specialAnswerCost} Punkte", spendColor);
-        }
-
-        // 3. StoryManager sagen, dass es im entsprechenden Pfad weitergeht
         if (storyManager == null) storyManager = FindAnyObjectByType<StoryManager>();
-        if (storyManager != null)
+        if (storyManager != null && storyManager.currentNode != null && storyManager.currentNode.options.Count > 0)
         {
-            storyManager.ResumeAfterChoice(isSpecial);
+            string nextId = storyManager.currentNode.options[0].nextId;
+            storyManager.DisplayNode(nextId);
         }
     }
 
-    public bool CanChooseSpecialAnswer() => currentPoints >= specialAnswerCost;
+    // 2. Medium-Antwort (z.B. 7 Punkte)
+    public void SelectMediumAnswer()
+    {
+        if (choicePanel != null) choicePanel.SetActive(false);
 
+        int cost = 7;
+        currentPoints -= cost;
+        if (currentPoints < 0) currentPoints = 0;
+        UpdatePointsUI();
+        ShowPointPopUp($"-{cost} Punkte", spendColor);
+
+        if (storyManager == null) storyManager = FindAnyObjectByType<StoryManager>();
+        if (storyManager != null && storyManager.currentNode != null && storyManager.currentNode.options.Count > 1)
+        {
+            string nextId = storyManager.currentNode.options[1].nextId;
+            storyManager.DisplayNode(nextId);
+        }
+    }
+
+    // 3. Special-Antwort (z.B. 13 oder 14 Punkte)
     public void SelectSpecialAnswer()
     {
         if (choicePanel != null) choicePanel.SetActive(false);
 
-        StoryManager sm = FindAnyObjectByType<StoryManager>();
-        if (sm != null)
+        // Punkte abziehen
+        currentPoints -= specialAnswerCost;
+        if (currentPoints < 0) currentPoints = 0;
+        UpdatePointsUI();
+        ShowPointPopUp($"-{specialAnswerCost} Punkte", spendColor);
+
+        if (storyManager == null) storyManager = FindAnyObjectByType<StoryManager>();
+        if (storyManager != null && storyManager.currentNode != null && storyManager.currentNode.options.Count > 1)
         {
-            sm.ResumeAfterChoice(true);
+            int optionIndex = storyManager.currentNode.options.Count >= 3 ? 2 : 1;
+            string nextId = storyManager.currentNode.options[optionIndex].nextId;
+            storyManager.DisplayNode(nextId);
         }
     }
 
-    public void SelectStandardAnswer()
+    public void OnAnswerOptionSelected(int cost, string nextId)
     {
-        Debug.Log("Standard-Antwort gewählt. Punkte bleiben erhalten.");
-
         if (choicePanel != null) choicePanel.SetActive(false);
 
-        StoryManager sm = FindAnyObjectByType<StoryManager>();
-        if (sm != null)
+        // Verrechnet exakt die im JSON hinterlegten Kosten (0, 7, 13, 14 etc.)
+        if (cost > 0)
         {
-            sm.ResumeAfterChoice(false);
+            currentPoints -= cost;
+            if (currentPoints < 0) currentPoints = 0;
+            UpdatePointsUI();
+            ShowPointPopUp($"-{cost} Punkte", spendColor);
+        }
+
+        if (storyManager == null) storyManager = FindAnyObjectByType<StoryManager>();
+        if (storyManager != null)
+        {
+            storyManager.DisplayNode(nextId);
         }
     }
+
+    public bool CanChooseSpecialAnswer() => currentPoints >= specialAnswerCost;
 
     private void UpdatePointsUI()
     {

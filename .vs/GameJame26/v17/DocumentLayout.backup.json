@@ -3,7 +3,7 @@
   "WorkspaceRootPath": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\data\\alley_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|c:\\users\\josep\\documents\\github\\gamejame26\\assets\\data\\alley_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\alley_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
@@ -58,8 +58,7 @@
               "RelativeToolTip": "Assets\\Scenes\\SceneUIBridge.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-11T00:14:27.444Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-11T00:14:27.444Z"
             },
             {
               "$type": "Document",
@@ -71,8 +70,7 @@
               "RelativeToolTip": "Assets\\Script\\StoryManager.cs",
               "ViewState": "AgIAANYAAAAAAAAAAAAUwAYBAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-08T09:17:16.162Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-08T09:17:16.162Z"
             },
             {
               "$type": "Document",
@@ -84,8 +82,7 @@
               "RelativeToolTip": "Assets\\Script\\GameManager.cs",
               "ViewState": "AgIAAJ0AAAAAAAAAAAAuwMsAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-08T00:57:00.941Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-08T00:57:00.941Z"
             },
             {
               "$type": "Document",

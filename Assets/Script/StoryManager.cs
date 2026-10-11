@@ -89,7 +89,7 @@ public class StoryManager : MonoBehaviour
     public GameObject pointsPanel;
 
     private Dictionary<string, DialogueNode> nodeMap = new Dictionary<string, DialogueNode>();
-    private DialogueNode currentNode;
+    public DialogueNode currentNode;
     private TextMeshProUGUI currentActiveTextComponent;
 
     private Coroutine typingCoroutine;
@@ -183,6 +183,13 @@ public class StoryManager : MonoBehaviour
 
     public void DisplayNode(string nodeId)
     {
+        // Ganz an den Anfang von DisplayNode(string id) im StoryManager:
+        isWaitingForChoice = false;
+        if (gameManager != null && gameManager.choicePanel != null)
+        {
+            gameManager.choicePanel.SetActive(false);
+        }
+        
         if (string.IsNullOrEmpty(nodeId) || !nodeMap.ContainsKey(nodeId))
         {
             EndDialogue();
@@ -342,10 +349,10 @@ public class StoryManager : MonoBehaviour
             isWaitingForChoice = true;
             if (gameManager == null) gameManager = FindAnyObjectByType<GameManager>();
 
-            if (gameManager != null && currentNode.options != null && currentNode.options.Count >= 2)
+            if (gameManager != null && currentNode.options != null)
             {
-                gameManager.specialAnswerCost = currentNode.options[1].cost;
-                gameManager.SetupAnswerButtonTexts(currentNode.options[0].text, currentNode.options[1].text);
+                // Übergibt das gesamte options-Array flexibel an den GameManager!
+                gameManager.SetupChoiceButtons(currentNode.options);
                 gameManager.ShowChoiceUI();
             }
             return;

@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 193809828}
   - component: {fileID: 193809827}
   m_Layer: 5
-  m_Name: AnswerButton2
+  m_Name: SpecialAnswer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -301,6 +301,27 @@ MonoBehaviour:
   loveInterestCharacterImage: {fileID: 1905490753}
   customerCharacterImage: {fileID: 0}
   pointsPanel: {fileID: 2046974853}
+  currentNode:
+    id: 
+    text: 
+    isChoice: 0
+    isNameInput: 0
+    useMCBubble: 0
+    isNarration: 0
+    useIntroPanel: 0
+    isThought: 0
+    showElderlyLadys: 0
+    showCustomer: 0
+    showLoveInterestH: 0
+    useSideCharacterBubble: 0
+    removeBlur: 0
+    clearBeforeTyping: 0
+    loadScene: 
+    options: []
+    nextId: 
+    fadeToBlack: 0
+    overrideStartNode: 
+    showPoints: 0
 --- !u!4 &496115410
 Transform:
   m_ObjectHideFlags: 0
@@ -810,7 +831,7 @@ GameObject:
   - component: {fileID: 681290455}
   - component: {fileID: 681290454}
   m_Layer: 5
-  m_Name: AnswerButton1
+  m_Name: standardAnswer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1214,6 +1235,7 @@ MonoBehaviour:
   choicePanel: {fileID: 1138061922}
   diceButton: {fileID: 575984588}
   standardAnswerButton: {fileID: 681290452}
+  mediumAnswerButton: {fileID: 0}
   specialAnswerButton: {fileID: 193809825}
   storyManager: {fileID: 496115409}
   currentDayKey: shop_1

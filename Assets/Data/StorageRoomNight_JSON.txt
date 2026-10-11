@@ -228,8 +228,13 @@
       "isChoice": true,
       "options": [
         {
-          "text": "Maybe... let's see.",
+          "text": "I don't think that's a good idea.",
           "cost": 0,
+          "nextId": "storage_notgood_1"
+        },
+        {
+          "text": "Maybe... let's see.",
+          "cost": 7,
           "nextId": "storage_maybe_1"
         },
         {
@@ -321,7 +326,7 @@
     },
     {
       "id": "storage_yes_11",
-      "text": "Haru: (gently closes {Name}‘s fingers around the pin) You can. I'm trusting you with it, {Name}.",
+      "text": "Haru: (gently closes {Name}'s fingers around the pin) You can. I'm trusting you with it, {Name}.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
       "clearBeforeTyping": true,
@@ -361,7 +366,7 @@
     },
     {
       "id": "storage_maybe_1",
-      "text": "Maybe. Let’s see how it goes.",
+      "text": "Maybe. Let's see how it goes.",
       "useMCBubble": true,
       "showLoveInterestH": true,
       "clearBeforeTyping": true,
@@ -369,7 +374,7 @@
     },
     {
       "id": "storage_maybe_2",
-      "text": "I helped you because it was the right thing to do. That doesn’t mean I know you yet.",
+      "text": "I helped you because it was the right thing to do. That doesn't mean I know you yet.",
       "useMCBubble": true,
       "showLoveInterestH": true,
       "clearBeforeTyping": true,
@@ -377,7 +382,7 @@
     },
     {
       "id": "storage_maybe_3",
-      "text": "Haru: (small smile) Fair enough. That’s more honest than most people are with me.",
+      "text": "Haru: (small smile) Fair enough. That's more honest than most people are with me.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
       "clearBeforeTyping": true,
@@ -385,7 +390,55 @@
     },
     {
       "id": "storage_maybe_4",
-      "text": "Haru: Then I‘ll earn it. One visit at a time.",
+      "text": "Haru: Then I'll earn it. One visit at a time.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": ""
+    },
+    {
+      "id": "storage_notgood_1",
+      "text": "I don't think that's a good idea, Haru. I hate violence and your world is full of it.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_notgood_2"
+    },
+    {
+      "id": "storage_notgood_2",
+      "text": "Haru: (quietly, his smile fades a little)...I understand.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_notgood_3"
+    },
+    {
+      "id": "storage_notgood_3",
+      "text": "Haru: But I won't pretend I didn't hear your answer and I won't pretend I'll forget tonight either.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_notgood_4"
+    },
+    {
+      "id": "storage_notgood_4",
+      "text": "Haru: I'll come back anyway. Not to force you. Just to drink your coffee.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_notgood_5"
+    },
+    {
+      "id": "storage_notgood_5",
+      "text": "(sighs) ...It's a cafe. I can't stop customers from coming in.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_notgood_6"
+    },
+    {
+      "id": "storage_notgood_6",
+      "text": "Haru: (a faint smile) Then we understand each other.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
       "clearBeforeTyping": true,

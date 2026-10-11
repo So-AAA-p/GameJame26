@@ -1,0 +1,142 @@
+{
+  "startNodeId": "house_1",
+  "nodes": [
+  {
+      "id": "house_1",
+      "text": "({Name} puts the kettle on. Vincent sits on the sofa, looking at the small details of the room: the plants, the photos. His eyes rest on the bedroom door for a second, then return to {Name}.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "house_2"
+    },
+    {
+      "id": "house_2",
+      "text": "(from the kitchen) Tea okay? I’m out of anything stronger.",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "house_3"
+    },
+    {
+      "id": "house_3",
+      "text": "Vincent: Tea is perfect. Let me help.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "house_4"
+    },
+    {
+      "id": "house_4",
+      "text": "({Name} takes two cups from the shelf. Vincent steps next to him to carry the sugar bowl.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "house_5"
+    },
+    {
+      "id": "house_5",
+      "text": "({Name}’s phone buzzes on the counter, a message from a supplier. He turns away to read it.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "house_6"
+    },
+    {
+      "id": "house_6",
+      "text": "(Some seconds pass before {Name} turns back and puts the phone down. Vincent is standing by the cups, calmly stirring the sugar.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "house_7"
+    },
+    {
+      "id": "house_7",
+      "text": "Sorry, work. Here, this one’s yours.",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "house_8"
+    },
+    {
+      "id": "house_8",
+      "text": "({Name} hands him a cup and takes the other one for himself. They sit down on the sofa.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "house_9"
+    },
+    {
+      "id": "house_9",
+      "text": "Vincent: You haven’t changed much, you know.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "house_10"
+    },
+    {
+      "id": "house_10",
+      "text": "(confused) Changed? We just met today.",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "house_11"
+    },
+    {
+      "id": "house_11",
+      "text": "Vincent: (quickly, with a smile) I mean... people like you don’t change. They are always kind to strangers.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "house_12"
+    },
+    {
+      "id": "house_12",
+      "text": "({Name} takes a sip of his tea. Vincent watches him, then looks away.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "house_13"
+    },
+    {
+      "id": "house_13",
+      "text": "(A short silence. Vincent sets his cup down and moves a little closer. {Name}’s breath catches.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "house_14"
+    },
+    {
+      "id": "house_14",
+      "text": "Vincent: (quietly) Can I tell you something?",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "house_15"
+    },
+    {
+      "id": "house_15",
+      "text": "(barely a whisper) ...Yes.",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "house_16"
+    },
+    {
+      "id": "house_16",
+      "text": "Vincent: I haven’t felt this relaxed in a long time and I don’t know why it’s you.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "house_17"
+    },
+    {
+      "id": "house_17",
+      "text": "(He lifts his hand and gently tucks a strand of hair behind {Name}'s ear. {Name} doesn’t move away.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "fadeToBlack": true,
+      "nextId": ""
+    },
+    ]
+}

@@ -63,6 +63,86 @@
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
       "clearBeforeTyping": true,
+      "nextId": "outside_supermarket_choice"
+    },
+    {
+      "id": "outside_supermarket_choice",
+      "text": "What should I do?",
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "showPoints": true,
+      "isChoice": true,
+      "options": [
+        {
+          "text": "[Politely decline.]",
+          "cost": 0,
+          "nextId": "outside_decline_1"
+        },
+        {
+          "text": "Let him in.",
+          "cost": 13,
+          "nextId": "outside_accept_1"
+        }
+      ]
+    },
+    {
+      "id": "outside_accept_1",
+      "text": "(hesitating, then stepping aside) ...Okay. Come in. Just for a moment.",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "outside_accept_2"
+    },
+    {
+      "id": "outside_accept_2",
+      "text": "Vincent: (a soft smile) Thank you.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "fadeToBlack": true,
+      "loadScene": "InsideHouseScene",
+      "overrideStartNode": "house_1",
+      "nextId": ""
+    },
+    {
+      "id": "outside_decline_1",
+      "text": "(a little awkward) I’m sorry, Vincent. It’s late and... I think I should go slowly. We just met.",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "outside_decline_2"
+    },
+    {
+      "id": "outside_decline_2",
+      "text": "Vincent: (a short pause, then a warm smile) Of course. You’re right. Forgive me.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "outside_decline_3"
+    },
+    {
+      "id": "outside_decline_3",
+      "text": "Vincent: Good night, {Name}. See you tomorrow, at noon.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "outside_decline_4"
+    },
+    {
+      "id": "outside_decline_4",
+      "text": "(He turns and walks down the stairs. The door downstairs closes.)",
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "outside_decline_5"
+    },
+    {
+      "id": "outside_decline_5",
+      "text": "(leaning against the door) ...Why do I feel guilty?",
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "fadeToBlack": true,
       "nextId": ""
     }
   ]

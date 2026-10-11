@@ -66,9 +66,45 @@ public class GameManager : MonoBehaviour
     public string currentDayKey = "shop_1";
 
     private bool isRolling = false;
+    private bool hasRolled = false; // Hier deklarieren
+
+    private void Awake()
+    {
+        int numGameManagers = FindObjectsByType<GameManager>(FindObjectsSortMode.None).Length;
+        if (numGameManagers > 1)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        RebindSceneUI();
+    }
 
     private void Start()
     {
+        // 1. Prüfen, ob der Spieler bereits Startpunkte erhalten hat
+        if (PlayerPrefs.GetInt("HasReceivedStartPoints", 0) == 0)
+        {
+            currentPoints = 10; // Startguthaben vergeben
+            PlayerPrefs.SetInt("HasReceivedStartPoints", 1);
+            PlayerPrefs.Save();
+        }
+
         currentSizeIndex = PlayerPrefs.GetInt("FontSizeIndex", 1);
         UpdateFontSizeUI();
 
@@ -78,7 +114,7 @@ public class GameManager : MonoBehaviour
         UpdateLanguageUI();
         LoadUsername();
 
-        UpdatePointsUI();
+        UpdatePointsUI(); // Zeigt die 10 Punkte sofort oben in der UI an
 
         if (pointPopUpText != null)
         {
@@ -95,24 +131,85 @@ public class GameManager : MonoBehaviour
             menuPanel.SetActive(false);
         }
 
-        if (choicePanel != null)
-        {
-            choicePanel.SetActive(false);
-        }
+        RebindSceneUI();
     }
-    private void Awake()
+
+    private void RebindSceneUI()
     {
-        // Prüfen, ob es schon einen GameManager gibt
-        int numGameManagers = FindObjectsByType<GameManager>(FindObjectsSortMode.None).Length;
-        if (numGameManagers > 1)
+        choicePanel = null;
+        diceButton = null;
+        standardAnswerButton = null;
+        specialAnswerButton = null;
+        pointsDisplayText = null;
+        pointPopUpText = null;
+
+        // 1. Alle GameObjects in der aktiven Szene durchsuchen (inklusive inaktiver)
+        foreach (GameObject obj in Resources.FindObjectsOfTypeAll<GameObject>())
         {
-            // WICHTIG: Wenn schon einer da ist, zerstören wir SOFORT das neue Duplikat, 
-            // damit der alte (der sich die Daten gemerkt hat) weiterlebt!
-            Destroy(gameObject);
-            return;
+            if (obj.scene.name == SceneManager.GetActiveScene().name)
+            {
+                if (obj.name == "ChoicePanel") choicePanel = obj;
+                if (obj.name == "DiceButton")
+                {
+                    diceButton = obj;
+                    diceImageDisplay = diceButton.GetComponent<UnityEngine.UI.Image>();
+                }
+                if (obj.name == "AnswerButton1") standardAnswerButton = obj;
+                if (obj.name == "AnswerButton2") specialAnswerButton = obj;
+            }
         }
 
-        DontDestroyOnLoad(gameObject);
+        // 2. TextMeshPro-Komponenten direkt über die Szene finden, unabhängig vom exakten GameObject-Namen
+        TextMeshProUGUI[] allTexts = Resources.FindObjectsOfTypeAll<TextMeshProUGUI>();
+        foreach (TextMeshProUGUI txt in allTexts)
+        {
+            if (txt.gameObject.scene.name == SceneManager.GetActiveScene().name)
+            {
+                if (txt.gameObject.name.Contains("PermanentPoint") || txt.gameObject.name.Contains("Point"))
+                {
+                    if (txt.gameObject.name.Contains("PopUp"))
+                    {
+                        pointPopUpText = txt;
+                        pointPopUpText.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        pointsDisplayText = txt;
+                    }
+                }
+            }
+        }
+
+        // 3. Klick-Listener für den Würfel neu binden
+        if (diceButton != null)
+        {
+            Button btn = diceButton.GetComponent<Button>();
+            if (btn != null)
+            {
+                btn.onClick.AddListener(() => RollW20());
+            }
+        }
+
+        // 4. Klick-Listener für die Antwort-Buttons neu binden
+        if (standardAnswerButton != null)
+        {
+            Button btn = standardAnswerButton.GetComponent<Button>();
+            if (btn != null)
+            {
+                btn.onClick.AddListener(() => OnAnswerSelected(false));
+            }
+        }
+
+        if (specialAnswerButton != null)
+        {
+            Button btn = specialAnswerButton.GetComponent<Button>();
+            if (btn != null)
+            {
+                btn.onClick.AddListener(() => OnAnswerSelected(true));
+            }
+        }
+
+        UpdatePointsUI();
     }
 
     #region Scene Navigation
@@ -204,8 +301,20 @@ public class GameManager : MonoBehaviour
 
     public void ShowChoiceUI()
     {
+        if (choicePanel == null || diceButton == null)
+        {
+            RebindSceneUI();
+        }
+
+        // Status zurücksetzen, damit man beim nächsten Mal wieder würfeln kann
+        hasRolled = false;
+        isRolling = false;
+
+        // Panels und Würfel aktivieren
         if (choicePanel != null) choicePanel.SetActive(true);
         if (diceButton != null) diceButton.SetActive(true);
+
+        // Antworten erst nach dem Würfeln zeigen
         if (standardAnswerButton != null) standardAnswerButton.SetActive(false);
         if (specialAnswerButton != null) specialAnswerButton.SetActive(false);
     }
@@ -289,17 +398,21 @@ public class GameManager : MonoBehaviour
 
     public void OnAnswerSelected(bool isSpecial)
     {
-        if (isSpecial)
-        {
-            SelectSpecialAnswer();
-        }
-        else
-        {
-            SelectStandardAnswer();
-        }
-
+        // 1. Choice-Panel sofort wieder schließen
         if (choicePanel != null) choicePanel.SetActive(false);
 
+        // 2. Punkte abziehen, wenn die Spezial-Antwort gewählt wurde
+        if (isSpecial)
+        {
+            currentPoints -= specialAnswerCost;
+            if (currentPoints < 0) currentPoints = 0; // Sicherheitshalber nicht unter 0 fallen lassen
+
+            UpdatePointsUI();
+            ShowPointPopUp($"-{specialAnswerCost} Punkte", spendColor);
+        }
+
+        // 3. StoryManager sagen, dass es im entsprechenden Pfad weitergeht
+        if (storyManager == null) storyManager = FindAnyObjectByType<StoryManager>();
         if (storyManager != null)
         {
             storyManager.ResumeAfterChoice(isSpecial);
@@ -310,19 +423,26 @@ public class GameManager : MonoBehaviour
 
     public void SelectSpecialAnswer()
     {
-        if (CanChooseSpecialAnswer())
-        {
-            currentPoints -= specialAnswerCost;
-            Debug.Log($"Spezial-Antwort gewählt! Verbleibende Punkte: {currentPoints}");
-            UpdatePointsUI();
+        if (choicePanel != null) choicePanel.SetActive(false);
 
-            ShowPointPopUp($"-{specialAnswerCost} Punkte", spendColor);
+        StoryManager sm = FindAnyObjectByType<StoryManager>();
+        if (sm != null)
+        {
+            sm.ResumeAfterChoice(true);
         }
     }
 
     public void SelectStandardAnswer()
     {
         Debug.Log("Standard-Antwort gewählt. Punkte bleiben erhalten.");
+
+        if (choicePanel != null) choicePanel.SetActive(false);
+
+        StoryManager sm = FindAnyObjectByType<StoryManager>();
+        if (sm != null)
+        {
+            sm.ResumeAfterChoice(false);
+        }
     }
 
     private void UpdatePointsUI()

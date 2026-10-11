@@ -23,5 +23,11 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ApartmentNightScene.unity
     guid: 503003d60895fff48935956181f1bf1c
+  - enabled: 1
+    path: Assets/Scenes/AlleyScene.unity
+    guid: a5f06cbf5d159e543a54fe12c8dd4840
+  - enabled: 1
+    path: Assets/Scenes/StorageRoomNightScene.unity
+    guid: 0c952e3cb7a2b524e8d407c800bc5da2
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

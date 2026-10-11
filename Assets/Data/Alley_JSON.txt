@@ -1,0 +1,221 @@
+{
+  "startNodeId": "alley_1",
+  "nodes": [
+    {
+      "id": "alley_1",
+      "text": "(Rain, dim streetlights, a narrow alley.)",
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_2"
+    },
+    {
+      "id": "alley_2",
+      "text": "({Name} takes a deep breath.)",
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_3"
+    },
+    {
+      "id": "alley_3",
+      "text": "({Name} freezes. A man is slumped against a wall, one hand pressed against his side.)",
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_4"
+    },
+    {
+      "id": "alley_4",
+      "text": "(Blood is mixing with the rainwater.)",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_5"
+    },
+    {
+      "id": "alley_5",
+      "text": "Oh my god...",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_6"
+    },
+    {
+      "id": "alley_6",
+      "text": "({Name} steps closer. The man is wearing a black suit.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_7"
+    },
+    {
+      "id": "alley_7",
+      "text": "That suit... the tattoo... \"There are mafia groups in this area.\"",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_8"
+    },
+    {
+      "id": "alley_8",
+      "text": "He's one of them.",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_9"
+    },
+    {
+      "id": "alley_9",
+      "text": "I should go back inside.",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_10"
+    },
+    {
+      "id": "alley_10",
+      "text": "I should lock the door and pretend I saw nothing.",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_11"
+    },
+    {
+      "id": "alley_11",
+      "text": "{Name}, choose your option.",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "isChoice": true,
+      "showPoints": true,
+      "clearBeforeTyping": true,
+      "options": [
+        {
+          "text": "Ignore him",
+          "cost": 0,
+          "nextId": "alley_ignore_1"
+        },
+        {
+          "text": "Help him",
+          "cost": 13,
+          "nextId": "alley_help_1"
+        }
+      ]
+    },
+    {
+      "id": "alley_help_1",
+      "text": "(The man lifts his head and looks at {Name}. His eyes are sharp, but tired.)",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "showPoints": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_help_2"
+    },
+    {
+      "id": "alley_help_2",
+      "text": "???: ...Go back inside. You didn't see anything.",
+      "showLoveInterestH": true,
+      "showPoints": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_help_3"
+    },
+    {
+      "id": "alley_help_3",
+      "text": "({Name} doesn't move.)",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "showPoints": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_help_4"
+    },
+    {
+      "id": "alley_help_4",
+      "text": "You're bleeding. A lot.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "showPoints": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_help_5"
+    },
+    {
+      "id": "alley_help_5",
+      "text": "???: I said, go back inside.",
+      "showLoveInterestH": true,
+      "showPoints": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_help_6"
+    },
+    {
+      "id": "alley_help_6",
+      "text": "(firmly) I'm not leaving you here.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "showPoints": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_help_7"
+    },
+    {
+      "id": "alley_help_7",
+      "text": "({Name} kneels down and helps him up.)",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "showPoints": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_help_8"
+    },
+    {
+      "id": "alley_help_8",
+      "text": "Come on. Lean on me. The cafe is right behind us.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "showPoints": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_help_9"
+    },
+    {
+      "id": "alley_help_9",
+      "text": "???:...You're making a mistake.",
+      "showLoveInterestH": true,
+      "showPoints": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_help_10"
+    },
+    {
+      "id": "alley_help_10",
+      "text": "Probably. Walk.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "showPoints": true,
+      "clearBeforeTyping": true,
+      "loadScene": "StorageRoomNightScene",
+      "overrideStartNode": "storage_1",
+      "nextId": ""
+    },
+    {
+      "id": "alley_ignore_1",
+      "text": "({Name} takes a step back. His hands are shaking.)",
+      "isNarration": true,
+      "showPoints": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_ignore_2"
+    },
+    {
+      "id": "alley_ignore_2",
+      "text": "I'm sorry... I can't get involved in this.",
+      "useMCBubble": true,
+      "showPoints": true,
+      "clearBeforeTyping": true,
+      "nextId": "alley_ignore_3"
+    },
+    {
+      "id": "alley_ignore_3",
+      "text": "({Name} closes the back door and locks it.)",
+      "isNarration": true,
+      "showPoints": true,
+      "clearBeforeTyping": true,
+      "loadScene": "CoffeeShopScene",
+      "overrideStartNode": "shop_ignore_4"
+    }
+  ]
+}

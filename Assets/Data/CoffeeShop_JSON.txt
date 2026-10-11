@@ -4,6 +4,7 @@
     {
       "id": "shop_1",
       "text": "Okay, let's get to work. The coffee machine needs to go here, behind the counter.",
+      "isThought": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
       "nextId": "shop_2"
@@ -11,6 +12,7 @@
     {
       "id": "shop_2",
       "text": "Two tables over here and two more by the window.",
+      "isThought": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
       "nextId": "shop_3"
@@ -18,6 +20,7 @@
     {
       "id": "shop_3",
       "text": "Chairs here... and here. A few plants in the corner would be nice too.",
+      "isThought": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
       "nextId": "shop_4"
@@ -25,6 +28,7 @@
     {
       "id": "shop_4",
       "text": "Not bad. Not bad at all.",
+      "isThought": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
       "nextId": "shop_5"
@@ -44,11 +48,19 @@
       "useMCBubble": true,
       "useSideCharacterBubble": false,
       "clearBeforeTyping": true,
-      "nextId": "shop_day2_2"
+      "nextId": "shop_day2_1_narrator"
+    },
+    {
+    "id": "shop_day2_1_narrator",
+    "text": "(The door bell rings. Two elderly ladies enter.)",
+    "isNarration": true,
+    "clearBeforeTyping": true,
+    "nextId": "shop_day2_2"
     },
     {
       "id": "shop_day2_2",
       "text": "Elderly Lady 1: Good morning, dear! Oh my, what a lovely place!",
+      "showElderlyLadys": true,
       "useMCBubble": false,
       "useSideCharacterBubble": true,
       "clearBeforeTyping": true,
@@ -57,6 +69,7 @@
     {
       "id": "shop_day2_3",
       "text": "Elderly Lady 2: And it smells wonderful in here. We've been waiting for a nice cafe in this neighborhood for years.",
+      "showElderlyLadys": true,
       "useMCBubble": false,
       "useSideCharacterBubble": true,
       "clearBeforeTyping": true,
@@ -65,6 +78,7 @@
     {
       "id": "shop_day2_4",
       "text": "Good morning! Welcome and thank you so much. What can I get for you?",
+      "showElderlyLadys": true,
       "useMCBubble": true,
       "useSideCharacterBubble": false,
       "clearBeforeTyping": true,
@@ -73,6 +87,7 @@
     {
       "id": "shop_day2_5",
       "text": "Elderly Lady 1: Two cappuccinos, please, and one of those delicious-looking croissants.",
+      "showElderlyLadys": true,
       "useMCBubble": false,
       "useSideCharacterBubble": true,
       "clearBeforeTyping": true,
@@ -81,6 +96,7 @@
     {
       "id": "shop_day2_6",
       "text": "Coming right up!",
+      "showElderlyLadys": true,
       "useMCBubble": true,
       "useSideCharacterBubble": false,
       "clearBeforeTyping": true,
@@ -89,6 +105,7 @@
     {
       "id": "shop_day2_7",
       "text": "Elderly Lady 2: Wonderful, just wonderful. You've got a real talent, dear.",
+      "showElderlyLadys": true,
       "useMCBubble": false,
       "useSideCharacterBubble": true,
       "clearBeforeTyping": true,
@@ -97,6 +114,7 @@
     {
       "id": "shop_day2_8",
       "text": "Elderly Lady 2: <i>(whispering)</i> But listen, dear... be careful around here at night.",
+      "showElderlyLadys": true,
       "useMCBubble": false,
       "useSideCharacterBubble": true,
       "clearBeforeTyping": true,
@@ -105,6 +123,7 @@
     {
       "id": "shop_day2_9",
       "text": "Why is that?",
+      "showElderlyLadys": true,
       "useSideCharacterBubble": false,
       "useMCBubble": true,
       "clearBeforeTyping": true,
@@ -113,6 +132,7 @@
     {
       "id": "shop_day2_10",
       "text": "Elderly Lady 2: <i>(whispering)</i> There are mafia groups in this area. They're often out on the streets after dark and they fight each other.",
+      "showElderlyLadys": true,
       "useMCBubble": false,
       "useSideCharacterBubble": true,
       "clearBeforeTyping": true,
@@ -121,6 +141,7 @@
     {
       "id": "shop_day2_11",
       "text": "Elderly Lady 1: <i>(whispering)</i> It's best to stay indoors once it gets late. Just a friendly warning.",
+      "showElderlyLadys": true,
       "useMCBubble": false,
       "useSideCharacterBubble": true,
       "clearBeforeTyping": true,
@@ -129,6 +150,7 @@
     {
       "id": "shop_day2_12",
       "text": "I'll keep that in mind.",
+      "showElderlyLadys": true,
       "useMCBubble": true,
       "useSideCharacterBubble": false,
       "clearBeforeTyping": true,
@@ -137,6 +159,7 @@
     {
       "id": "shop_day2_13",
       "text": "Elderly Lady 2: Good. Now, we'll certainly be back tomorrow!",
+      "showElderlyLadys": true,
       "useMCBubble": false,
       "useSideCharacterBubble": true,
       "clearBeforeTyping": true,
@@ -145,6 +168,7 @@
     {
       "id": "shop_day2_14",
       "text": "I'd love that. Have a nice day, ladies!",
+      "showElderlyLadys": true,
       "useMCBubble": true,
       "useSideCharacterBubble": false,
       "clearBeforeTyping": true,
@@ -154,7 +178,7 @@
       "id": "shop_day2_15",
       "text": "(They leave. The bell rings again.)",
       "useMCBubble": false,
-      "useIntroPanel": true,
+      "isNarration": true,
       "clearBeforeTyping": true,
       "nextId": "shop_day2_16"
     },
@@ -163,7 +187,167 @@
       "text": "Mafia, huh... <i>(quietly)</i> I hope that's a rumor.",
       "useMCBubble": true,
       "clearBeforeTyping": true,
-      "nextId": ""
+      "nextId": "shop_day2_17"
+    },
+    {
+    "id": "shop_day2_17",
+    "text": "(10 hours later)",
+    "isNarration": true,
+    "clearBeforeTyping": true,
+    "nextId": "shop_day2_18"
+  },
+  {
+    "id": "shop_day2_18",
+    "text": "Busy day... but a good kind of busy.",
+    "useMCBubble": true,
+    "isThought": true,
+    "clearBeforeTyping": true,
+    "nextId": "shop_day2_19"
+  },
+  {
+    "id": "shop_day2_19",
+    "text": "Good thing I decided to stay open until 8 p.m. and offer special evening buffet to celebrate the opening.",
+    "useMCBubble": true,
+    "isThought": true,
+    "clearBeforeTyping": true,
+    "nextId": "shop_day2_20"
+  },
+  {
+    "id": "shop_day2_20",
+    "text": "Customer: Thank you, everything was delicious! We'll definitely come again.",
+    "showCustomer": true,
+    "useMCBubble": false,
+    "clearBeforeTyping": true,
+    "nextId": "shop_day2_21"
+  },
+  {
+    "id": "shop_day2_21",
+    "text": "Thank you, see you soon!",
+    "showCustomer": true,
+    "useMCBubble": true,
+    "clearBeforeTyping": true,
+    "nextId": "shop_day2_22"
+  },
+  {
+    "id": "shop_day2_22",
+    "text": "(The last guests leave.)",
+    "isNarration": true,
+    "clearBeforeTyping": true,
+    "nextId": "shop_day2_23"
+  },
+  {
+    "id": "shop_day2_23",
+    "text": "({Name} cleans the counter and looks around the empty cafe.)",
+    "isNarration": true,
+    "clearBeforeTyping": true,
+    "nextId": "shop_day2_24"
+  },
+  {
+    "id": "shop_day2_24",
+    "text": "What a day... The first day was a full success. I can't believe it.",
+    "useMCBubble": true,
+    "isThought": true,
+    "clearBeforeTyping": true,
+    "nextId": "shop_day2_25"
+  },
+  {
+    "id": "shop_day2_25",
+    "text": "But those warnings about the mafia... it's probably nothing... right?",
+    "useMCBubble": true,
+    "isThought": true,
+    "clearBeforeTyping": true,
+    "nextId": "shop_day2_26"
+  },
+  {
+    "id": "shop_day2_26",
+    "text": "",
+    "fadeToBlack": true,
+    "overrideStartNode": "shop_day3_1",
+    "nextId": "shop_day3_1"
+  },
+  {
+    "id": "shop_day3_1",
+    "text": "Late evening already and not many customers today. The rain must have scared everyone off.",
+    "useMCBubble": true,
+    "isThought": true,
+    "clearBeforeTyping": true,
+    "nextId": "shop_day3_2"
+  },
+  {
+    "id": "shop_day3_2",
+    "text": "Everyone's taken care of... I think I can take a short break.",
+    "useMCBubble": true,
+    "isThought": true,
+    "clearBeforeTyping": true,
+    "nextId": "shop_day3_3"
+  },
+  {
+    "id": "shop_day3_3",
+    "text": "Some fresh air will do me good.",
+    "useMCBubble": true,
+    "isThought": true,
+    "clearBeforeTyping": true,
+    "nextId": "shop_day3_5"
+  },
+  {
+    "id": "shop_day3_5",
+    "text": "(The back door opens.)",
+    "isNarration": true,
+    "clearBeforeTyping": true,
+    "loadScene": "AlleyScene",
+    "overrideStartNode": "alley_1",
+    "nextId": ""
+  },
+  {
+      "id": "shop_ignore_4",
+      "text": "(The sound of the rain fades. He leans against the door and breathes out.)",
+      "showPoints": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_5"
+    },
+    {
+      "id": "shop_ignore_5",
+      "text": "Just forget it. You saw nothing. Nothing happened at all.",
+      "showPoints": true,
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_6"
+    },
+    {
+      "id": "shop_ignore_6",
+      "text": "({Name} returns to the cafe. Two customers are still sitting there, chatting.)",
+      "showPoints": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_7"
+    },
+    {
+      "id": "shop_ignore_7",
+      "text": "({Name} wipes the counter, but his hands won't stop trembling.)",
+      "showPoints": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_8"
+    },
+    {
+      "id": "shop_ignore_8",
+      "text": "What if he dies out there?",
+      "showPoints": true,
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_9"
+    },
+    {
+      "id": "shop_ignore_9",
+      "text": "No. Not my problem...",
+      "showPoints": true,
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_day1_end"
     }
   ]
 }

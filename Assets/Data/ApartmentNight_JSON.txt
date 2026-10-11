@@ -4,6 +4,7 @@
     {
       "id": "night_1",
       "text": "Tomorrow is the big day. Goodnight, little cafe.",
+      "isThought": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
       "fadeToBlack": true,

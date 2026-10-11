@@ -1,0 +1,32 @@
+Cooked Sans — FREE LICENSE
+Copyright (c) 2026 The Cooked Works. All rights reserved.
+
+Cooked Sans is free. By downloading or using the font files ("the Font") you agree
+to these terms.
+
+YOU CAN
+-------
+- Use the Font for free in an unlimited number of personal AND commercial
+  projects: games and apps (paid or free, with ads or in-app purchases),
+  videos, streams, websites, print, merchandise, client work, logos and branding.
+- Embed the Font inside games and apps (Unity, Godot, Unreal, GameMaker, web ...).
+- Install the Font on all computers used by you or your team.
+
+YOU CANNOT
+----------
+- Sell the Font files, alone or modified, or bundle them in a font collection,
+  asset pack, UI kit or template sold or given away as a resource for others.
+- Upload or re-host the Font files on any font site or file-sharing service.
+  Please link to the itch.io page instead.
+- Claim the Font as your own work.
+
+Credit is NOT required, but it is always appreciated:
+  "Font: Cooked Sans by The Cooked Works"
+
+NO WARRANTY
+-----------
+The Font is provided "as is", without warranty of any kind. In no event shall
+the author be liable for any claim, damages or other liability arising from
+the use of the Font.
+
+Questions? Contact The Cooked Works through https://the-cooked-works.itch.io

@@ -1,0 +1,395 @@
+{
+  "startNodeId": "storage_1",
+  "nodes": [
+    {
+      "id": "storage_1",
+      "text": "(Inside, the storage room.)",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_2"
+    },
+    {
+      "id": "storage_2",
+      "text": "({Name} sits on a chair and pulls out a first-aid kit.)",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_3"
+    },
+    {
+      "id": "storage_3",
+      "text": "(The customers in the front don't notice anything.)",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_4"
+    },
+    {
+      "id": "storage_4",
+      "text": "Take your jacket off. I need to see the wound.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_5"
+    },
+    {
+      "id": "storage_5",
+      "text": "???: (faint smirk) Straight to the point, aren't we?",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_6"
+    },
+    {
+      "id": "storage_6",
+      "text": "Hold still. This will sting.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_7"
+    },
+    {
+      "id": "storage_7",
+      "text": "(??? flinches slightly but doesn't make a sound.)",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_8"
+    },
+    {
+      "id": "storage_8",
+      "text": "What happened to you?",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_9"
+    },
+    {
+      "id": "storage_9",
+      "text": "???: A disagreement with some people who don't know when to stop.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_10"
+    },
+    {
+      "id": "storage_10",
+      "text": "A disagreement... right.",
+      "useMCBubble": true,
+      "isThought": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_11"
+    },
+    {
+      "id": "storage_11",
+      "text": "???: You know who I am, don't you?",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_12"
+    },
+    {
+      "id": "storage_12",
+      "text": "I have a guess and I hate everything about it.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_13"
+    },
+    {
+      "id": "storage_13",
+      "text": "???: Then why are you helping me?",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_14"
+    },
+    {
+      "id": "storage_14",
+      "text": "Because you were bleeding in front of my door. It's as simple as that.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_15"
+    },
+    {
+      "id": "storage_15",
+      "text": "({Name} wraps the last bandage and sits back.)",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_16"
+    },
+    {
+      "id": "storage_16",
+      "text": "Done. You should see a doctor though. A real one.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_17"
+    },
+    {
+      "id": "storage_17",
+      "text": "(??? looks at his bandaged side, then at {Name}.)",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_18"
+    },
+    {
+      "id": "storage_18",
+      "text": "???: Everyone who sees a man like me chooses to look away or to run. Nobody stops.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_19"
+    },
+    {
+      "id": "storage_19",
+      "text": "???: And you, who know exactly what I am, bring me inside and patch me up.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_20"
+    },
+    {
+      "id": "storage_20",
+      "text": "It's not a big deal.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_21"
+    },
+    {
+      "id": "storage_21",
+      "text": "???: (a small, genuine smile) It is to me.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_22"
+    },
+    {
+      "id": "storage_22",
+      "text": "(??? stands up carefully, adjusting his jacket.)",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_23"
+    },
+    {
+      "id": "storage_23",
+      "text": "???: What's your name?",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_24"
+    },
+    {
+      "id": "storage_24",
+      "text": "{Name}. And yours?",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_25"
+    },
+    {
+      "id": "storage_25",
+      "text": "Haru.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_26"
+    },
+    {
+      "id": "storage_26",
+      "text": "Haru: I don't trust people easily, {Name}.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_27"
+    },
+    {
+      "id": "storage_27",
+      "text": "Haru: And I'm not a man who falls for someone quickly.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_28"
+    },
+    {
+      "id": "storage_28",
+      "text": "Haru: But you've made me curious. I'd like to get to know you. Slowly. If you let me, that is...",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "showPoints": true,
+      "isChoice": true,
+      "options": [
+        {
+          "text": "Maybe... let's see.",
+          "cost": 0,
+          "nextId": "storage_maybe_1"
+        },
+        {
+          "text": "Yes, I'd like that.",
+          "cost": 13,
+          "nextId": "storage_yes_1"
+        }
+      ]
+    },
+    {
+      "id": "storage_yes_1",
+      "text": "(a bit shy, but honest) Yes. I'd like that.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_yes_2"
+    },
+    {
+      "id": "storage_yes_2",
+      "text": "I don't know why, but... I think you're not as scary as you want people to believe.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_yes_3"
+    },
+    {
+      "id": "storage_yes_3",
+      "text": "Haru: (surprised, then a soft laugh) Careful. Say things like that and I might not go slowly.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_yes_4"
+    },
+    {
+      "id": "storage_yes_4",
+      "text": "(flustered) S-slowly was the deal!",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_yes_5"
+    },
+    {
+      "id": "storage_yes_5",
+      "text": "Haru: (smiling) Slowly, then. I'll keep the promise.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_yes_6"
+    },
+    {
+      "id": "storage_yes_6",
+      "text": "(Haru reaches for his lapel. He unpins the small silver crest and holds it out in his palm.)",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_yes_7"
+    },
+    {
+      "id": "storage_yes_7",
+      "text": "Haru: Here. Take this.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_yes_8"
+    },
+    {
+      "id": "storage_yes_8",
+      "text": "(staring at it) Isn't this... part of your suit? It looks important.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_yes_9"
+    },
+    {
+      "id": "storage_yes_9",
+      "text": "Haru: (quietly) It is. It's the only thing I own that means something to me.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_yes_10"
+    },
+    {
+      "id": "storage_yes_10",
+      "text": "Then I can't take it.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_yes_11"
+    },
+    {
+      "id": "storage_yes_11",
+      "text": "Haru: (gently closes {Name}‘s fingers around the pin) You can. I'm trusting you with it, {Name}.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_yes_12"
+    },
+    {
+      "id": "storage_yes_12",
+      "text": "Haru: Keep it safe until I come back.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_yes_13"
+    },
+    {
+      "id": "storage_yes_13",
+      "text": "(softly) ...Okay. I will.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_yes_14"
+    },
+    {
+      "id": "storage_yes_14",
+      "text": "Haru: (a small, genuine smile) Good.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_yes_15"
+    },
+    {
+      "id": "storage_yes_15",
+      "text": "({Name} looks down at the pin in his hand. It's still warm.)",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": ""
+    },
+    {
+      "id": "storage_maybe_1",
+      "text": "Maybe. Let’s see how it goes.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_maybe_2"
+    },
+    {
+      "id": "storage_maybe_2",
+      "text": "I helped you because it was the right thing to do. That doesn’t mean I know you yet.",
+      "useMCBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_maybe_3"
+    },
+    {
+      "id": "storage_maybe_3",
+      "text": "Haru: (small smile) Fair enough. That’s more honest than most people are with me.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_maybe_4"
+    },
+    {
+      "id": "storage_maybe_4",
+      "text": "Haru: Then I‘ll earn it. One visit at a time.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": ""
+    }
+  ]
+}

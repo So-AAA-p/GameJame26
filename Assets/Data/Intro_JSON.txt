@@ -20,6 +20,7 @@
     {
       "id": "mc_1",
       "text": "So... this is it.",
+      "isThought": true,
       "useMCBubble": true,
       "removeBlur": true,
       "clearBeforeTyping": true,
@@ -28,6 +29,7 @@
     {
       "id": "mc_2",
       "text": "The first floor is huge, and the second floor is perfect to live in.",
+      "isThought": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
       "nextId": "mc_3"
@@ -35,6 +37,7 @@
     {
       "id": "mc_3",
       "text": "This apartment is perfect for my coffee shop, it's right above the store.",
+      "isThought": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
       "nextId": "mc_4"
@@ -42,6 +45,7 @@
     {
       "id": "mc_4",
       "text": "I've dreamed about this for years. I can already smell the coffee.",
+      "isThought": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
       "loadScene": "CoffeeShopScene",

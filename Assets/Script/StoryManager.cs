@@ -21,8 +21,13 @@ public class DialogueNode
     public bool isChoice;
     public bool isNameInput;
     public bool useMCBubble;
+    public bool isNarration;
     public bool useIntroPanel;
-    public bool useSideCharacterBubble; // <-- NEU: Flag für Nebencharaktere
+    public bool isThought;
+    public bool showElderlyLadys;
+    public bool showCustomer;
+    public bool showLoveInterestH;
+    public bool useSideCharacterBubble;
     public bool removeBlur;
     public bool clearBeforeTyping;
     public string loadScene;
@@ -30,6 +35,7 @@ public class DialogueNode
     public string nextId;
     public bool fadeToBlack;
     public string overrideStartNode;
+    public bool showPoints;
 }
 
 [System.Serializable]
@@ -45,13 +51,17 @@ public class StoryManager : MonoBehaviour
     public GameObject introBubblePanel;
     public TextMeshProUGUI introText;
 
+    [Header("UI References - Narrator (Scene Descriptions)")]
+    public GameObject narratorBubblePanel;
+    public TextMeshProUGUI narratorText;
+
     [Header("UI References - Main Dialogue (MC)")]
     public GameObject speechBubblePanel;
     public TextMeshProUGUI dialogueText;
 
-    [Header("UI References - Side Characters (Elderly Ladies)")] // <-- NEU
-    public GameObject sideCharacterBubblePanel;                   // <-- NEU
-    public TextMeshProUGUI sideCharacterText;                     // <-- NEU
+    [Header("UI References - Side Characters (Elderly Ladies)")]
+    public GameObject sideCharacterBubblePanel;
+    public TextMeshProUGUI sideCharacterText;
 
     public Image backgroundImage;
     public GameManager gameManager;
@@ -72,6 +82,11 @@ public class StoryManager : MonoBehaviour
 
     [Header("UI References - Character Visuals")]
     public GameObject elderlyLadysCharacterImage;
+    public GameObject loveInterestCharacterImage;
+    public GameObject customerCharacterImage;
+
+    [Header("UI References - Points System")]
+    public GameObject pointsPanel;
 
     private Dictionary<string, DialogueNode> nodeMap = new Dictionary<string, DialogueNode>();
     private DialogueNode currentNode;
@@ -83,6 +98,8 @@ public class StoryManager : MonoBehaviour
     private bool isTyping = false;
     private bool isWaitingForChoice = false;
     private bool isWaitingForNameInput = false;
+    private bool isPointsPanelVisible = false;
+    private string formattedCurrentText;
 
     private void Start()
     {
@@ -100,16 +117,9 @@ public class StoryManager : MonoBehaviour
 
         if (introBubblePanel != null) introBubblePanel.SetActive(true);
         if (speechBubblePanel != null) speechBubblePanel.SetActive(false);
-        if (sideCharacterBubblePanel != null) sideCharacterBubblePanel.SetActive(false); // <-- NEU
+        if (sideCharacterBubblePanel != null) sideCharacterBubblePanel.SetActive(false);
 
         currentActiveTextComponent = introText;
-
-        // AUTOMATISCHER SICHERHEITS-FIX BEIM LADEN DER NACHT-SZENE
-        if (SceneManager.GetActiveScene().name == "ApartmentNightScene")
-        {
-            PlayerPrefs.SetString("NextStartNode", "shop_day2_1");
-            PlayerPrefs.Save();
-        }
 
         if (dialogueJsonFile != null)
         {
@@ -119,7 +129,8 @@ public class StoryManager : MonoBehaviour
 
     private void Update()
     {
-        if (isWaitingForChoice || isWaitingForNameInput) return;
+        // Blockiert Klicks zum Weiterblättern, wenn eine Choice oder Namenseingabe aktiv ist:
+        if (isWaitingForChoice || isWaitingForNameInput || (currentNode != null && currentNode.isChoice)) return;
 
         if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.Space))
         {
@@ -144,15 +155,15 @@ public class StoryManager : MonoBehaviour
 
             string targetStartId = storyData.startNodeId;
 
-            if (SceneManager.GetActiveScene().name == "CoffeeShopScene")
+            string savedStartNode = PlayerPrefs.GetString("NextStartNode", "");
+            if (!string.IsNullOrEmpty(savedStartNode))
             {
-                string savedStartNode = PlayerPrefs.GetString("NextStartNode", "");
-                if (!string.IsNullOrEmpty(savedStartNode))
+                if (nodeMap.ContainsKey(savedStartNode))
                 {
                     targetStartId = savedStartNode;
-                    PlayerPrefs.DeleteKey("NextStartNode");
-                    PlayerPrefs.Save();
                 }
+                PlayerPrefs.DeleteKey("NextStartNode");
+                PlayerPrefs.Save();
             }
 
             if (!string.IsNullOrEmpty(targetStartId) && nodeMap.ContainsKey(targetStartId))
@@ -180,29 +191,20 @@ public class StoryManager : MonoBehaviour
 
         currentNode = nodeMap[nodeId];
 
-        // Alle Panels vorab deaktivieren
         if (introBubblePanel != null) introBubblePanel.SetActive(false);
+        if (narratorBubblePanel != null) narratorBubblePanel.SetActive(false);
         if (speechBubblePanel != null) speechBubblePanel.SetActive(false);
         if (sideCharacterBubblePanel != null) sideCharacterBubblePanel.SetActive(false);
 
-        // Silhouette steuern
-        if (elderlyLadysCharacterImage != null)
-        {
-            if (currentNode.id.StartsWith("shop_day2_") && currentNode.id != "shop_day2_1" && currentNode.id != "shop_day2_15" && currentNode.id != "shop_day2_16")
-            {
-                elderlyLadysCharacterImage.SetActive(true);
-            }
-            else
-            {
-                elderlyLadysCharacterImage.SetActive(false);
-            }
-        }
-
-        // TEXT-PANELS AUSWÄHLEN:
-        if (currentNode.useIntroPanel) // <-- NEU: Wenn es ein Erzähltext ist
+        if (SceneManager.GetActiveScene().name == "ApartmentScene" && !currentNode.useMCBubble)
         {
             if (introBubblePanel != null) introBubblePanel.SetActive(true);
             currentActiveTextComponent = introText;
+        }
+        else if (currentNode.isNarration)
+        {
+            if (narratorBubblePanel != null) narratorBubblePanel.SetActive(true);
+            currentActiveTextComponent = narratorText;
         }
         else if (currentNode.useMCBubble)
         {
@@ -213,6 +215,21 @@ public class StoryManager : MonoBehaviour
         {
             if (sideCharacterBubblePanel != null) sideCharacterBubblePanel.SetActive(true);
             currentActiveTextComponent = sideCharacterText;
+        }
+
+        if (elderlyLadysCharacterImage != null)
+        {
+            elderlyLadysCharacterImage.SetActive(currentNode.showElderlyLadys);
+        }
+
+        if (loveInterestCharacterImage != null)
+        {
+            loveInterestCharacterImage.SetActive(currentNode.showLoveInterestH);
+        }
+
+        if (customerCharacterImage != null)
+        {
+            customerCharacterImage.SetActive(currentNode.showCustomer);
         }
 
         if (currentNode.removeBlur)
@@ -226,8 +243,25 @@ public class StoryManager : MonoBehaviour
             currentActiveTextComponent.text = "";
         }
 
-        string formattedText = currentNode.text.Replace("{Name}", GameManager.GetUsername());
-        typingCoroutine = StartCoroutine(TypeSentence(formattedText));
+        formattedCurrentText = currentNode.text.Replace("{Name}", GameManager.GetUsername());
+        if (currentNode.isThought)
+        {
+            formattedCurrentText = "<i>" + formattedCurrentText + "</i>";
+        }
+
+        if (typingCoroutine != null) StopCoroutine(typingCoroutine);
+        typingCoroutine = StartCoroutine(TypeSentence(formattedCurrentText));
+
+        // Sobald Punkte einmal freigeschaltet wurden, bleiben sie permanent sichtbar!
+        if (currentNode.showPoints || isPointsPanelVisible)
+        {
+            isPointsPanelVisible = true;
+        }
+
+        if (pointsPanel != null)
+        {
+            pointsPanel.SetActive(isPointsPanelVisible);
+        }
     }
 
     public void AdvanceDialogue()
@@ -237,7 +271,7 @@ public class StoryManager : MonoBehaviour
             StopCoroutine(typingCoroutine);
             if (currentActiveTextComponent != null)
             {
-                currentActiveTextComponent.text = currentNode.text.Replace("{Name}", GameManager.GetUsername());
+                currentActiveTextComponent.text = formattedCurrentText;
             }
             isTyping = false;
             OnNodeTextFinished();
@@ -248,9 +282,9 @@ public class StoryManager : MonoBehaviour
         {
             if (!string.IsNullOrEmpty(currentNode.loadScene))
             {
-                if (SceneManager.GetActiveScene().name == "ApartmentNightScene")
+                if (!string.IsNullOrEmpty(currentNode.overrideStartNode))
                 {
-                    PlayerPrefs.SetString("NextStartNode", "shop_day2_1");
+                    PlayerPrefs.SetString("NextStartNode", currentNode.overrideStartNode);
                     PlayerPrefs.Save();
                 }
 
@@ -293,8 +327,6 @@ public class StoryManager : MonoBehaviour
         isTyping = false;
         OnNodeTextFinished();
     }
-
-    private void OnNodeTestFinished() { }
 
     private void OnNodeTextFinished()
     {

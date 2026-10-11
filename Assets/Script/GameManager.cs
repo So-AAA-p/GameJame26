@@ -81,6 +81,19 @@ public class GameManager : MonoBehaviour
     private bool hasRolled = false;
     private List<DialogueOption> currentOptions;
 
+    [Header("Settings UI Direct References")]
+    public Button settingsBackButton;
+    public Button settingsEnglishButton;
+    public Button settingsGermanButton;
+    public Button settingsFontSizeL;
+    public Button settingsFontSizeR;
+    public Button settingsResolutionL;
+    public Button settingsResolutionR;
+
+    [Header("Settings UI Extra References")]
+    public TextMeshProUGUI settingsFontSizeDisplayText;
+    public TextMeshProUGUI settingsResolutionDisplayText;
+
     private void Awake()
     {
         int numGameManagers = FindObjectsByType<GameManager>(FindObjectsSortMode.None).Length;
@@ -157,47 +170,149 @@ public class GameManager : MonoBehaviour
         specialAnswerButton = null;
         pointsDisplayText = null;
         pointPopUpText = null;
+        fontSizeDisplayText = null;
+        resolutionDisplayText = null;
+
+        string currentSceneName = SceneManager.GetActiveScene().name;
 
         // 1. Alle GameObjects in der aktiven Szene durchsuchen (inklusive inaktiver)
         foreach (GameObject obj in Resources.FindObjectsOfTypeAll<GameObject>())
         {
-            if (obj.scene.name == SceneManager.GetActiveScene().name)
+            if (obj.scene.name == currentSceneName)
             {
                 if (obj.name == "ChoicePanel") choicePanel = obj;
                 if (obj.name == "DiceButton")
                 {
                     diceButton = obj;
-                    diceImageDisplay = diceButton.GetComponent<UnityEngine.UI.Image>();
+                    diceImageDisplay = diceButton.GetComponent<UnityEngine.UI.Button>() != null ? diceButton.GetComponent<UnityEngine.UI.Image>() : null;
                 }
-                // Hier findet er die Buttons in jeder Szene ganz automatisch anhand ihres Namens:
-                if(obj.name == "standardAnswer") standardAnswerButton = obj;
+                if (obj.name == "standardAnswer") standardAnswerButton = obj;
                 if (obj.name == "MediumAnswer") mediumAnswerButton = obj;
                 if (obj.name == "SpecialAnswer") specialAnswerButton = obj;
+
+                // Automatische Namens-Bindung für Buttons in jeder Szene
+                Button btn = obj.GetComponent<Button>();
+                if (btn != null)
+                {
+                    if (obj.name == "GameStart" || obj.name == "StartButton")
+                    {
+                        btn.onClick.RemoveAllListeners();
+                        btn.onClick.AddListener(() => StartGame());
+                    }
+                    else if (obj.name == "Settings" || obj.name == "SettingsButton")
+                    {
+                        btn.onClick.RemoveAllListeners();
+                        btn.onClick.AddListener(() => OpenSettings());
+                    }
+                    else if (obj.name == "BackButton")
+                    {
+                        btn.onClick.RemoveAllListeners();
+                        btn.onClick.AddListener(() => OpenHomescreen());
+                    }
+                    else if (obj.name == "EnglishHeartButton" || obj.name == "English")
+                    {
+                        btn.onClick.RemoveAllListeners();
+                        btn.onClick.AddListener(() => SelectEnglish());
+                    }
+                    else if (obj.name == "GermanHeartButton" || obj.name == "German")
+                    {
+                        btn.onClick.RemoveAllListeners();
+                        btn.onClick.AddListener(() => SelectGerman());
+                    }
+                    else if (obj.name == "FontSizeButtonL")
+                    {
+                        btn.onClick.RemoveAllListeners();
+                        btn.onClick.AddListener(() => DecreaseFontSize());
+                    }
+                    else if (obj.name == "FontSizeButtonR")
+                    {
+                        btn.onClick.RemoveAllListeners();
+                        btn.onClick.AddListener(() => IncreaseFontSize());
+                    }
+                    else if (obj.name == "ResolutionButtonL")
+                    {
+                        btn.onClick.RemoveAllListeners();
+                        btn.onClick.AddListener(() => DecreaseResolution());
+                    }
+                    else if (obj.name == "ResolutionButtonR")
+                    {
+                        btn.onClick.RemoveAllListeners();
+                        btn.onClick.AddListener(() => IncreaseResolution());
+                    }
+                }
             }
         }
 
-        // 2. TextMeshPro-Komponenten direkt über die Szene finden
+        // 2. Direkte Inspector-Zuweisungen (falls im Inspektor verknüpft)
+        if (settingsBackButton != null)
+        {
+            settingsBackButton.onClick.RemoveAllListeners();
+            settingsBackButton.onClick.AddListener(() => OpenHomescreen());
+        }
+        if (settingsEnglishButton != null)
+        {
+            settingsEnglishButton.onClick.RemoveAllListeners();
+            settingsEnglishButton.onClick.AddListener(() => SelectEnglish());
+        }
+        if (settingsGermanButton != null)
+        {
+            settingsGermanButton.onClick.RemoveAllListeners();
+            settingsGermanButton.onClick.AddListener(() => SelectGerman());
+        }
+        if (settingsFontSizeL != null)
+        {
+            settingsFontSizeL.onClick.RemoveAllListeners();
+            settingsFontSizeL.onClick.AddListener(() => DecreaseFontSize());
+        }
+        if (settingsFontSizeR != null)
+        {
+            settingsFontSizeR.onClick.RemoveAllListeners();
+            settingsFontSizeR.onClick.AddListener(() => IncreaseFontSize());
+        }
+        if (settingsResolutionL != null)
+        {
+            settingsResolutionL.onClick.RemoveAllListeners();
+            settingsResolutionL.onClick.AddListener(() => DecreaseResolution());
+        }
+        if (settingsResolutionR != null)
+        {
+            settingsResolutionR.onClick.RemoveAllListeners();
+            settingsResolutionR.onClick.AddListener(() => IncreaseResolution());
+        }
+
+        // Direkte Zuweisung der Text-Felder in den Settings (falls im Inspector verknüpft)
+        if (settingsFontSizeDisplayText != null) fontSizeDisplayText = settingsFontSizeDisplayText;
+        if (settingsResolutionDisplayText != null) resolutionDisplayText = settingsResolutionDisplayText;
+
+        // 3. TextMeshPro-Komponenten direkt über die Szene finden
         TextMeshProUGUI[] allTexts = Resources.FindObjectsOfTypeAll<TextMeshProUGUI>();
         foreach (TextMeshProUGUI txt in allTexts)
         {
-            if (txt.gameObject.scene.name == SceneManager.GetActiveScene().name)
+            if (txt.gameObject.scene.name == currentSceneName)
             {
-                if (txt.gameObject.name.Contains("PermanentPoint") || txt.gameObject.name.Contains("Point"))
+                string objName = txt.gameObject.name;
+
+                if (objName.Contains("PermanentPoint") || (objName.Contains("Point") && !objName.Contains("PopUp")))
                 {
-                    if (txt.gameObject.name.Contains("PopUp"))
-                    {
-                        pointPopUpText = txt;
-                        pointPopUpText.gameObject.SetActive(false);
-                    }
-                    else
-                    {
-                        pointsDisplayText = txt;
-                    }
+                    pointsDisplayText = txt;
+                }
+                else if (objName.Contains("PopUp"))
+                {
+                    pointPopUpText = txt;
+                    pointPopUpText.gameObject.SetActive(false);
+                }
+                else if (objName.Contains("FontSize") || objName.Contains("Font"))
+                {
+                    fontSizeDisplayText = txt;
+                }
+                else if (objName.Contains("Resolution"))
+                {
+                    resolutionDisplayText = txt;
                 }
             }
         }
 
-        // 3. Klick-Listener für den Würfel neu binden
+        // 4. Klick-Listener für den Würfel neu binden
         if (diceButton != null)
         {
             Button btn = diceButton.GetComponent<Button>();
@@ -209,6 +324,9 @@ public class GameManager : MonoBehaviour
         }
 
         UpdatePointsUI();
+        UpdateFontSizeUI();
+        UpdateResolutionUI();
+        UpdateLanguageUI();
     }
 
     #region Scene Navigation
@@ -466,8 +584,6 @@ public class GameManager : MonoBehaviour
         if (specialAnswerButton != null) specialAnswerButton.SetActive(false);
     }
 
-    // 1. Standard-Antwort (immer kostenlos, cost = 0)
-    // 1. Standard-Antwort (Immer kostenlos)
     // 1. Standard-Antwort (Immer kostenlos)
     public void SelectStandardAnswer()
     {

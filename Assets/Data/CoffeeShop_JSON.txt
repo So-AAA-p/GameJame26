@@ -6,6 +6,7 @@
       "text": "Okay, let's get to work. The coffee machine needs to go here, behind the counter.",
       "isThought": true,
       "useMCBubble": true,
+      "resetFlag": "HasHaruPin",
       "clearBeforeTyping": true,
       "nextId": "shop_2"
     },
@@ -677,7 +678,7 @@
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
       "clearBeforeTyping": true,
-      "nextId": "shop_vink_merge_1"
+      "nextId": "shop_vink_check"
     },
     {
       "id": "shop_vink_ask_1",
@@ -696,12 +697,12 @@
       "nextId": "shop_vink_ask_3"
     },
     {
-      "id": "shop_vink_ask_3",
+     "id": "shop_vink_ask_3",
       "text": "???: Let's say I'm a curious person and I like to know who lives in my neighborhood.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
       "clearBeforeTyping": true,
-      "nextId": "shop_vink_merge_1"
+      "nextId": "shop_vink_check"
     },
     {
       "id": "shop_vink_truth_1",
@@ -728,12 +729,228 @@
       "nextId": "shop_vink_truth_4"
     },
     {
-      "id": "shop_vink_truth_4",
+     "id": "shop_vink_truth_4",
       "text": "???: (softly, the warmth returns) No. Not wrong. Just... brave. Maybe a little reckless.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
       "clearBeforeTyping": true,
-      "nextId": "shop_vink_merge_1"
+      "nextId": "shop_vink_check"
+    },
+    {
+     "id": "shop_vink_check",
+      "checkFlag": "HasHaruPin",
+      "flagTrueNextId": "shop_vink_pin_react_1",
+      "flagFalseNextId": "shop_vink_normal_continue"
+    },
+    {
+      "id": "shop_vink_pin_react_1",
+      "text": "(Vink's gaze suddenly drops to the small silver pin {Name} is wearing.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_pin_react_2"
+    },
+    {
+      "id": "shop_vink_pin_react_2",
+      "text": "???: (glances at the silver pin. His eyes rest on it for a split second, then he looks away.)",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_pin_react_3"
+    },
+    {
+      "id": "shop_vink_pin_react_3",
+      "text": "(Then he looks at {Name}, and something in his face softens.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_continue"
+    },
+  {
+      "id": "shop_vink_normal_continue",
+      "text": "???: Well, {Name}. Thank you for the coffee and the pleasant chat. I'll definitely come back.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_continue"
+    },
+    {
+      "id": "shop_vink_shared_continue",
+      "text": "???: (quietly, almost to himself) ...It really is you.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_2"
+    },
+    {
+      "id": "shop_vink_shared_2",
+      "text": "Pardon?",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_3"
+    },
+    {
+      "id": "shop_vink_shared_3",
+      "text": "???: (smiling again) Nothing. Just thinking out loud. You have a very familiar face.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_4"
+    },
+    {
+      "id": "shop_vink_shared_4",
+      "text": "(laughs, uncertain) Do I? I'm sorry, I don't think we've met.",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_5"
+    },
+    {
+      "id": "shop_vink_shared_5",
+      "text": "???: (leaning closer, playful) Maybe in another life or on a playground, a long time ago.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_6"
+    },
+    {
+      "id": "shop_vink_shared_6",
+      "text": "(stunned) A playground?",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_7"
+    },
+    {
+      "id": "shop_vink_shared_7",
+      "text": "???: (leans back, grinning) I'm joking. Mostly. But if I were you, I'd be careful: a man who says things like that is either a poet or a flirt.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_8"
+    },
+    {
+      "id": "shop_vink_shared_8",
+      "text": "(flustered) And which one are you?",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_9"
+    },
+    {
+      "id": "shop_vink_shared_9",
+      "text": "???: (a warm, charming smile) Why not both?",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_10"
+    },
+    {
+      "id": "shop_vink_shared_10",
+      "text": "({Name}'s cheeks turn red. He turns away and wipes the counter.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_11"
+    },
+    {
+      "id": "shop_vink_shared_11",
+      "text": "Who is this guy...? And why do I feel like I know him?",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_12"
+    },
+    {
+      "id": "shop_vink_shared_12",
+      "text": "???: (stands, puts money on the counter, more than enough) Keep the change. For the best cappuccino in the city.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_13"
+    },
+    {
+      "id": "shop_vink_shared_13",
+      "text": "I'm Vincent, by the way.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_14"
+    },
+    {
+      "id": "shop_vink_shared_14",
+      "text": "(quietly, the name echoes in his head) ...Vincent?",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_15"
+    },
+    {
+      "id": "shop_vink_shared_15",
+      "text": "Vincent: (at the door, turning back with a wink) I'll come back tomorrow. Same time. Don't forget my cinnamon roll.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_16"
+    },
+    {
+      "id": "shop_vink_shared_16",
+      "text": "(The bell rings. The door closes.)",
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_vink_shared_17"
+    },
+   {
+      "id": "shop_vink_shared_17",
+      "text": "(touching his chest, his heart is beating fast) Vincent... Why does that name sound so familiar?",
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_post_vink_1"
+    },
+    {
+      "id": "shop_post_vink_1",
+      "text": "(The bell rings. Vincent is gone. {Name} stays at the door for a moment, his heart still racing.)",
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_post_vink_2"
+    },
+    {
+      "id": "shop_post_vink_2",
+      "text": "(shaking his head) Okay. Focus. Customers.",
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_post_vink_3"
+    },
+    {
+      "id": "shop_post_vink_3",
+      "text": "(5 hour Time-skip)",
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_post_vink_4"
+    },
+    {
+      "id": "shop_post_vink_4",
+      "text": "({Name} serves coffee after coffee. The afternoon rush comes and goes. By evening, the shelves behind the counter are almost empty.)",
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_post_vink_5"
+    },
+    {
+      "id": "shop_post_vink_5",
+      "text": "No milk, no flour, almost no sugar... I need to go shopping before tomorrow.",
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "fadeToBlack": true,
+      "loadScene": "SupermarketScene",
+      "overrideStartNode": "supermarket_1",
+      "nextId": ""
     }
   ]
 }

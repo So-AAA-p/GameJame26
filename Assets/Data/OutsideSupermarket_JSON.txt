@@ -1,0 +1,69 @@
+{
+  "startNodeId": "outside_supermarket_1",
+  "nodes": [
+  {
+      "id": "outside_supermarket_1",
+      "text": "(Two big paper bags in {Name}’s arms, two more in Vincent’s. Light rain.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "outside_supermarket_2"
+    },
+    {
+      "id": "outside_supermarket_2",
+      "text": "Vincent: Give me those, too.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "outside_supermarket_3"
+    },
+    {
+      "id": "outside_supermarket_3",
+      "text": "You’ve already got two! I can manage.",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "outside_supermarket_4"
+    },
+    {
+      "id": "outside_supermarket_4",
+      "text": "Vincent: (taking the bags anyway) Let me be a gentleman once in my life.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "outside_supermarket_5"
+    },
+    {
+      "id": "outside_supermarket_5",
+      "text": "(They walk together to the café. At the door, {Name} unlocks it. Vincent still holds the bags.)",
+      "showLoveInterestV": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "outside_supermarket_6"
+    },
+    {
+      "id": "outside_supermarket_6",
+      "text": "Thank you for helping me. Really.",
+      "showLoveInterestV": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "outside_supermarket_7"
+    },
+    {
+      "id": "outside_supermarket_7",
+      "text": "Vincent: (a pause. He doesn’t leave. His voice drops, warm and low.) It’s cold outside and the rain is getting worse.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "outside_supermarket_8"
+    },
+    {
+      "id": "outside_supermarket_8",
+      "text": "Vincent: May I come in? Just for a moment.",
+      "showLoveInterestV": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": ""
+    }
+  ]
+}

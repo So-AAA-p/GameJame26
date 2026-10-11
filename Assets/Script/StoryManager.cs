@@ -38,6 +38,13 @@ public class DialogueNode
     public bool fadeToBlack;
     public string overrideStartNode;
     public bool showPoints;
+
+    // Flag-Felder für Weichen & Speicherwerte:
+    public string resetFlag;
+    public string setFlag;
+    public string checkFlag;
+    public string flagTrueNextId;
+    public string flagFalseNextId;
 }
 
 [System.Serializable]
@@ -140,6 +147,14 @@ public class StoryManager : MonoBehaviour
         {
             AdvanceDialogue();
         }
+
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            PlayerPrefs.SetInt("HasHaruPin", 0);
+            PlayerPrefs.Save();
+            Debug.Log("Pin manuell entfernt!");
+        }
     }
 
     public void LoadStoryFromJson(string jsonText)
@@ -187,13 +202,12 @@ public class StoryManager : MonoBehaviour
 
     public void DisplayNode(string nodeId)
     {
-        // Ganz an den Anfang von DisplayNode(string id) im StoryManager:
         isWaitingForChoice = false;
         if (gameManager != null && gameManager.choicePanel != null)
         {
             gameManager.choicePanel.SetActive(false);
         }
-        
+
         if (string.IsNullOrEmpty(nodeId) || !nodeMap.ContainsKey(nodeId))
         {
             EndDialogue();
@@ -202,67 +216,75 @@ public class StoryManager : MonoBehaviour
 
         currentNode = nodeMap[nodeId];
 
+        // 1. Charakterbilder setzen:
+        if (elderlyLadysCharacterImage != null) elderlyLadysCharacterImage.SetActive(currentNode.showElderlyLadys);
+        if (loveInterestCharacterImage != null) loveInterestCharacterImage.SetActive(currentNode.showLoveInterestH);
+        if (vinkCharacterImage != null) vinkCharacterImage.SetActive(currentNode.showLoveInterestV);
+        if (customerCharacterImage != null) customerCharacterImage.SetActive(currentNode.showCustomer);
+        if (mafiaMenImage != null) mafiaMenImage.SetActive(currentNode.showMafiaMen);
+
+        /// 2. FLAG-PRÜFUNG (Weiche):
+        if (!string.IsNullOrEmpty(currentNode.checkFlag))
+        {
+            int hasFlag = PlayerPrefs.GetInt(currentNode.checkFlag, 0);
+            
+            // --- HIER SEHEN WIR GENAU, WAS PASSIERT ---
+            Debug.Log("CHECK-FLAG: " + currentNode.checkFlag + " | Aktueller Wert in PlayerPrefs: " + hasFlag);
+            // ------------------------------------------
+
+            if (hasFlag == 1 && !string.IsNullOrEmpty(currentNode.flagTrueNextId))
+            {
+                Debug.Log("-> Springe zu TRUE: " + currentNode.flagTrueNextId);
+                DisplayNode(currentNode.flagTrueNextId);
+                return;
+            }
+            else if (hasFlag == 0 && !string.IsNullOrEmpty(currentNode.flagFalseNextId))
+            {
+                Debug.Log("-> Springe zu FALSE: " + currentNode.flagFalseNextId);
+                DisplayNode(currentNode.flagFalseNextId);
+                return;
+            }
+            if (!string.IsNullOrEmpty(currentNode.resetFlag))
+            {
+                PlayerPrefs.SetInt(currentNode.resetFlag, 0);
+                PlayerPrefs.Save();
+                Debug.Log("Flag auf 0 zurückgesetzt: " + currentNode.resetFlag);
+            }
+        }
+
+        // 3. UI Panels umschalten:
         if (introBubblePanel != null) introBubblePanel.SetActive(false);
         if (narratorBubblePanel != null) narratorBubblePanel.SetActive(false);
         if (speechBubblePanel != null) speechBubblePanel.SetActive(false);
         if (sideCharacterBubblePanel != null) sideCharacterBubblePanel.SetActive(false);
 
-        // 1. Narration (Erzähler)
+        // Textblase zuweisen:
         if (currentNode.isNarration)
         {
             if (narratorBubblePanel != null) narratorBubblePanel.SetActive(true);
             currentActiveTextComponent = narratorText;
         }
-        // 2. Main Character (MC)
         else if (currentNode.useMCBubble)
         {
             if (speechBubblePanel != null) speechBubblePanel.SetActive(true);
             currentActiveTextComponent = dialogueText;
         }
-        // 3. Side Characters (Haru, Mafia, etc.)
         else if (currentNode.useSideCharacterBubble)
         {
             if (sideCharacterBubblePanel != null) sideCharacterBubblePanel.SetActive(true);
             currentActiveTextComponent = sideCharacterText;
         }
-        // 4. Intro Panel (Nur für echte Intro-Knoten)
         else if (currentNode.useIntroPanel || (SceneManager.GetActiveScene().name == "ApartmentScene" && currentNode.id.StartsWith("intro_")))
         {
             if (introBubblePanel != null) introBubblePanel.SetActive(true);
             currentActiveTextComponent = introText;
         }
-        // Fallback: Side Character
         else
         {
             if (sideCharacterBubblePanel != null) sideCharacterBubblePanel.SetActive(true);
             currentActiveTextComponent = sideCharacterText;
         }
 
-        if (elderlyLadysCharacterImage != null)
-        {
-            elderlyLadysCharacterImage.SetActive(currentNode.showElderlyLadys);
-        }
-
-        if (loveInterestCharacterImage != null)
-        {
-            loveInterestCharacterImage.SetActive(currentNode.showLoveInterestH);
-        }
-
-        if (vinkCharacterImage != null)
-        {
-            vinkCharacterImage.SetActive(currentNode.showLoveInterestV);
-        }
-        if (customerCharacterImage != null)
-        {
-            customerCharacterImage.SetActive(currentNode.showCustomer);
-        }
-
-        // Beispiel im StoryManager, falls dort die UI-Bilder geschaltet werden:
-        if (mafiaMenImage != null)
-        {
-            mafiaMenImage.SetActive(currentNode.showMafiaMen);
-        }
-        if (mafiaMenImage != null) mafiaMenImage.SetActive(currentNode.showMafiaMen);
         if (currentNode.removeBlur)
         {
             if (blurCoroutine != null) StopCoroutine(blurCoroutine);
@@ -283,7 +305,6 @@ public class StoryManager : MonoBehaviour
         if (typingCoroutine != null) StopCoroutine(typingCoroutine);
         typingCoroutine = StartCoroutine(TypeSentence(formattedCurrentText));
 
-        // Sobald Punkte einmal freigeschaltet wurden, bleiben sie permanent sichtbar!
         if (currentNode.showPoints || isPointsPanelVisible)
         {
             isPointsPanelVisible = true;
@@ -292,6 +313,14 @@ public class StoryManager : MonoBehaviour
         if (pointsPanel != null)
         {
             pointsPanel.SetActive(isPointsPanelVisible);
+        }
+
+        // FLAG SETZEN (falls im Knoten definiert):
+        if (!string.IsNullOrEmpty(currentNode.setFlag))
+        {
+            PlayerPrefs.SetInt(currentNode.setFlag, 1);
+            PlayerPrefs.Save();
+            Debug.Log("Flag gesetzt: " + currentNode.setFlag);
         }
     }
 
@@ -375,7 +404,6 @@ public class StoryManager : MonoBehaviour
 
             if (gameManager != null && currentNode.options != null)
             {
-                // Übergibt das gesamte options-Array flexibel an den GameManager!
                 gameManager.SetupChoiceButtons(currentNode.options);
                 gameManager.ShowChoiceUI();
             }

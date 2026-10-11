@@ -2618,7 +2618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -3382,6 +3382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f452c3282fcd1cd4ea2c1ea1efe5c11a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameManager
+  nextSceneStartNode: 
   englishHeart: {fileID: 909557318}
   germanHeart: {fileID: 415122306}
   activeColor: {r: 1, g: 0, b: 0, a: 1}
@@ -3389,6 +3390,24 @@ MonoBehaviour:
   usernameInput: {fileID: 509850219}
   fontSizeDisplayText: {fileID: 605058407}
   resolutionDisplayText: {fileID: 341786542}
+  menuPanel: {fileID: 0}
+  menuCanvasGroup: {fileID: 0}
+  animSpeed: 5
+  currentPoints: 0
+  specialAnswerCost: 13
+  pointsDisplayText: {fileID: 0}
+  pointPopUpText: {fileID: 0}
+  gainColor: {r: 0, g: 1, b: 0, a: 1}
+  spendColor: {r: 1, g: 0, b: 0, a: 1}
+  diceImageDisplay: {fileID: 0}
+  diceSprites: []
+  choicePanel: {fileID: 0}
+  diceButton: {fileID: 0}
+  standardAnswerButton: {fileID: 0}
+  mediumAnswerButton: {fileID: 0}
+  specialAnswerButton: {fileID: 0}
+  storyManager: {fileID: 0}
+  currentDayKey: shop_1
 --- !u!4 &1868938278
 Transform:
   m_ObjectHideFlags: 0

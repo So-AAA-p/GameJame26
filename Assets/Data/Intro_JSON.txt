@@ -223,6 +223,7 @@
       "text": "(At the door, he takes the silver pin from his lapel and places it on the nightstand.)",
       "showLoveInterestH": true,
       "isNarration": true,
+      "setFlag": "HasHaruPin",
       "clearBeforeTyping": true,
       "nextId": "apartment_help_23"
     },

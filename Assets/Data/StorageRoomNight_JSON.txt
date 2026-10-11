@@ -285,10 +285,11 @@
       "nextId": "storage_yes_6"
     },
     {
-      "id": "storage_yes_6",
+     "id": "storage_yes_6",
       "text": "(Haru reaches for his lapel. He unpins the small silver crest and holds it out in his palm.)",
       "isNarration": true,
       "showLoveInterestH": true,
+      "setFlag": "HasHaruPin",
       "clearBeforeTyping": true,
       "nextId": "storage_yes_7"
     },
@@ -823,7 +824,7 @@
     },
     {
       "id": "storage_ambulance_21",
-      "text": "(quietly) Haru… I didn't help him. But I didn't let him die either...",
+      "text": "(quietly) Haru... I didn't help him. But I didn't let him die either...",
       "useMCBubble": true,
       "isThought": true,
       "clearBeforeTyping": true,

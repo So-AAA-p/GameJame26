@@ -27,6 +27,7 @@ public class DialogueNode
     public bool showElderlyLadys;
     public bool showCustomer;
     public bool showLoveInterestH;
+    public bool showMafiaMen;
     public bool useSideCharacterBubble;
     public bool removeBlur;
     public bool clearBeforeTyping;
@@ -84,6 +85,7 @@ public class StoryManager : MonoBehaviour
     public GameObject elderlyLadysCharacterImage;
     public GameObject loveInterestCharacterImage;
     public GameObject customerCharacterImage;
+    public GameObject mafiaMenImage;
 
     [Header("UI References - Points System")]
     public GameObject pointsPanel;
@@ -203,21 +205,31 @@ public class StoryManager : MonoBehaviour
         if (speechBubblePanel != null) speechBubblePanel.SetActive(false);
         if (sideCharacterBubblePanel != null) sideCharacterBubblePanel.SetActive(false);
 
-        if (SceneManager.GetActiveScene().name == "ApartmentScene" && !currentNode.useMCBubble)
-        {
-            if (introBubblePanel != null) introBubblePanel.SetActive(true);
-            currentActiveTextComponent = introText;
-        }
-        else if (currentNode.isNarration)
+        // 1. Narration (Erzähler)
+        if (currentNode.isNarration)
         {
             if (narratorBubblePanel != null) narratorBubblePanel.SetActive(true);
             currentActiveTextComponent = narratorText;
         }
+        // 2. Main Character (MC)
         else if (currentNode.useMCBubble)
         {
             if (speechBubblePanel != null) speechBubblePanel.SetActive(true);
             currentActiveTextComponent = dialogueText;
         }
+        // 3. Side Characters (Haru, Mafia, etc.)
+        else if (currentNode.useSideCharacterBubble)
+        {
+            if (sideCharacterBubblePanel != null) sideCharacterBubblePanel.SetActive(true);
+            currentActiveTextComponent = sideCharacterText;
+        }
+        // 4. Intro Panel (Nur für echte Intro-Knoten)
+        else if (currentNode.useIntroPanel || (SceneManager.GetActiveScene().name == "ApartmentScene" && currentNode.id.StartsWith("intro_")))
+        {
+            if (introBubblePanel != null) introBubblePanel.SetActive(true);
+            currentActiveTextComponent = introText;
+        }
+        // Fallback: Side Character
         else
         {
             if (sideCharacterBubblePanel != null) sideCharacterBubblePanel.SetActive(true);
@@ -239,6 +251,12 @@ public class StoryManager : MonoBehaviour
             customerCharacterImage.SetActive(currentNode.showCustomer);
         }
 
+        // Beispiel im StoryManager, falls dort die UI-Bilder geschaltet werden:
+        if (mafiaMenImage != null)
+        {
+            mafiaMenImage.SetActive(currentNode.showMafiaMen);
+        }
+        if (mafiaMenImage != null) mafiaMenImage.SetActive(currentNode.showMafiaMen);
         if (currentNode.removeBlur)
         {
             if (blurCoroutine != null) StopCoroutine(blurCoroutine);

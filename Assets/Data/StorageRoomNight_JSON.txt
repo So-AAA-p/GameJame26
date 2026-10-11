@@ -362,7 +362,7 @@
       "isNarration": true,
       "showLoveInterestH": true,
       "clearBeforeTyping": true,
-      "nextId": ""
+      "nextId": "storage_end_1"
     },
     {
       "id": "storage_maybe_1",
@@ -394,7 +394,7 @@
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
       "clearBeforeTyping": true,
-      "nextId": ""
+      "nextId": "storage_end_1"
     },
     {
       "id": "storage_notgood_1",
@@ -442,6 +442,398 @@
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
       "clearBeforeTyping": true,
+      "nextId": "storage_end_1"
+    },
+    {
+      "id": "storage_end_1",
+      "text": "(Haru walks to the back door and stops for a moment.)",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_end_2"
+    },
+    {
+      "id": "storage_end_2",
+      "text": "Thank you, {Name}. I won't forget this.",
+      "useSideCharacterBubble": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_end_3"
+    },
+    {
+      "id": "storage_end_3",
+      "text": "(The door closes. {Name} stays behind in the quiet storage room, staring at the bloodstained towel.)",
+      "isNarration": true,
+      "showLoveInterestH": false,
+      "clearBeforeTyping": true,
+      "nextId": "storage_end_4"
+    },
+    {
+      "id": "storage_end_4",
+      "text": "What did I just get myself into?",
+      "useMCBubble": true,
+      "isThought": true,
+      "fadeToBlack": true,
+      "clearBeforeTyping": true,
+      "nextId": ""
+    },
+    {
+      "id": "storage_ignore_1",
+      "text": "(Storage room. A single weak bulb flickers.)",
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ignore_2"
+    },
+    {
+      "id": "storage_ignore_2",
+      "text": "(??? releases {Name}'s wrists and blocks the door.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ignore_3"
+    },
+    {
+      "id": "storage_ignore_3",
+      "text": "???: You locked the door on me. Do you know what could have happened if I'd had no way in?",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ignore_4"
+    },
+    {
+      "id": "storage_ignore_4",
+      "text": "(backing away) I... I didn't know who you were. I was scared.",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ignore_5"
+    },
+    {
+      "id": "storage_ignore_5",
+      "text": "???: And now?",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ignore_6"
+    },
+    {
+      "id": "storage_ignore_6",
+      "text": "(barely audible) ...I'm still scared.",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ignore_7"
+    },
+    {
+      "id": "storage_ignore_7",
+      "text": "???: (a bitter smile) Good. That means you're not stupid.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ignore_8"
+    },
+    {
+      "id": "storage_ignore_8",
+      "text": "???: Listen. Those men will check every building in this street. If anyone asks, you haven't seen...",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ignore_9"
+    },
+    {
+      "id": "storage_ignore_9",
+      "text": "(He stops mid-sentence. His hand slips from the doorframe. His eyes lose focus.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ignore_10"
+    },
+    {
+      "id": "storage_ignore_10",
+      "text": "???: ...Tch. Not now...",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ignore_11"
+    },
+    {
+      "id": "storage_ignore_11",
+      "text": "(He collapses to the floor. Blood spreads across his shirt. He doesn't move.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ignore_12"
+    },
+    {
+      "id": "storage_ignore_12",
+      "text": "H-hey! Hey, wake up!",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ignore_13"
+    },
+    {
+      "id": "storage_ignore_13",
+      "text": "(No response. {Name} stands frozen. Rain drums on the roof.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ignore_14"
+    },
+    {
+      "id": "storage_ignore_14",
+      "text": "He just threatened me… but he's dying right in front of me.",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ignore_choice"
+    },
+    {
+      "id": "storage_ignore_choice",
+      "text": "What should I do?",
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "showPoints": true,
+      "isChoice": true,
+      "options": [
+        {
+          "text": "Call an ambulance",
+          "cost": 0,
+          "nextId": "storage_ambulance_1"
+        },
+        {
+          "text": "Help him",
+          "cost": 13,
+          "nextId": "storage_help_1"
+        }
+      ]
+    },
+    {
+      "id": "storage_help_1",
+      "text": "(quietly) I can't let him die. Not like this.",
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_help_2"
+    },
+    {
+      "id": "storage_help_2",
+      "text": "({Name} grabs the first-aid kit, kneels and cuts open the shirt. His hands tremble, but he works carefully. He cleans the wound, bandages it and presses a towel against it.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_help_3"
+    },
+    {
+      "id": "storage_help_3",
+      "text": "Come on... stay with me.",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_help_4"
+    },
+    {
+      "id": "storage_help_4",
+      "text": "(The man is too heavy to carry alone. {Name} wraps an arm around his shoulder and drags him step by step up the stairs.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "loadScene": "ApartmentNightScene",
+      "overrideStartNode": "apartment_night_help_1",
+      "nextId": ""
+    },
+    {
+      "id": "storage_ambulance_1",
+      "text": "(taking out his phone) I'll call an ambulance. That's the right thing to do.",
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_2"
+    },
+    {
+      "id": "storage_ambulance_2",
+      "text": "({Name}'s thumb hovers over the screen. Before he can dial, heavy footsteps echo in the alley. The back door bursts open. Two men in black suits rush in, out of breath, rain dripping from their shoulders.)",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_3"
+    },
+    {
+      "id": "storage_ambulance_3",
+      "text": "Man in Suit 1: (scanning the room) Boss?! Where are you!?",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_4"
+    },
+    {
+      "id": "storage_ambulance_4",
+      "text": "(His eyes land on the unconscious man on the floor. Then on {Name} and the phone in his hand. He moves faster than {Name} can react and knocks the phone out of his grip. It clatters across the floor.)",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_5"
+    },
+    {
+      "id": "storage_ambulance_5",
+      "text": "Man in Suit 1: (coldly) Who did you call?",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_6"
+    },
+    {
+      "id": "storage_ambulance_6",
+      "text": "(raising his hands) N-nobody! I only... He collapsed, I wanted to…",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_7"
+    },
+    {
+      "id": "storage_ambulance_7",
+      "text": "Man in Suit 2: (kneeling beside the injured man, checking his pulse) He's alive. But he's lost a lot of blood. We need to move. Now.",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_8"
+    },
+    {
+      "id": "storage_ambulance_8",
+      "text": "(Man in Suit 1 steps closer to {Name}. His voice is low and controlled.)",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_9"
+    },
+    {
+      "id": "storage_ambulance_9",
+      "text": "Man in Suit 1: Listen carefully. An ambulance means police. Police means questions, and questions are bad for everyone, including you.",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_10"
+    },
+    {
+      "id": "storage_ambulance_10",
+      "text": "(swallowing) ...I understand.",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_11"
+    },
+    {
+      "id": "storage_ambulance_11",
+      "text": "Man in Suit 1: (a short pause, his tone softens slightly) But you didn't run and you didn't leave him lying outside. We noticed. Forget this night. You saw nothing and heard nothing.",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_12"
+    },
+    {
+      "id": "storage_ambulance_12",
+      "text": "(quietly) ...Is he going to be okay?",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_13"
+    },
+    {
+      "id": "storage_ambulance_13",
+      "text": "Man in Suit 1: (already turning away) That's not your concern.",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_14"
+    },
+    {
+      "id": "storage_ambulance_14",
+      "text": "(The two men lift the unconscious man between them. One of them pulls a towel from the counter and presses it against the wound as they carry him toward the door.)",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_15"
+    },
+    {
+      "id": "storage_ambulance_15",
+      "text": "Man in Suit 2: (muttering) Hold on, Haru. Don't you dare die on us.",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_16"
+    },
+    {
+      "id": "storage_ambulance_16",
+      "text": "({Name} freezes. For a second, the name hangs in the air.)",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_17"
+    },
+    {
+      "id": "storage_ambulance_17",
+      "text": "Man in Suit 1: (sharply) Don't say his name here.",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_18"
+    },
+    {
+      "id": "storage_ambulance_18",
+      "text": "Man in Suit 2: ...Sorry.",
+      "showLoveInterestH": false,
+      "showMafiaMen": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_19"
+    },
+    {
+      "id": "storage_ambulance_19",
+      "text": "(The back door closes behind them. Rain drums on the roof again.)",
+      "showLoveInterestH": false,
+      "showMafiaMen": false,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_20"
+    },
+    {
+      "id": "storage_ambulance_20",
+      "text": "({Name} stays alone in the storage room, staring at the dark stain on the floor and his phone lying next to it.)",
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_21"
+    },
+    {
+      "id": "storage_ambulance_21",
+      "text": "(quietly) Haru… I didn't help him. But I didn't let him die either...",
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "nextId": "storage_ambulance_22"
+    },
+    {
+      "id": "storage_ambulance_22",
+      "text": "And those men called him 'Boss.' What kind of people live in this neighborhood?",
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "fadeToBlack": true,
       "nextId": ""
     }
   ]

@@ -50,6 +50,206 @@
       "clearBeforeTyping": true,
       "loadScene": "CoffeeShopScene",
       "nextId": ""
+    },
+    {
+      "id": "apartment_help_1",
+      "text": "(Early morning. Gray light through the curtains.)",
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_2"
+    },
+    {
+      "id": "apartment_help_2",
+      "text": "(Haru slowly opens his eyes. He sees the ceiling, the bandage, then {Name} asleep on the chair, still wearing yesterday's apron.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_3"
+    },
+    {
+      "id": "apartment_help_3",
+      "text": "Haru: (quietly, to himself) ...He stayed.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_4"
+    },
+    {
+      "id": "apartment_help_4",
+      "text": "(He sits up carefully. A glass of water and a folded towel are on the nightstand.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_5"
+    },
+    {
+      "id": "apartment_help_5",
+      "text": "(Haru stares at them for a long moment. {Name} stirs and wakes up.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_6"
+    },
+    {
+      "id": "apartment_help_6",
+      "text": "(startled) You're awake! Don't move, you'll open the wound!",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_7"
+    },
+    {
+      "id": "apartment_help_7",
+      "text": "Haru: (calm, almost gentle) You locked the door on me last night.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_8"
+    },
+    {
+      "id": "apartment_help_8",
+      "text": "(looks down) ...I know. I'm sorry. I was afraid.",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_9"
+    },
+    {
+      "id": "apartment_help_9",
+      "text": "Haru: I know. I saw it. And yet...",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_10"
+    },
+    {
+      "id": "apartment_help_10",
+      "text": "(He looks at the bandage.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_11"
+    },
+    {
+      "id": "apartment_help_11",
+      "text": "Haru: You came back. When I fell. Nobody was watching you, nobody forced you. You could have walked away and you didn't.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_12"
+    },
+    {
+      "id": "apartment_help_12",
+      "text": "I couldn't just let you die.",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_13"
+    },
+    {
+      "id": "apartment_help_13",
+      "text": "Haru: (a faint smile) Most people could.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_14"
+    },
+    {
+      "id": "apartment_help_14",
+      "text": "Haru: My name is Haru and you, who gave me your bed after I scared you half to death... I think I owe you a very big apology.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_15"
+    },
+    {
+      "id": "apartment_help_15",
+      "text": "(flustered) Just... don't scare me like that again.",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_16"
+    },
+    {
+      "id": "apartment_help_16",
+      "text": "Haru: (low laugh) I'll try. No promises.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_17"
+    },
+    {
+      "id": "apartment_help_17",
+      "text": "Haru: (looks at {Name}, a little curious) ...What's the name of my savior?",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_18"
+    },
+    {
+      "id": "apartment_help_18",
+      "text": "(a little awkward) Savior is a bit much. I'm {Name}.",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_19"
+    },
+    {
+      "id": "apartment_help_19",
+      "text": "Haru: {Name}. (softly) I'll remember it.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_20"
+    },
+    {
+      "id": "apartment_help_20",
+      "text": "(Haru's phone vibrates on the nightstand. He glances at it, then stands up slowly.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_21"
+    },
+    {
+      "id": "apartment_help_21",
+      "text": "Haru: My men are waiting. I have to go.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_22"
+    },
+    {
+      "id": "apartment_help_22",
+      "text": "(At the door, he takes the silver pin from his lapel and places it on the nightstand.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_23"
+    },
+    {
+      "id": "apartment_help_23",
+      "text": "Haru: Keep this. Consider it a deposit. I'll come back for it.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_24"
+    },
+    {
+      "id": "apartment_help_24",
+      "text": "(The door closes softly.)",
+      "showLoveInterestH": false,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_help_25"
+    },
+    {
+      "id": "apartment_help_25",
+      "text": "(quietly) A deposit... So he's definitely coming back.",
+      "useMCBubble": true,
+      "isThought": true,
+      "clearBeforeTyping": true,
+      "fadeToBlack": true,
+      "nextId": ""
     }
   ]
 }

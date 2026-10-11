@@ -11,6 +11,25 @@
       "loadScene": "CoffeeShopScene",
       "overrideStartNode": "shop_day2_1",
       "nextId": ""
-    }
+    },
+    {
+      "id": "apartment_night_help_1",
+      "text": "({Name} lays him down on his own bed and covers him with a blanket.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "apartment_night_help_2"
+    },
+    {
+    "id": "apartment_night_help_2",
+    "text": "(exhausted, sitting on a chair next to the bed) What am I doing...",
+    "showLoveInterestH": true,
+    "useMCBubble": true,
+    "isThought": true,
+    "fadeToBlack": true,
+    "clearBeforeTyping": true,
+    "loadScene": "ApartmentScene",
+     "overrideStartNode": "apartment_help_1"
+  }
   ]
 }

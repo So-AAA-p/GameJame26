@@ -444,7 +444,6 @@ MonoBehaviour:
   dialogueText: {fileID: 1154575419}
   sideCharacterBubblePanel: {fileID: 1748857564}
   sideCharacterText: {fileID: 722885961}
-  customerCharacterImage: {fileID: 526030832}
   backgroundImage: {fileID: 0}
   gameManager: {fileID: 768591680}
   nameInputPanel: {fileID: 0}
@@ -454,6 +453,32 @@ MonoBehaviour:
   dialogueJsonFile: {fileID: 4900000, guid: 806ec9276fd03fb44bb687b0641102ea, type: 3}
   blackScreenPanel: {fileID: 515361669}
   elderlyLadysCharacterImage: {fileID: 236378583}
+  loveInterestCharacterImage: {fileID: 1435472625}
+  customerCharacterImage: {fileID: 526030832}
+  mafiaMenImage: {fileID: 0}
+  pointsPanel: {fileID: 0}
+  currentNode:
+    id: 
+    text: 
+    isChoice: 0
+    isNameInput: 0
+    useMCBubble: 0
+    isNarration: 0
+    useIntroPanel: 0
+    isThought: 0
+    showElderlyLadys: 0
+    showCustomer: 0
+    showLoveInterestH: 0
+    showMafiaMen: 0
+    useSideCharacterBubble: 0
+    removeBlur: 0
+    clearBeforeTyping: 0
+    loadScene: 
+    options: []
+    nextId: 
+    fadeToBlack: 0
+    overrideStartNode: 
+    showPoints: 0
 --- !u!4 &496115410
 Transform:
   m_ObjectHideFlags: 0
@@ -1101,6 +1126,7 @@ MonoBehaviour:
   choicePanel: {fileID: 0}
   diceButton: {fileID: 0}
   standardAnswerButton: {fileID: 0}
+  mediumAnswerButton: {fileID: 0}
   specialAnswerButton: {fileID: 0}
   storyManager: {fileID: 0}
   currentDayKey: shop_1
@@ -1522,6 +1548,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285383790}
   m_CullTransparentMesh: 1
+--- !u!1 &1435472625
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1435472626}
+  - component: {fileID: 1435472628}
+  - component: {fileID: 1435472627}
+  m_Layer: 5
+  m_Name: CharacterHaru
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!224 &1435472626
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435472625}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1710676160}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -538, y: 21}
+  m_SizeDelta: {x: 700, y: 900}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1435472627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435472625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 5748288693249694161, guid: 6f697427df81ff44ea02322207877db9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1435472628
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1435472625}
+  m_CullTransparentMesh: 1
 --- !u!1 &1545778622
 GameObject:
   m_ObjectHideFlags: 0
@@ -1786,9 +1887,10 @@ RectTransform:
   - {fileID: 1980501381}
   - {fileID: 1767443508}
   - {fileID: 1545778623}
-  - {fileID: 284162026}
   - {fileID: 236378584}
   - {fileID: 526030833}
+  - {fileID: 1435472626}
+  - {fileID: 284162026}
   - {fileID: 1748857565}
   - {fileID: 1585153720}
   m_Father: {fileID: 0}

@@ -64,6 +64,16 @@ public class GameManager : MonoBehaviour
     public GameObject specialAnswerButton;
     public StoryManager storyManager;
 
+    [ContextMenu("Reset Player Points")]
+    public void ResetPlayerPrefs()
+    {
+        PlayerPrefs.DeleteKey("HasReceivedStartPoints");
+        currentPoints = 10;
+        PlayerPrefs.Save();
+        UpdatePointsUI();
+        Debug.Log("Punkte und Start-Flag wurden zurückgesetzt!");
+    }
+
     [Header("Story Progress")]
     public string currentDayKey = "shop_1";
 
@@ -98,10 +108,11 @@ public class GameManager : MonoBehaviour
         RebindSceneUI();
     }
 
-    private void Start()
-    {
         // 1. Prüfen, ob der Spieler bereits Startpunkte erhalten hat
-        if (PlayerPrefs.GetInt("HasReceivedStartPoints", 0) == 0)
+       private void Start()
+    {
+        // 1. Startpunkte vergeben, falls sie noch gar nicht da sind oder der Spieler bei 0 startet
+        if (PlayerPrefs.GetInt("HasReceivedStartPoints", 0) == 0 || currentPoints <= 0)
         {
             currentPoints = 10; // Startguthaben vergeben
             PlayerPrefs.SetInt("HasReceivedStartPoints", 1);
@@ -456,6 +467,8 @@ public class GameManager : MonoBehaviour
     }
 
     // 1. Standard-Antwort (immer kostenlos, cost = 0)
+    // 1. Standard-Antwort (Immer kostenlos)
+    // 1. Standard-Antwort (Immer kostenlos)
     public void SelectStandardAnswer()
     {
         if (choicePanel != null) choicePanel.SetActive(false);
@@ -464,45 +477,52 @@ public class GameManager : MonoBehaviour
         if (storyManager != null && storyManager.currentNode != null && storyManager.currentNode.options.Count > 0)
         {
             string nextId = storyManager.currentNode.options[0].nextId;
-            storyManager.DisplayNode(nextId);
+            if (storyManager != null) storyManager.DisplayNode(nextId);
         }
     }
 
-    // 2. Medium-Antwort (z.B. 7 Punkte)
+    // 2. Medium-Antwort (Index 1)
     public void SelectMediumAnswer()
     {
         if (choicePanel != null) choicePanel.SetActive(false);
-
-        int cost = 7;
-        currentPoints -= cost;
-        if (currentPoints < 0) currentPoints = 0;
-        UpdatePointsUI();
-        ShowPointPopUp($"-{cost} Punkte", spendColor);
 
         if (storyManager == null) storyManager = FindAnyObjectByType<StoryManager>();
         if (storyManager != null && storyManager.currentNode != null && storyManager.currentNode.options.Count > 1)
         {
             string nextId = storyManager.currentNode.options[1].nextId;
-            storyManager.DisplayNode(nextId);
+            if (storyManager != null) storyManager.DisplayNode(nextId);
         }
     }
 
-    // 3. Special-Antwort (z.B. 13 oder 14 Punkte)
+    // 3. Special-Antwort (Index 2 bei 3 Optionen, sonst Index 1)
     public void SelectSpecialAnswer()
     {
         if (choicePanel != null) choicePanel.SetActive(false);
 
-        // Punkte abziehen
-        currentPoints -= specialAnswerCost;
-        if (currentPoints < 0) currentPoints = 0;
-        UpdatePointsUI();
-        ShowPointPopUp($"-{specialAnswerCost} Punkte", spendColor);
-
         if (storyManager == null) storyManager = FindAnyObjectByType<StoryManager>();
-        if (storyManager != null && storyManager.currentNode != null && storyManager.currentNode.options.Count > 1)
+        if (storyManager != null && storyManager.currentNode != null)
         {
             int optionIndex = storyManager.currentNode.options.Count >= 3 ? 2 : 1;
-            string nextId = storyManager.currentNode.options[optionIndex].nextId;
+            if (storyManager.currentNode.options.Count > optionIndex)
+            {
+                string nextId = storyManager.currentNode.options[optionIndex].nextId;
+                if (storyManager != null) storyManager.DisplayNode(nextId);
+            }
+        }
+    }
+    // Hilfsmethode, die das Abziehen und Weiterleiten bündelt
+    private void ApplyChoiceCostAndProceed(int cost, string nextId)
+    {
+        if (cost > 0)
+        {
+            currentPoints -= cost;
+            if (currentPoints < 0) currentPoints = 0;
+            UpdatePointsUI();
+            ShowPointPopUp($"-{cost} Punkte", spendColor);
+        }
+
+        if (storyManager != null)
+        {
             storyManager.DisplayNode(nextId);
         }
     }

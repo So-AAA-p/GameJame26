@@ -262,6 +262,7 @@
     "id": "shop_day2_26",
     "text": "",
     "fadeToBlack": true,
+    "fadeToBlack": true,
     "overrideStartNode": "shop_day3_1",
     "nextId": "shop_day3_1"
   },
@@ -347,7 +348,158 @@
       "useMCBubble": true,
       "isThought": true,
       "clearBeforeTyping": true,
-      "nextId": "shop_day1_end"
+      "nextId": "shop_ignore_10"
+    },
+    {
+      "id": "shop_ignore_10",
+      "text": "(Suddenly, loud footsteps can be heard outside. Men shouting in the street. The customers look up nervously.)",
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_11"
+    },
+    {
+      "id": "shop_ignore_11",
+      "text": "Customer: What's going on out there?",
+      "showCustomer": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_12"
+    },
+    {
+      "id": "shop_ignore_12",
+      "text": "(The back door swings open.)",
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_13"
+    },
+    {
+      "id": "shop_ignore_13",
+      "text": "(The man from the alley stumbles in, pressing his hands against his bleeding side. The customers gasp.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_14"
+    },
+    {
+      "id": "shop_ignore_14",
+      "text": "You! I locked that door!",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_15"
+    },
+    {
+      "id": "shop_ignore_15",
+      "text": "???: (coldly) Locks don't mean much to me.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_16"
+    },
+    {
+      "id": "shop_ignore_16",
+      "text": "(??? glances at the customers. They immediately get up and rush out of the café, leaving their half-finished food behind.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_17"
+    },
+    {
+      "id": "shop_ignore_17",
+      "text": "???: Smart people. You should have gone with them.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_18"
+    },{
+      "id": "shop_ignore_18",
+      "text": "???: (low voice) Close the cafe.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_19"
+    },
+    {
+      "id": "shop_ignore_19",
+      "text": "What?",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_20"
+    },
+    {
+      "id": "shop_ignore_20",
+      "text": "???: Lock the front door. Flip the sign. Turn off the lights. Now.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_21"
+    },
+    {
+      "id": "shop_ignore_21",
+      "text": "(stammering) Please, I don't want any trouble...",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_22"
+    },
+    {
+      "id": "shop_ignore_22",
+      "text": "???: (coldly) Then do as I say.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_23"
+    },
+    {
+      "id": "shop_ignore_23",
+      "text": "({Name} walks to the front door with shaking hands. The sign turns to 'Closed'. One by one, the lights go out. Only the dim streetlight shines through the window. Shadows pass outside and voices fade into the rain.)",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_24"
+    },
+    {
+      "id": "shop_ignore_24",
+      "text": "(Suddenly, a hand grabs {Name}'s wrists from behind and pulls them together. A rough breath next to the ear.)",
+      "showLoveInterestH": true,
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_25"
+    },
+    {
+      "id": "shop_ignore_25",
+      "text": "???: (whispering) Don't scream. Don't struggle. Walk.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_26"
+    },
+    {
+      "id": "shop_ignore_26",
+      "text": "(trembling) W-what are you going to do to me?",
+      "showLoveInterestH": true,
+      "useMCBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_27"
+    },
+    {
+      "id": "shop_ignore_27",
+      "text": "???: Storage room. Move.",
+      "showLoveInterestH": true,
+      "useSideCharacterBubble": true,
+      "clearBeforeTyping": true,
+      "nextId": "shop_ignore_28"
+    },
+   {
+      "id": "shop_ignore_28",
+      "text": "(??? pushes him forward, step by step, into the storage room. The door closes behind them.)",
+      "isNarration": true,
+      "showLoveInterestH": true,
+      "clearBeforeTyping": true,
+      "loadScene": "StorageRoomNightScene",
+      "overrideStartNode": "storage_ignore_1",
+      "nextId": ""
     }
   ]
 }

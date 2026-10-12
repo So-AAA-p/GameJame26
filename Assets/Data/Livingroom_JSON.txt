@@ -21,6 +21,7 @@
       "text": "???: (muttering) Come on... where would he leave something?",
       "useSideCharacterBubble": true,
       "showRobber": true,
+      "voiceClip": "Vinc-Annoyed",
       "clearBeforeTyping": true,
       "nextId": "livingroom_4"
     },
@@ -37,6 +38,7 @@
       "text": "???: (quietly) ...No. Not in there.",
       "useSideCharacterBubble": true,
       "showRobber": true,
+      "voiceClip": "Vinc-Whisper","
       "clearBeforeTyping": true,
       "nextId": "livingroom_6"
     },

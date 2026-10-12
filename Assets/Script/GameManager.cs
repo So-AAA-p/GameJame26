@@ -165,13 +165,20 @@ public class GameManager : MonoBehaviour
             menuPanel.SetActive(false);
         }
 
+        ResetStoryProgress();
+        RebindSceneUI();
+    }
+
+    // Setzt Punkte, Flags und Affection für ein neues Spiel zurück
+    private void ResetStoryProgress()
+    {
         PlayerPrefs.SetInt("PointsVisible", 0);
         PlayerPrefs.SetInt("HasHaruPin", 0);
+        PlayerPrefs.DeleteKey("NextStartNode");
         PlayerPrefs.Save();
         AffectionData.ResetAll();
-        SceneManager.LoadScene("ApartmentScene");
-
-        RebindSceneUI();
+        currentPoints = 10;
+        UpdatePointsUI();
     }
 
     private void RebindSceneUI()
@@ -387,6 +394,7 @@ public class GameManager : MonoBehaviour
 
     public void StartGame()
     {
+        ResetStoryProgress();
         SceneManager.LoadScene("ApartmentScene");
     }
 

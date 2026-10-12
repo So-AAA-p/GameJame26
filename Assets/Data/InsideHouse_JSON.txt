@@ -205,7 +205,7 @@
   "text": "Vincent: (muttering) He was here. I know it. Where did you leave something, Haru...?",
   "showLoveInterestV": true,
   "useSideCharacterBubble": true,
-  "voiceClip": "Vinc-Serious",
+  "voiceClip": "Vinc-Annoyed",
   "clearBeforeTyping": true,
   "nextId": "house_26"
 },
@@ -252,6 +252,6 @@
   "loadScene": "ApartmentScene",
   "overrideStartNode": "apartment_past_vink",
   "nextId": ""
-},
+}
     ]
 }

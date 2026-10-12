@@ -288,8 +288,9 @@
 },
 {
   "id": "apartment_past_vink_4",
-  "text": "(\"You fell asleep. I didn't want to wake you. Call me if you want some company again. — V. +49 XXX XXXX\")",
+  "text": "(\"You fell asleep. I didn't want to wake you. Call me if you want some company again.  V. +49 XXX XXXX\")",
   "isNarration": true,
+   "voiceClip": "Vinc-Flirty",
   "clearBeforeTyping": true,
   "nextId": "apartment_past_vink_5"
 },
@@ -365,6 +366,7 @@
   "id": "apartment_text_3",
   "text": "Vincent: \"Don't apologize. I had a very nice evening. See you at noon. Don't forget my cinnamon roll ;)\"",
   "useSideCharacterBubble": true,
+   "voiceClip": "Vinc-Flirty",
   "clearBeforeTyping": true,
   "nextId": "apartment_merge_1"
 },

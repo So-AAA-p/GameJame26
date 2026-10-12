@@ -589,6 +589,7 @@ MonoBehaviour:
   customerCharacterImage: {fileID: 526030832}
   mafiaMenImage: {fileID: 0}
   vinkCharacterImage: {fileID: 1899415566}
+  robberCharacterImage: {fileID: 0}
   pointsPanel: {fileID: 1523373026}
   affectionUI: {fileID: 0}
   currentNode:
@@ -605,6 +606,7 @@ MonoBehaviour:
     showLoveInterestH: 0
     showLoveInterestV: 0
     showMafiaMen: 0
+    showRobber: 0
     useSideCharacterBubble: 0
     removeBlur: 0
     clearBeforeTyping: 0
@@ -2481,7 +2483,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5748288693249694161, guid: 6f697427df81ff44ea02322207877db9, type: 3}
+  m_Sprite: {fileID: 4514935934597121135, guid: d727b342f2d4fe1498a29beaa2623f1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3322,8 +3324,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -538, y: -37}
-  m_SizeDelta: {x: 800, y: 800}
+  m_AnchoredPosition: {x: -538, y: -241}
+  m_SizeDelta: {x: 800, y: 1500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1899415568
 MonoBehaviour:
@@ -3345,7 +3347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3189985966339550825, guid: 43437fc5e6f3e5d4cbfbc553ee16f5ad, type: 3}
+  m_Sprite: {fileID: 7521895029735805502, guid: 5d487663c1ed2454b90318cb754f3eff, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

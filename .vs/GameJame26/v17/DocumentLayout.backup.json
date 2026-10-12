@@ -7,7 +7,7 @@
       "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\ending_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|c:\\users\\josep\\documents\\github\\gamejame26\\assets\\data\\intro_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\data\\intro_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\intro_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
@@ -115,8 +115,7 @@
               "RelativeToolTip": "Assets\\Data\\Intro_JSON.txt",
               "ViewState": "AgIAAHcBAAAAAAAAAAAQwJcBAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-10-10T11:08:12.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-10-10T11:08:12.603Z"
             },
             {
               "$type": "Document",

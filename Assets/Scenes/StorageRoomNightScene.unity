@@ -537,6 +537,7 @@ MonoBehaviour:
   customerCharacterImage: {fileID: 0}
   mafiaMenImage: {fileID: 1203185974}
   vinkCharacterImage: {fileID: 0}
+  robberCharacterImage: {fileID: 0}
   pointsPanel: {fileID: 2046974853}
   affectionUI: {fileID: 0}
   currentNode:
@@ -553,6 +554,7 @@ MonoBehaviour:
     showLoveInterestH: 0
     showLoveInterestV: 0
     showMafiaMen: 0
+    showRobber: 0
     useSideCharacterBubble: 0
     removeBlur: 0
     clearBeforeTyping: 0
@@ -3161,7 +3163,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 5748288693249694161, guid: 6f697427df81ff44ea02322207877db9, type: 3}
+  m_Sprite: {fileID: 4514935934597121135, guid: d727b342f2d4fe1498a29beaa2623f1e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

@@ -38,7 +38,7 @@
       "text": "???: (quietly) ...No. Not in there.",
       "useSideCharacterBubble": true,
       "showRobber": true,
-      "voiceClip": "Vinc-Whisper","
+      "voiceClip": "Vinc-Whisper",
       "clearBeforeTyping": true,
       "nextId": "livingroom_6"
     },

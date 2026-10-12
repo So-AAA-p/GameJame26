@@ -94,12 +94,16 @@
         {
           "text": "Ignore him",
           "cost": 0,
-          "nextId": "alley_ignore_1"
+          "nextId": "alley_ignore_1",
+          "affectionTarget": "Haru",
+          "affectionChange": 1
         },
         {
           "text": "Help him",
           "cost": 13,
-          "nextId": "alley_help_1"
+          "nextId": "alley_help_1",
+          "affectionTarget": "Haru",
+          "affectionChange": 3
         }
       ]
     },
@@ -117,6 +121,7 @@
       "text": "???: ...Go back inside. You didn't see anything.",
       "showLoveInterestH": true,
       "showPoints": true,
+      "voiceClip": "Haru_Cold",
       "clearBeforeTyping": true,
       "nextId": "alley_help_3"
     },
@@ -143,6 +148,7 @@
       "text": "???: I said, go back inside.",
       "showLoveInterestH": true,
       "showPoints": true,
+      "voiceClip": "Haru_Deep",
       "clearBeforeTyping": true,
       "nextId": "alley_help_6"
     },
@@ -178,6 +184,7 @@
       "text": "???:...You're making a mistake.",
       "showLoveInterestH": true,
       "showPoints": true,
+      "voiceClip": "Haru_Serious",
       "clearBeforeTyping": true,
       "nextId": "alley_help_10"
     },
@@ -216,6 +223,23 @@
       "clearBeforeTyping": true,
       "loadScene": "CoffeeShopScene",
       "overrideStartNode": "shop_ignore_4"
-    }
+    },
+    {
+  "id": "night_intruder_1",
+  "text": "(Night. 3 a.m. The cafe is dark and silent. A shadow moves along the back alley. The back door lock clicks, almost soundlessly.)",
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "night_intruder_2"
+},
+{
+  "id": "night_intruder_2",
+  "text": "(??? enters, wearing dark clothes, a flashlight in his hand. He climbs the stairs without a sound.)",
+  "isNarration": true,
+  "showRobber": true,
+  "clearBeforeTyping": true,
+  "loadScene": "LivingroomScene",
+  "overrideStartNode": "livingroom_1",
+  "nextId": ""
+}
   ]
 }

@@ -38,6 +38,7 @@
       "text": "???: (faint smirk) Straight to the point, aren't we?",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Quiet",
       "clearBeforeTyping": true,
       "nextId": "storage_6"
     },
@@ -70,6 +71,7 @@
       "text": "???: A disagreement with some people who don't know when to stop.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Serious",
       "clearBeforeTyping": true,
       "nextId": "storage_10"
     },
@@ -87,6 +89,7 @@
       "text": "???: You know who I am, don't you?",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Serious",
       "clearBeforeTyping": true,
       "nextId": "storage_12"
     },
@@ -103,6 +106,7 @@
       "text": "???: Then why are you helping me?",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Deep",
       "clearBeforeTyping": true,
       "nextId": "storage_14"
     },
@@ -143,6 +147,7 @@
       "text": "???: Everyone who sees a man like me chooses to look away or to run. Nobody stops.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+         "voiceClip": "Haru_Serious",
       "clearBeforeTyping": true,
       "nextId": "storage_19"
     },
@@ -151,6 +156,7 @@
       "text": "???: And you, who know exactly what I am, bring me inside and patch me up.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Serious",
       "clearBeforeTyping": true,
       "nextId": "storage_20"
     },
@@ -167,6 +173,7 @@
       "text": "???: (a small, genuine smile) It is to me.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Chuckles",
       "clearBeforeTyping": true,
       "nextId": "storage_22"
     },
@@ -183,6 +190,7 @@
       "text": "???: What's your name?",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Normal",
       "clearBeforeTyping": true,
       "nextId": "storage_24"
     },
@@ -199,6 +207,7 @@
       "text": "Haru.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Normal",
       "clearBeforeTyping": true,
       "nextId": "storage_26"
     },
@@ -207,6 +216,7 @@
       "text": "Haru: I don't trust people easily, {Name}.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+         "voiceClip": "Haru_Serious",
       "clearBeforeTyping": true,
       "nextId": "storage_27"
     },
@@ -215,6 +225,7 @@
       "text": "Haru: And I'm not a man who falls for someone quickly.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+       "voiceClip": "Haru_Serious",
       "clearBeforeTyping": true,
       "nextId": "storage_28"
     },
@@ -223,6 +234,7 @@
       "text": "Haru: But you've made me curious. I'd like to get to know you. Slowly. If you let me, that is...",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Flirty",
       "clearBeforeTyping": true,
       "showPoints": true,
       "isChoice": true,
@@ -230,17 +242,23 @@
         {
           "text": "I don't think that's a good idea.",
           "cost": 0,
-          "nextId": "storage_notgood_1"
+          "nextId": "storage_notgood_1",
+           "affectionTarget": "Haru",
+          "affectionChange": -1
         },
         {
           "text": "Maybe... let's see.",
           "cost": 7,
-          "nextId": "storage_maybe_1"
+          "nextId": "storage_maybe_1",
+           "affectionTarget": "Haru",
+          "affectionChange": 1
         },
         {
           "text": "Yes, I'd like that.",
           "cost": 13,
-          "nextId": "storage_yes_1"
+          "nextId": "storage_yes_1",
+           "affectionTarget": "Haru",
+          "affectionChange": 3
         }
       ]
     },
@@ -265,6 +283,7 @@
       "text": "Haru: (surprised, then a soft laugh) Careful. Say things like that and I might not go slowly.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Flirty",
       "clearBeforeTyping": true,
       "nextId": "storage_yes_4"
     },
@@ -281,6 +300,7 @@
       "text": "Haru: (smiling) Slowly, then. I'll keep the promise.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Chuckles",
       "clearBeforeTyping": true,
       "nextId": "storage_yes_6"
     },
@@ -298,6 +318,7 @@
       "text": "Haru: Here. Take this.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Normal",
       "clearBeforeTyping": true,
       "nextId": "storage_yes_8"
     },
@@ -314,6 +335,7 @@
       "text": "Haru: (quietly) It is. It's the only thing I own that means something to me.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+       "voiceClip": "Haru_Quiet",
       "clearBeforeTyping": true,
       "nextId": "storage_yes_10"
     },
@@ -330,6 +352,7 @@
       "text": "Haru: (gently closes {Name}'s fingers around the pin) You can. I'm trusting you with it, {Name}.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Serious",
       "clearBeforeTyping": true,
       "nextId": "storage_yes_12"
     },
@@ -338,6 +361,7 @@
       "text": "Haru: Keep it safe until I come back.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+        "voiceClip": "Haru_Serious",
       "clearBeforeTyping": true,
       "nextId": "storage_yes_13"
     },
@@ -354,6 +378,7 @@
       "text": "Haru: (a small, genuine smile) Good.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Normal",
       "clearBeforeTyping": true,
       "nextId": "storage_yes_15"
     },
@@ -386,6 +411,7 @@
       "text": "Haru: (small smile) Fair enough. That's more honest than most people are with me.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Deep",
       "clearBeforeTyping": true,
       "nextId": "storage_maybe_4"
     },
@@ -394,6 +420,7 @@
       "text": "Haru: Then I'll earn it. One visit at a time.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Deep",
       "clearBeforeTyping": true,
       "nextId": "storage_end_1"
     },
@@ -410,6 +437,7 @@
       "text": "Haru: (quietly, his smile fades a little)...I understand.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Deep",
       "clearBeforeTyping": true,
       "nextId": "storage_notgood_3"
     },
@@ -418,6 +446,7 @@
       "text": "Haru: But I won't pretend I didn't hear your answer and I won't pretend I'll forget tonight either.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Deep",
       "clearBeforeTyping": true,
       "nextId": "storage_notgood_4"
     },
@@ -426,6 +455,7 @@
       "text": "Haru: I'll come back anyway. Not to force you. Just to drink your coffee.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Deep",
       "clearBeforeTyping": true,
       "nextId": "storage_notgood_5"
     },
@@ -442,6 +472,7 @@
       "text": "Haru: (a faint smile) Then we understand each other.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Chuckles",
       "clearBeforeTyping": true,
       "nextId": "storage_end_1"
     },
@@ -458,6 +489,7 @@
       "text": "Thank you, {Name}. I won't forget this.",
       "useSideCharacterBubble": true,
       "showLoveInterestH": true,
+      "voiceClip": "Haru_Normal",
       "clearBeforeTyping": true,
       "nextId": "storage_end_3"
     },
@@ -500,6 +532,7 @@
       "text": "???: You locked the door on me. Do you know what could have happened if I'd had no way in?",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Annoyed",
       "clearBeforeTyping": true,
       "nextId": "storage_ignore_4"
     },
@@ -516,6 +549,7 @@
       "text": "???: And now?",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Annoyed",
       "clearBeforeTyping": true,
       "nextId": "storage_ignore_6"
     },
@@ -532,6 +566,7 @@
       "text": "???: (a bitter smile) Good. That means you're not stupid.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Chuckles",
       "clearBeforeTyping": true,
       "nextId": "storage_ignore_8"
     },
@@ -540,6 +575,7 @@
       "text": "???: Listen. Those men will check every building in this street. If anyone asks, you haven't seen...",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Deep",
       "clearBeforeTyping": true,
       "nextId": "storage_ignore_9"
     },
@@ -556,6 +592,7 @@
       "text": "???: ...Tch. Not now...",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Annoyed",
       "clearBeforeTyping": true,
       "nextId": "storage_ignore_11"
     },
@@ -604,12 +641,16 @@
         {
           "text": "Call an ambulance",
           "cost": 0,
-          "nextId": "storage_ambulance_1"
+          "nextId": "storage_ambulance_1",
+           "affectionTarget": "Haru",
+          "affectionChange": 1
         },
         {
           "text": "Help him",
           "cost": 13,
-          "nextId": "storage_help_1"
+          "nextId": "storage_help_1",
+           "affectionTarget": "Haru",
+          "affectionChange": 3
         }
       ]
     },

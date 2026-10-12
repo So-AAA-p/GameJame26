@@ -11,7 +11,7 @@
     },
     {
       "id": "house_2",
-      "text": "(from the kitchen) Tea okay? I’m out of anything stronger.",
+      "text": "(from the kitchen) Tea okay? I'm out of anything stronger.",
       "showLoveInterestV": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
@@ -22,6 +22,7 @@
       "text": "Vincent: Tea is perfect. Let me help.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "house_4"
     },
@@ -35,7 +36,7 @@
     },
     {
       "id": "house_5",
-      "text": "({Name}’s phone buzzes on the counter, a message from a supplier. He turns away to read it.)",
+      "text": "({Name}'s phone buzzes on the counter, a message from a supplier. He turns away to read it.)",
       "showLoveInterestV": true,
       "isNarration": true,
       "clearBeforeTyping": true,
@@ -51,7 +52,7 @@
     },
     {
       "id": "house_7",
-      "text": "Sorry, work. Here, this one’s yours.",
+      "text": "Sorry, work. Here, this one's yours.",
       "showLoveInterestV": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
@@ -67,9 +68,10 @@
     },
     {
       "id": "house_9",
-      "text": "Vincent: You haven’t changed much, you know.",
+      "text": "Vincent: You haven't changed much, you know.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "house_10"
     },
@@ -83,9 +85,10 @@
     },
     {
       "id": "house_11",
-      "text": "Vincent: (quickly, with a smile) I mean... people like you don’t change. They are always kind to strangers.",
+      "text": "Vincent: (quickly, with a smile) I mean... people like you don't change. They are always kind to strangers.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "house_12"
     },
@@ -99,7 +102,7 @@
     },
     {
       "id": "house_13",
-      "text": "(A short silence. Vincent sets his cup down and moves a little closer. {Name}’s breath catches.)",
+      "text": "(A short silence. Vincent sets his cup down and moves a little closer. {Name}'s breath catches.)",
       "showLoveInterestV": true,
       "isNarration": true,
       "clearBeforeTyping": true,
@@ -110,6 +113,7 @@
       "text": "Vincent: (quietly) Can I tell you something?",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Quiet",
       "clearBeforeTyping": true,
       "nextId": "house_15"
     },
@@ -123,20 +127,131 @@
     },
     {
       "id": "house_16",
-      "text": "Vincent: I haven’t felt this relaxed in a long time and I don’t know why it’s you.",
+      "text": "Vincent: I haven't felt this relaxed in a long time and I don't know why it's you.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Serious",
       "clearBeforeTyping": true,
       "nextId": "house_17"
     },
     {
-      "id": "house_17",
-      "text": "(He lifts his hand and gently tucks a strand of hair behind {Name}'s ear. {Name} doesn’t move away.)",
-      "showLoveInterestV": true,
-      "isNarration": true,
-      "clearBeforeTyping": true,
-      "fadeToBlack": true,
-      "nextId": ""
-    },
+  "id": "house_17",
+  "text": "(He lifts his hand and gently tucks a strand of hair behind {Name}'s ear. {Name} doesn't move away.)",
+  "showLoveInterestV": true,
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "house_18"
+},
+{
+  "id": "house_18",
+  "text": "(murmuring) Vincent...? I feel... dizzy...",
+  "showLoveInterestV": true,
+  "useMCBubble": true,
+  "clearBeforeTyping": true,
+  "nextId": "house_19"
+},
+{
+  "id": "house_19",
+  "text": "Vincent: (gently holding him, whispering) It's okay. I've got you. Close your eyes.",
+  "showLoveInterestV": true,
+  "useSideCharacterBubble": true,
+  "voiceClip": "Vinc-Quiet",
+  "clearBeforeTyping": true,
+  "nextId": "house_20"
+},
+{
+  "id": "house_20",
+  "text": "(fading) ...Sorry... so tired...",
+  "showLoveInterestV": true,
+  "useMCBubble": true,
+  "clearBeforeTyping": true,
+  "nextId": "house_21"
+},
+{
+  "id": "house_21",
+  "text": "({Name}'s head falls against Vincent's shoulder.)",
+  "showLoveInterestV": true,
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "house_22"
+},
+{
+  "id": "house_22",
+  "text": "(Dark room. Vincent lifts {Name} carefully and carries him to the bed. He pulls the blanket up to his chin, switches off the lamp, and stays for a moment.)",
+  "showLoveInterestV": true,
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "house_23"
+},
+{
+  "id": "house_23",
+  "text": "Vincent: (quietly) Sorry. Sleep well.",
+  "showLoveInterestV": true,
+  "useSideCharacterBubble": true,
+  "voiceClip": "Vinc-Quiet",
+  "clearBeforeTyping": true,
+  "nextId": "house_24"
+},
+{
+  "id": "house_24",
+  "text": "(His face turns serious. He pulls a small flashlight from his coat and begins to search: the drawers, the closet, the nightstand, the boxes still unpacked in the corner. His movements are fast and silent, every item put back exactly where it was.)",
+  "showLoveInterestV": true,
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "house_25"
+},
+{
+  "id": "house_25",
+  "text": "Vincent: (muttering) He was here. I know it. Where did you leave something, Haru...?",
+  "showLoveInterestV": true,
+  "useSideCharacterBubble": true,
+  "voiceClip": "Vinc-Serious",
+  "clearBeforeTyping": true,
+  "nextId": "house_26"
+},
+{
+  "id": "house_26",
+  "text": "(He finds nothing. A moment of silence as he looks at the sleeping {Name}.)",
+  "showLoveInterestV": true,
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "house_27"
+},
+{
+  "id": "house_27",
+  "text": "Vincent: (quietly) ...Or he really did nothing but help him.",
+  "showLoveInterestV": true,
+  "useSideCharacterBubble": true,
+  "voiceClip": "Vinc-Quiet",
+  "clearBeforeTyping": true,
+  "nextId": "house_28"
+},
+{
+  "id": "house_28",
+  "text": "(He tears a page from {Name}'s notepad, writes something and places it on the nightstand with a pen on top.)",
+  "showLoveInterestV": true,
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "house_29"
+},
+{
+  "id": "house_29",
+  "text": "(He stays beside the bed for one more second. Then he bends down and gently presses a kiss to {Name}'s forehead.)",
+  "showLoveInterestV": true,
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "house_30"
+},
+{
+  "id": "house_30",
+  "text": "(He leaves silently.)",
+  "showLoveInterestV": false,
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "fadeToBlack": true,
+  "loadScene": "ApartmentScene",
+  "overrideStartNode": "apartment_past_vink",
+  "nextId": ""
+},
     ]
 }

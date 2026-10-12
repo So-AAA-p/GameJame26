@@ -3,7 +3,7 @@
   "nodes": [
   {
       "id": "outside_supermarket_1",
-      "text": "(Two big paper bags in {Name}’s arms, two more in Vincent’s. Light rain.)",
+      "text": "(Two big paper bags in {Name}'s arms, two more in Vincent's. Light rain.)",
       "showLoveInterestV": true,
       "isNarration": true,
       "clearBeforeTyping": true,
@@ -14,12 +14,13 @@
       "text": "Vincent: Give me those, too.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "outside_supermarket_3"
     },
     {
       "id": "outside_supermarket_3",
-      "text": "You’ve already got two! I can manage.",
+      "text": "You've already got two! I can manage.",
       "showLoveInterestV": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
@@ -30,12 +31,13 @@
       "text": "Vincent: (taking the bags anyway) Let me be a gentleman once in my life.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "outside_supermarket_5"
     },
     {
       "id": "outside_supermarket_5",
-      "text": "(They walk together to the café. At the door, {Name} unlocks it. Vincent still holds the bags.)",
+      "text": "(They walk together to the cafe. At the door, {Name} unlocks it. Vincent still holds the bags.)",
       "showLoveInterestV": true,
       "isNarration": true,
       "clearBeforeTyping": true,
@@ -51,9 +53,10 @@
     },
     {
       "id": "outside_supermarket_7",
-      "text": "Vincent: (a pause. He doesn’t leave. His voice drops, warm and low.) It’s cold outside and the rain is getting worse.",
+      "text": "Vincent: (a pause. He doesn't leave. His voice drops, warm and low.) It's cold outside and the rain is getting worse.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Quiet",
       "clearBeforeTyping": true,
       "nextId": "outside_supermarket_8"
     },
@@ -62,6 +65,7 @@
       "text": "Vincent: May I come in? Just for a moment.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Quiet",
       "clearBeforeTyping": true,
       "nextId": "outside_supermarket_choice"
     },
@@ -77,12 +81,16 @@
         {
           "text": "[Politely decline.]",
           "cost": 0,
-          "nextId": "outside_decline_1"
+          "nextId": "outside_decline_1",
+           "affectionTarget": "Vincent",
+          "affectionChange": -1
         },
         {
           "text": "Let him in.",
           "cost": 13,
-          "nextId": "outside_accept_1"
+          "nextId": "outside_accept_1",
+           "affectionTarget": "Vincent",
+          "affectionChange": 2
         }
       ]
     },
@@ -99,6 +107,7 @@
       "text": "Vincent: (a soft smile) Thank you.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Chuckle",
       "clearBeforeTyping": true,
       "fadeToBlack": true,
       "loadScene": "InsideHouseScene",
@@ -107,7 +116,7 @@
     },
     {
       "id": "outside_decline_1",
-      "text": "(a little awkward) I’m sorry, Vincent. It’s late and... I think I should go slowly. We just met.",
+      "text": "(a little awkward) I'm sorry, Vincent. It's late and... I think I should go slowly. We just met.",
       "showLoveInterestV": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
@@ -115,10 +124,11 @@
     },
     {
       "id": "outside_decline_2",
-      "text": "Vincent: (a short pause, then a warm smile) Of course. You’re right. Forgive me.",
+      "text": "Vincent: (a short pause, then a warm smile) Of course. You're right. Forgive me.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
       "clearBeforeTyping": true,
+      "voiceClip": "Vinc-Cold",
       "nextId": "outside_decline_3"
     },
     {
@@ -126,6 +136,7 @@
       "text": "Vincent: Good night, {Name}. See you tomorrow, at noon.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "outside_decline_4"
     },
@@ -137,13 +148,15 @@
       "nextId": "outside_decline_5"
     },
     {
-      "id": "outside_decline_5",
-      "text": "(leaning against the door) ...Why do I feel guilty?",
-      "useMCBubble": true,
-      "isThought": true,
-      "clearBeforeTyping": true,
-      "fadeToBlack": true,
-      "nextId": ""
+     "id": "outside_decline_5",
+  "text": "(leaning against the door) ...Why do I feel guilty?",
+  "useMCBubble": true,
+  "isThought": true,
+  "clearBeforeTyping": true,
+  "fadeToBlack": true,
+  "loadScene": "AlleyScene",
+  "overrideStartNode": "night_intruder_1",
+  "nextId": ""
     }
   ]
 }

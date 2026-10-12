@@ -71,6 +71,7 @@
       "text": "Haru: (quietly, to himself) ...He stayed.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Whisper",
       "clearBeforeTyping": true,
       "nextId": "apartment_help_4"
     },
@@ -103,6 +104,7 @@
       "text": "Haru: (calm, almost gentle) You locked the door on me last night.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Quiet",
       "clearBeforeTyping": true,
       "nextId": "apartment_help_8"
     },
@@ -111,6 +113,7 @@
       "text": "(looks down) ...I know. I'm sorry. I was afraid.",
       "showLoveInterestH": true,
       "useMCBubble": true,
+      "voiceClip": "Haru_Quiet",
       "clearBeforeTyping": true,
       "nextId": "apartment_help_9"
     },
@@ -135,6 +138,7 @@
       "text": "Haru: You came back. When I fell. Nobody was watching you, nobody forced you. You could have walked away and you didn't.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Deep",
       "clearBeforeTyping": true,
       "nextId": "apartment_help_12"
     },
@@ -151,6 +155,7 @@
       "text": "Haru: (a faint smile) Most people could.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Flirty",
       "clearBeforeTyping": true,
       "nextId": "apartment_help_14"
     },
@@ -159,6 +164,7 @@
       "text": "Haru: My name is Haru and you, who gave me your bed after I scared you half to death... I think I owe you a very big apology.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Flirty",
       "clearBeforeTyping": true,
       "nextId": "apartment_help_15"
     },
@@ -175,6 +181,7 @@
       "text": "Haru: (low laugh) I'll try. No promises.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Chuckles",
       "clearBeforeTyping": true,
       "nextId": "apartment_help_17"
     },
@@ -183,6 +190,7 @@
       "text": "Haru: (looks at {Name}, a little curious) ...What's the name of my savior?",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Normal",
       "clearBeforeTyping": true,
       "nextId": "apartment_help_18"
     },
@@ -199,6 +207,7 @@
       "text": "Haru: {Name}. (softly) I'll remember it.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Quiet",
       "clearBeforeTyping": true,
       "nextId": "apartment_help_20"
     },
@@ -215,6 +224,7 @@
       "text": "Haru: My men are waiting. I have to go.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Normal",
       "clearBeforeTyping": true,
       "nextId": "apartment_help_22"
     },
@@ -232,6 +242,7 @@
       "text": "Haru: Keep this. Consider it a deposit. I'll come back for it.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Serious",
       "clearBeforeTyping": true,
       "nextId": "apartment_help_24"
     },
@@ -253,6 +264,200 @@
       "loadScene": "CoffeeShopScene",
       "overrideStartNode": "shop_day4_1",
       "nextId": ""
+    },
+    {
+  "id": "apartment_past_vink",
+  "text": "(Morning. Birds singing. {Name} wakes up slowly, hair messy, still in yesterday's clothes. He sits up, confused.)",
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_past_vink_2"
+},
+{
+  "id": "apartment_past_vink_2",
+  "text": "(rubbing his eyes) ...What time is it? Did I...?",
+  "useMCBubble": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_past_vink_3"
+},
+{
+  "id": "apartment_past_vink_3",
+  "text": "(His eyes fall on the note.)",
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_past_vink_4"
+},
+{
+  "id": "apartment_past_vink_4",
+  "text": "(\"You fell asleep. I didn't want to wake you. Call me if you want some company again. — V. +49 XXX XXXX\")",
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_past_vink_5"
+},
+{
+  "id": "apartment_past_vink_5",
+  "text": "({Name} reads it twice. His face turns bright red.)",
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_past_vink_6"
+},
+{
+  "id": "apartment_past_vink_6",
+  "text": "(burying his face in his hands) Oh no. Oh no, no, no. I fell asleep while he was... while we were...",
+  "useMCBubble": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_past_vink_7"
+},
+{
+  "id": "apartment_past_vink_7",
+  "text": "That was my first time doing anything like that and I fell asleep in the middle of it?! How embarrassing!",
+  "useMCBubble": true,
+  "isThought": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_past_vink_8"
+},
+{
+  "id": "apartment_past_vink_8",
+  "text": "(peeking at the note) ...But he stayed. And he was kind about it. Should I text him...?",
+  "useMCBubble": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_past_vink_choice"
+},
+{
+  "id": "apartment_past_vink_choice",
+  "text": "What should I do?",
+  "useMCBubble": true,
+  "isThought": true,
+  "clearBeforeTyping": true,
+  "showPoints": true,
+  "isChoice": true,
+  "options": [
+    {
+      "text": "[Don't text him.]",
+      "cost": 0,
+      "nextId": "apartment_notext_1",
+      "affectionTarget": "Vincent",
+      "affectionChange": 0
+    },
+    {
+      "text": "[Text him.]",
+      "cost": 13,
+      "nextId": "apartment_text_1",
+      "affectionTarget": "Vincent",
+      "affectionChange": 1
     }
+  ]
+},
+{
+  "id": "apartment_text_1",
+  "text": "({Name} types: \"Sorry about last night. I'm usually not like that.\")",
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_text_2"
+},
+{
+  "id": "apartment_text_2",
+  "text": "(Vincent replies within seconds:)",
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_text_3"
+},
+{
+  "id": "apartment_text_3",
+  "text": "Vincent: \"Don't apologize. I had a very nice evening. See you at noon. Don't forget my cinnamon roll ;)\"",
+  "useSideCharacterBubble": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_merge_1"
+},
+{
+  "id": "apartment_notext_1",
+  "text": "({Name} puts the note in his pocket.)",
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_notext_2"
+},
+{
+  "id": "apartment_notext_2",
+  "text": "I'll just see how he acts when he comes to the cafe.",
+  "useMCBubble": true,
+  "isThought": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_merge_1"
+},
+{
+  "id": "apartment_merge_1",
+  "text": "({Name} gets up and finishes his morning routine before opening the cafe, still thinking about Vincent.)",
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_merge_2"
+},
+{
+  "id": "apartment_merge_2",
+  "text": "(quietly, touching his lips) ...Last night nothing happened, right?",
+  "useMCBubble": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_merge_3"
+},
+{
+  "id": "apartment_merge_3",
+  "text": "Okay. Coffee machine on, milk in the fridge, cinnamon rolls in the oven.",
+  "useMCBubble": true,
+  "isThought": true,
+  "clearBeforeTyping": true,
+  "fadeToBlack": true,
+  "loadScene": "EndingScene",
+  "nextId": ""
+},
+{
+  "id": "apartment_breakin_1",
+  "text": "(Morning. {Name} walks out of his bedroom, yawning. He freezes.)",
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_breakin_2"
+},
+{
+  "id": "apartment_breakin_2",
+  "text": "...What?!",
+  "useMCBubble": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_breakin_3"
+},
+{
+  "id": "apartment_breakin_3",
+  "text": "(Drawers open. Pillows on the floor. Boxes tipped over.)",
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_breakin_4"
+},
+{
+  "id": "apartment_breakin_4",
+  "text": "(backing away) Someone broke in...! Who...?",
+  "useMCBubble": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_breakin_5"
+},
+{
+  "id": "apartment_breakin_5",
+  "text": "({Name} checks the cash register downstairs. Nothing missing. His keys are still on the hook.)",
+  "isNarration": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_breakin_6"
+},
+{
+  "id": "apartment_breakin_6",
+  "text": "Nothing is gone. So what were they looking for?",
+  "useMCBubble": true,
+  "isThought": true,
+  "clearBeforeTyping": true,
+  "nextId": "apartment_breakin_7"
+},
+{
+  "id": "apartment_breakin_7",
+  "text": "(quietly) ...Haru? His men? Or someone else?",
+  "useMCBubble": true,
+  "clearBeforeTyping": true,
+  "fadeToBlack": true,
+  "loadScene": "EndingScene",
+  "nextId": ""
+}
   ]
 }

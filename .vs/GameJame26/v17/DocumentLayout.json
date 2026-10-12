@@ -3,60 +3,72 @@
   "WorkspaceRootPath": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|c:\\users\\josep\\documents\\github\\gamejame26\\assets\\data\\outsidesupermarket_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\outsidesupermarket_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|c:\\users\\josep\\documents\\github\\gamejame26\\assets\\data\\insidehouse_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\insidehouse_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\data\\supermarket_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\supermarket_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\data\\coffeeshop_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\coffeeshop_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\script\\storymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\storymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\data\\storageroomnight_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\storageroomnight_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|c:\\users\\josep\\documents\\github\\gamejame26\\assets\\data\\ending_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\ending_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\data\\intro_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\intro_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\data\\apartmentnight_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\apartmentnight_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\data\\livingroom_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\livingroom_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\data\\alley_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
       "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\alley_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Scenes\\SceneUIBridge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Scenes\\SceneUIBridge.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\data\\outsidesupermarket_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\outsidesupermarket_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\script\\storymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\storymanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\data\\insidehouse_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\insidehouse_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\data\\apartmentnight_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\apartmentnight_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\script\\affectionbarui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\affectionbarui.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\data\\coffeeshop_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\coffeeshop_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\data\\storageroomnight_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\storageroomnight_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\gamemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\script\\affectiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\affectiondata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\data\\supermarket_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\data\\supermarket_json.txt||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\script\\localizedtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\localizedtext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Assets\\UIGaussianBlur.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
-      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:Assets\\Assets\\UIGaussianBlur.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\assets\\script\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:assets\\script\\audiomanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\SettingManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Script\\SettingManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Assets\\UIGaussianBlur.shader||{3B902123-F8A7-4915-9F01-361F908088D0}",
+      "RelativeMoniker": "D:0:0:{535D6367-446A-431A-2576-50FCF24E1E00}|Assembly-CSharp.csproj|solutionrelative:Assets\\Assets\\UIGaussianBlur.shader||{3B902123-F8A7-4915-9F01-361F908088D0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -66,157 +78,180 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "InsideHouse_JSON.txt",
-              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\InsideHouse_JSON.txt",
-              "RelativeDocumentMoniker": "Assets\\Data\\InsideHouse_JSON.txt",
-              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\InsideHouse_JSON.txt",
-              "RelativeToolTip": "Assets\\Data\\InsideHouse_JSON.txt",
-              "ViewState": "AgIAAGoAAAAAAAAAAAAAAI0AAAABAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-10-11T17:20:43.208Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "OutsideSupermarket_JSON.txt",
-              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\OutsideSupermarket_JSON.txt",
-              "RelativeDocumentMoniker": "Assets\\Data\\OutsideSupermarket_JSON.txt",
-              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\OutsideSupermarket_JSON.txt",
-              "RelativeToolTip": "Assets\\Data\\OutsideSupermarket_JSON.txt",
-              "ViewState": "AgIAAGkAAAAAAAAAAAAQwIkAAAAGAAAAAAAAAA==",
+              "Title": "Ending_JSON.txt",
+              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\Ending_JSON.txt",
+              "RelativeDocumentMoniker": "Assets\\Data\\Ending_JSON.txt",
+              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\Ending_JSON.txt",
+              "RelativeToolTip": "Assets\\Data\\Ending_JSON.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-10-11T16:51:42.42Z",
+              "WhenOpened": "2026-10-12T00:55:06.296Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Supermarket_JSON.txt",
-              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\Supermarket_JSON.txt",
-              "RelativeDocumentMoniker": "Assets\\Data\\Supermarket_JSON.txt",
-              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\Supermarket_JSON.txt",
-              "RelativeToolTip": "Assets\\Data\\Supermarket_JSON.txt",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Title": "Livingroom_JSON.txt",
+              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\Livingroom_JSON.txt",
+              "RelativeDocumentMoniker": "Assets\\Data\\Livingroom_JSON.txt",
+              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\Livingroom_JSON.txt",
+              "RelativeToolTip": "Assets\\Data\\Livingroom_JSON.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADMAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-10-11T16:39:46.104Z"
+              "WhenOpened": "2026-10-12T00:32:03.628Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CoffeeShop_JSON.txt",
-              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\CoffeeShop_JSON.txt",
-              "RelativeDocumentMoniker": "Assets\\Data\\CoffeeShop_JSON.txt",
-              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\CoffeeShop_JSON.txt",
-              "RelativeToolTip": "Assets\\Data\\CoffeeShop_JSON.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAALkDAAAFAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-10-10T11:08:46.42Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "StoryManager.cs",
-              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\StoryManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\StoryManager.cs",
-              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\StoryManager.cs",
-              "RelativeToolTip": "Assets\\Script\\StoryManager.cs",
-              "ViewState": "AgIAAMUAAAAAAAAAAAAswPsAAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-08T09:17:16.162Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "StorageRoomNight_JSON.txt",
-              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\StorageRoomNight_JSON.txt",
-              "RelativeDocumentMoniker": "Assets\\Data\\StorageRoomNight_JSON.txt",
-              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\StorageRoomNight_JSON.txt",
-              "RelativeToolTip": "Assets\\Data\\StorageRoomNight_JSON.txt",
-              "ViewState": "AgIAACADAAAAAAAAAAAQwDoDAAAgAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-10-11T00:38:16.873Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Intro_JSON.txt",
               "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\Intro_JSON.txt",
               "RelativeDocumentMoniker": "Assets\\Data\\Intro_JSON.txt",
               "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\Intro_JSON.txt",
               "RelativeToolTip": "Assets\\Data\\Intro_JSON.txt",
-              "ViewState": "AgIAAMMAAAAAAAAAAAAQwAEBAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAHcBAAAAAAAAAAAQwJcBAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2026-10-10T11:08:12.603Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\GameManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\GameManager.cs",
-              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\GameManager.cs",
-              "RelativeToolTip": "Assets\\Script\\GameManager.cs",
-              "ViewState": "AgIAAOIAAAAAAAAAAAAwwBwBAABpAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-08T00:57:00.941Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ApartmentNight_JSON.txt",
-              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\ApartmentNight_JSON.txt",
-              "RelativeDocumentMoniker": "Assets\\Data\\ApartmentNight_JSON.txt",
-              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\ApartmentNight_JSON.txt",
-              "RelativeToolTip": "Assets\\Data\\ApartmentNight_JSON.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACAAAAADAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "OutsideSupermarket_JSON.txt",
+              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\OutsideSupermarket_JSON.txt",
+              "RelativeDocumentMoniker": "Assets\\Data\\OutsideSupermarket_JSON.txt",
+              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\OutsideSupermarket_JSON.txt",
+              "RelativeToolTip": "Assets\\Data\\OutsideSupermarket_JSON.txt",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAAAJ4AAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2026-10-10T11:24:54.709Z"
+              "WhenOpened": "2026-10-11T16:51:42.42Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "SettingManager.cs",
-              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\SettingManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\SettingManager.cs",
-              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\SettingManager.cs",
-              "RelativeToolTip": "Assets\\Script\\SettingManager.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAUwE4AAAABAAAAAAAAAA==",
+              "DocumentIndex": 5,
+              "Title": "StoryManager.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\StoryManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\StoryManager.cs",
+              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\StoryManager.cs",
+              "RelativeToolTip": "Assets\\Script\\StoryManager.cs",
+              "ViewState": "AgIAALYAAAAAAAAAAAAIwOoAAABhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-11T14:04:58.339Z"
+              "WhenOpened": "2026-10-08T09:17:16.162Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 3,
               "Title": "Alley_JSON.txt",
               "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\Alley_JSON.txt",
               "RelativeDocumentMoniker": "Assets\\Data\\Alley_JSON.txt",
               "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\Alley_JSON.txt",
               "RelativeToolTip": "Assets\\Data\\Alley_JSON.txt",
-              "ViewState": "AgIAADoAAAAAAAAAAABBwE8AAAAaAAAAAAAAAA==",
+              "ViewState": "AgIAAMYAAAAAAAAAAAAAAPMAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2026-10-10T21:32:43.585Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "SceneUIBridge.cs",
-              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Scenes\\SceneUIBridge.cs",
-              "RelativeDocumentMoniker": "Assets\\Scenes\\SceneUIBridge.cs",
-              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Scenes\\SceneUIBridge.cs",
-              "RelativeToolTip": "Assets\\Scenes\\SceneUIBridge.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAABAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "ApartmentNight_JSON.txt",
+              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\ApartmentNight_JSON.txt",
+              "RelativeDocumentMoniker": "Assets\\Data\\ApartmentNight_JSON.txt",
+              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\ApartmentNight_JSON.txt",
+              "RelativeToolTip": "Assets\\Data\\ApartmentNight_JSON.txt",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-10-10T11:24:54.709Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "InsideHouse_JSON.txt",
+              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\InsideHouse_JSON.txt",
+              "RelativeDocumentMoniker": "Assets\\Data\\InsideHouse_JSON.txt",
+              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\InsideHouse_JSON.txt",
+              "RelativeToolTip": "Assets\\Data\\InsideHouse_JSON.txt",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAQwN8AAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-10-11T17:20:43.208Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "AffectionBarUI.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\AffectionBarUI.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\AffectionBarUI.cs",
+              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\AffectionBarUI.cs",
+              "RelativeToolTip": "Assets\\Script\\AffectionBarUI.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAUwF4AAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-10-11T00:14:27.444Z"
+              "WhenOpened": "2026-10-11T22:28:00.821Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CoffeeShop_JSON.txt",
+              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\CoffeeShop_JSON.txt",
+              "RelativeDocumentMoniker": "Assets\\Data\\CoffeeShop_JSON.txt",
+              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\CoffeeShop_JSON.txt",
+              "RelativeToolTip": "Assets\\Data\\CoffeeShop_JSON.txt",
+              "ViewState": "AgIAAH8CAAAAAAAAAAAAAK8CAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-10-10T11:08:46.42Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "StorageRoomNight_JSON.txt",
+              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\StorageRoomNight_JSON.txt",
+              "RelativeDocumentMoniker": "Assets\\Data\\StorageRoomNight_JSON.txt",
+              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\StorageRoomNight_JSON.txt",
+              "RelativeToolTip": "Assets\\Data\\StorageRoomNight_JSON.txt",
+              "ViewState": "AgIAAGoCAAAAAAAAAAAAAJACAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-10-11T00:38:16.873Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 11,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\GameManager.cs",
+              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Script\\GameManager.cs",
+              "ViewState": "AgIAAEMDAAAAAAAAAAAuwIADAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-08T00:57:00.941Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "AffectionData.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\AffectionData.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\AffectionData.cs",
+              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\AffectionData.cs",
+              "RelativeToolTip": "Assets\\Script\\AffectionData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB4AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-11T22:27:32.912Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Supermarket_JSON.txt",
+              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\Supermarket_JSON.txt",
+              "RelativeDocumentMoniker": "Assets\\Data\\Supermarket_JSON.txt",
+              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Data\\Supermarket_JSON.txt",
+              "RelativeToolTip": "Assets\\Data\\Supermarket_JSON.txt",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAQwIEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
+              "WhenOpened": "2026-10-11T16:39:46.104Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
               "Title": "LocalizedText.cs",
               "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\LocalizedText.cs",
               "RelativeDocumentMoniker": "Assets\\Script\\LocalizedText.cs",
@@ -228,7 +263,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
+              "Title": "AudioManager.cs",
+              "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\AudioManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Script\\AudioManager.cs",
+              "ToolTip": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Script\\AudioManager.cs",
+              "RelativeToolTip": "Assets\\Script\\AudioManager.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAiwE0AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-10-11T17:58:54.831Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
               "Title": "UIGaussianBlur.shader",
               "DocumentMoniker": "C:\\Users\\josep\\Documents\\GitHub\\GameJame26\\Assets\\Assets\\UIGaussianBlur.shader",
               "RelativeDocumentMoniker": "Assets\\Assets\\UIGaussianBlur.shader",

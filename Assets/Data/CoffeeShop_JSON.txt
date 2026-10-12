@@ -7,6 +7,7 @@
       "isThought": true,
       "useMCBubble": true,
       "resetFlag": "HasHaruPin",
+      "showPoints": false,
       "clearBeforeTyping": true,
       "nextId": "shop_2"
     },
@@ -15,6 +16,7 @@
       "text": "Two tables over here and two more by the window.",
       "isThought": true,
       "useMCBubble": true,
+      "showPoints": false,
       "clearBeforeTyping": true,
       "nextId": "shop_3"
     },
@@ -23,6 +25,7 @@
       "text": "Chairs here... and here. A few plants in the corner would be nice too.",
       "isThought": true,
       "useMCBubble": true,
+      "showPoints": false,
       "clearBeforeTyping": true,
       "nextId": "shop_4"
     },
@@ -31,6 +34,7 @@
       "text": "Not bad. Not bad at all.",
       "isThought": true,
       "useMCBubble": true,
+      "showPoints": false,
       "clearBeforeTyping": true,
       "nextId": "shop_5"
     },
@@ -38,6 +42,7 @@
       "id": "shop_5",
       "text": "I'm exhausted though. Moving in and setting up in one day. Time for bed.",
       "useMCBubble": true,
+      "showPoints": false,
       "clearBeforeTyping": true,
       "loadScene": "ApartmentNightScene",
       "overrideStartNode": "shop_day2_1",
@@ -256,17 +261,18 @@
     "text": "But those warnings about the mafia... it's probably nothing... right?",
     "useMCBubble": true,
     "isThought": true,
+    "fadeToBlack": true,
     "clearBeforeTyping": true,
     "nextId": "shop_day2_26"
   },
-  {
-    "id": "shop_day2_26",
-    "text": "",
-    "fadeToBlack": true,
-    "fadeToBlack": true,
-    "overrideStartNode": "shop_day3_1",
-    "nextId": "shop_day3_1"
-  },
+ {
+      "id": "shop_day2_26",
+      "text": "(Next Day)",
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "fadeToBlack": true,
+      "nextId": "shop_day3_1"
+    },
   {
     "id": "shop_day3_1",
     "text": "Late evening already and not many customers today. The rain must have scared everyone off.",
@@ -394,12 +400,13 @@
       "text": "???: (coldly) Locks don't mean much to me.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Annoyed",
       "clearBeforeTyping": true,
       "nextId": "shop_ignore_16"
     },
     {
       "id": "shop_ignore_16",
-      "text": "(??? glances at the customers. They immediately get up and rush out of the café, leaving their half-finished food behind.)",
+      "text": "(??? glances at the customers. They immediately get up and rush out of the cafe, leaving their half-finished food behind.)",
       "showLoveInterestH": true,
       "isNarration": true,
       "clearBeforeTyping": true,
@@ -410,6 +417,7 @@
       "text": "???: Smart people. You should have gone with them.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Annoyed",
       "clearBeforeTyping": true,
       "nextId": "shop_ignore_18"
     },{
@@ -417,6 +425,7 @@
       "text": "???: (low voice) Close the cafe.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Quiet",
       "clearBeforeTyping": true,
       "nextId": "shop_ignore_19"
     },
@@ -433,6 +442,7 @@
       "text": "???: Lock the front door. Flip the sign. Turn off the lights. Now.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Quiet",
       "clearBeforeTyping": true,
       "nextId": "shop_ignore_21"
     },
@@ -449,6 +459,7 @@
       "text": "???: (coldly) Then do as I say.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Annoyed",
       "clearBeforeTyping": true,
       "nextId": "shop_ignore_23"
     },
@@ -473,6 +484,7 @@
       "text": "???: (whispering) Don't scream. Don't struggle. Walk.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Whisper",
       "clearBeforeTyping": true,
       "nextId": "shop_ignore_26"
     },
@@ -489,6 +501,7 @@
       "text": "???: Storage room. Move.",
       "showLoveInterestH": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Haru_Whisper",
       "clearBeforeTyping": true,
       "nextId": "shop_ignore_28"
     },
@@ -504,7 +517,7 @@
     },
     {
       "id": "shop_day4_1",
-      "text": "(Next day, around noon. Sunlight falls through the windows. The café is pleasantly busy. The door bell rings.)",
+      "text": "(Next day, around noon. Sunlight falls through the windows. The cafe is pleasantly busy. The door bell rings.)",
       "isNarration": true,
       "clearBeforeTyping": true,
       "nextId": "shop_day4_2"
@@ -519,7 +532,7 @@
     },
     {
       "id": "shop_day4_3",
-      "text": "(He looks around the café with a relaxed smile. Then his eyes wander briefly to the back door, then to the floor near the storage room.)",
+      "text": "(He looks around the cafe with a relaxed smile. Then his eyes wander briefly to the back door, then to the floor near the storage room.)",
       "showLoveInterestV": true,
       "isNarration": true,
       "clearBeforeTyping": true,
@@ -538,6 +551,7 @@
       "text": "???: (warmly, with a slight accent) Thank you. Nice place. It smells like home.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "shop_day4_6"
     },
@@ -562,12 +576,13 @@
       "text": "???: What would you recommend?",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "shop_day4_9"
     },
     {
       "id": "shop_day4_9",
-      "text": "(smiling) The cappuccino—and if you like sweet things, the cinnamon roll.",
+      "text": "(smiling) The cappuccino and if you like sweet things, the cinnamon roll.",
       "showLoveInterestV": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
@@ -579,6 +594,7 @@
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
       "clearBeforeTyping": true,
+      "voiceClip": "Vinc-Normal",
       "nextId": "shop_day4_11"
     },
     {
@@ -594,12 +610,13 @@
       "text": "???: (takes a sip, closes his eyes for a second) Mmm. That's really good. You made this yourself?",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "shop_day4_13"
     },
     {
       "id": "shop_day4_13",
-      "text": "Yes. I opened the café just a few days ago.",
+      "text": "Yes. I opened the cafe just a few days ago.",
       "showLoveInterestV": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
@@ -610,6 +627,7 @@
       "text": "???: (casually, his eyes drifting toward the back door again) A few days... So you must have seen a lot of the neighborhood already. Quiet, isn't it?",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "shop_day4_15"
     },
@@ -626,6 +644,7 @@
       "text": "???: I heard there was some noise in the alley last night. Did you notice anything? A stranger, maybe someone hurt?",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "shop_day4_17"
     },
@@ -650,17 +669,23 @@
         {
           "text": "Say you didn't notice anything.",
           "cost": 0,
-          "nextId": "shop_vink_notnoticed_1"
+          "nextId": "shop_vink_notnoticed_1",
+           "affectionTarget": "Vincent",
+          "affectionChange": -1
         },
         {
           "text": "Ask why he wants to know.",
           "cost": 7,
-          "nextId": "shop_vink_ask_1"
+          "nextId": "shop_vink_ask_1",
+           "affectionTarget": "Vincent",
+          "affectionChange": 1
         },
         {
           "text": "Tell him the truth.",
           "cost": 14,
-          "nextId": "shop_vink_truth_1"
+          "nextId": "shop_vink_truth_1",
+           "affectionTarget": "Vincent",
+          "affectionChange": 2
         }
       ]
     },
@@ -677,6 +702,7 @@
       "text": "???: I see. Good. Then you slept well. That's the most important thing.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "shop_vink_check"
     },
@@ -693,6 +719,7 @@
       "text": "???: (blinks, then laughs) Fair question! Straight to the point.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Chuckle",
       "clearBeforeTyping": true,
       "nextId": "shop_vink_ask_3"
     },
@@ -701,6 +728,7 @@
       "text": "???: Let's say I'm a curious person and I like to know who lives in my neighborhood.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Flirty",
       "clearBeforeTyping": true,
       "nextId": "shop_vink_check"
     },
@@ -717,6 +745,7 @@
       "text": "???: (his smile stays, but his eyes sharpen for a moment) You helped him.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Serious",
       "clearBeforeTyping": true,
       "nextId": "shop_vink_truth_3"
     },
@@ -733,6 +762,7 @@
       "text": "???: (softly, the warmth returns) No. Not wrong. Just... brave. Maybe a little reckless.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+       "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "shop_vink_check"
     },
@@ -744,7 +774,7 @@
     },
     {
       "id": "shop_vink_pin_react_1",
-      "text": "(Vink's gaze suddenly drops to the small silver pin {Name} is wearing.)",
+      "text": "(His's gaze suddenly drops to the small silver pin {Name} is wearing.)",
       "showLoveInterestV": true,
       "isNarration": true,
       "clearBeforeTyping": true,
@@ -771,6 +801,7 @@
       "text": "???: Well, {Name}. Thank you for the coffee and the pleasant chat. I'll definitely come back.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+       "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "shop_vink_shared_continue"
     },
@@ -779,6 +810,7 @@
       "text": "???: (quietly, almost to himself) ...It really is you.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Quiet",
       "clearBeforeTyping": true,
       "nextId": "shop_vink_shared_2"
     },
@@ -795,6 +827,7 @@
       "text": "???: (smiling again) Nothing. Just thinking out loud. You have a very familiar face.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+       "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "shop_vink_shared_4"
     },
@@ -811,6 +844,7 @@
       "text": "???: (leaning closer, playful) Maybe in another life or on a playground, a long time ago.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+       "voiceClip": "Vinc-Quiet",
       "clearBeforeTyping": true,
       "nextId": "shop_vink_shared_6"
     },
@@ -828,6 +862,7 @@
       "text": "???: (leans back, grinning) I'm joking. Mostly. But if I were you, I'd be careful: a man who says things like that is either a poet or a flirt.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Flirty",
       "clearBeforeTyping": true,
       "nextId": "shop_vink_shared_8"
     },
@@ -844,6 +879,7 @@
       "text": "???: (a warm, charming smile) Why not both?",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Flirty",
       "clearBeforeTyping": true,
       "nextId": "shop_vink_shared_10"
     },
@@ -869,6 +905,7 @@
       "text": "???: (stands, puts money on the counter, more than enough) Keep the change. For the best cappuccino in the city.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Flirty",
       "clearBeforeTyping": true,
       "nextId": "shop_vink_shared_13"
     },
@@ -877,6 +914,7 @@
       "text": "I'm Vincent, by the way.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Flirty",
       "clearBeforeTyping": true,
       "nextId": "shop_vink_shared_14"
     },
@@ -894,6 +932,7 @@
       "text": "Vincent: (at the door, turning back with a wink) I'll come back tomorrow. Same time. Don't forget my cinnamon roll.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Flirty",
       "clearBeforeTyping": true,
       "nextId": "shop_vink_shared_16"
     },

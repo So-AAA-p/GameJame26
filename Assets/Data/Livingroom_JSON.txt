@@ -1,0 +1,55 @@
+{
+  "startNodeId": "livingroom_1",
+  "nodes": [
+    {
+      "id": "livingroom_1",
+      "text": "({Name} sleeps deeply behind the closed bedroom door.)",
+      "isNarration": true,
+      "clearBeforeTyping": true,
+      "nextId": "livingroom_2"
+    },
+    {
+      "id": "livingroom_2",
+      "text": "(??? searches the living room and the kitchen first: drawers pulled open, boxes tipped over, cushions thrown off the sofa. He is quick and careless.)",
+      "isNarration": true,
+      "showRobber": true,
+      "clearBeforeTyping": true,
+      "nextId": "livingroom_3"
+    },
+    {
+      "id": "livingroom_3",
+      "text": "???: (muttering) Come on... where would he leave something?",
+      "useSideCharacterBubble": true,
+      "showRobber": true,
+      "clearBeforeTyping": true,
+      "nextId": "livingroom_4"
+    },
+    {
+      "id": "livingroom_4",
+      "text": "(He finds nothing. He glances at the bedroom door.)",
+      "isNarration": true,
+      "showRobber": true,
+      "clearBeforeTyping": true,
+      "nextId": "livingroom_5"
+    },
+    {
+      "id": "livingroom_5",
+      "text": "???: (quietly) ...No. Not in there.",
+      "useSideCharacterBubble": true,
+      "showRobber": true,
+      "clearBeforeTyping": true,
+      "nextId": "livingroom_6"
+    },
+    {
+      "id": "livingroom_6",
+  "text": "(He stops. A long breath. Then he leaves the mess behind.)",
+  "isNarration": true,
+  "showRobber": true,
+  "clearBeforeTyping": true,
+  "fadeToBlack": true,
+  "loadScene": "ApartmentScene",
+  "overrideStartNode": "apartment_breakin_1",
+  "nextId": ""
+    }
+  ]
+}

@@ -94,11 +94,16 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI settingsFontSizeDisplayText;
     public TextMeshProUGUI settingsResolutionDisplayText;
 
+    [Header("Points UI Setup")]
+    public GameObject pointsUIObject;
+
+    private bool isDuplicate = false;
+
     private void Awake()
     {
-        int numGameManagers = FindObjectsByType<GameManager>(FindObjectsSortMode.None).Length;
-        if (numGameManagers > 1)
+        if (FindObjectsByType<GameManager>().Length > 1)
         {
+            isDuplicate = true;
             Destroy(gameObject);
             return;
         }
@@ -108,6 +113,7 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        if (isDuplicate) return;
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -121,13 +127,13 @@ public class GameManager : MonoBehaviour
         RebindSceneUI();
     }
 
-        // 1. Prüfen, ob der Spieler bereits Startpunkte erhalten hat
-       private void Start()
+    private void Start()
     {
-        // 1. Startpunkte vergeben, falls sie noch gar nicht da sind oder der Spieler bei 0 startet
+        if (isDuplicate) return;
+
         if (PlayerPrefs.GetInt("HasReceivedStartPoints", 0) == 0 || currentPoints <= 0)
         {
-            currentPoints = 10; // Startguthaben vergeben
+            currentPoints = 10;
             PlayerPrefs.SetInt("HasReceivedStartPoints", 1);
             PlayerPrefs.Save();
         }
@@ -141,7 +147,8 @@ public class GameManager : MonoBehaviour
         UpdateLanguageUI();
         LoadUsername();
 
-        UpdatePointsUI(); // Zeigt die 10 Punkte sofort oben in der UI an
+        hasRolled = false;
+        UpdatePointsUI();
 
         if (pointPopUpText != null)
         {
@@ -158,6 +165,12 @@ public class GameManager : MonoBehaviour
             menuPanel.SetActive(false);
         }
 
+        PlayerPrefs.SetInt("PointsVisible", 0);
+        PlayerPrefs.SetInt("HasHaruPin", 0);
+        PlayerPrefs.Save();
+        AffectionData.ResetAll();
+        SceneManager.LoadScene("ApartmentScene");
+
         RebindSceneUI();
     }
 
@@ -172,15 +185,28 @@ public class GameManager : MonoBehaviour
         pointPopUpText = null;
         fontSizeDisplayText = null;
         resolutionDisplayText = null;
+        menuPanel = null;
+        menuCanvasGroup = null;
+        isMenuOpen = false;
+
+        englishHeart = null;
+        germanHeart = null;
 
         string currentSceneName = SceneManager.GetActiveScene().name;
 
-        // 1. Alle GameObjects in der aktiven Szene durchsuchen (inklusive inaktiver)
         foreach (GameObject obj in Resources.FindObjectsOfTypeAll<GameObject>())
         {
             if (obj.scene.name == currentSceneName)
             {
                 if (obj.name == "ChoicePanel") choicePanel = obj;
+
+                if (obj.name == "InGameMenuPanel")
+                {
+                    menuPanel = obj;
+                    menuCanvasGroup = obj.GetComponent<CanvasGroup>();
+                    obj.SetActive(false);
+                }
+
                 if (obj.name == "DiceButton")
                 {
                     diceButton = obj;
@@ -190,11 +216,19 @@ public class GameManager : MonoBehaviour
                 if (obj.name == "MediumAnswer") mediumAnswerButton = obj;
                 if (obj.name == "SpecialAnswer") specialAnswerButton = obj;
 
-                // Automatische Namens-Bindung für Buttons in jeder Szene
+                if (obj.name == "EnglishHeartButton" || obj.name == "English")
+                {
+                    englishHeart = obj.GetComponent<Image>();
+                }
+                if (obj.name == "GermanHeartButton" || obj.name == "German")
+                {
+                    germanHeart = obj.GetComponent<Image>();
+                }
+
                 Button btn = obj.GetComponent<Button>();
                 if (btn != null)
                 {
-                    if (obj.name == "GameStart" || obj.name == "StartButton")
+                    if (obj.name == "GameStart" || obj.name == "Game Start" || obj.name == "StartButton" || obj.name == "GameStartButton")
                     {
                         btn.onClick.RemoveAllListeners();
                         btn.onClick.AddListener(() => StartGame());
@@ -204,10 +238,20 @@ public class GameManager : MonoBehaviour
                         btn.onClick.RemoveAllListeners();
                         btn.onClick.AddListener(() => OpenSettings());
                     }
+                    else if (obj.name == "CreditsButton")
+                    {
+                        btn.onClick.RemoveAllListeners();
+                        btn.onClick.AddListener(() => OpenCredits());
+                    }
                     else if (obj.name == "BackButton")
                     {
                         btn.onClick.RemoveAllListeners();
                         btn.onClick.AddListener(() => OpenHomescreen());
+                    }
+                    else if (obj.name == "MenuButton")
+                    {
+                        btn.onClick.RemoveAllListeners();
+                        btn.onClick.AddListener(() => ToggleMenu());
                     }
                     else if (obj.name == "EnglishHeartButton" || obj.name == "English")
                     {
@@ -239,11 +283,20 @@ public class GameManager : MonoBehaviour
                         btn.onClick.RemoveAllListeners();
                         btn.onClick.AddListener(() => IncreaseResolution());
                     }
+                    else if (obj.name == "BackToHomescreenButton")
+                    {
+                        btn.onClick.RemoveAllListeners();
+                        btn.onClick.AddListener(() => OpenHomescreen());
+                    }
+                    else if (obj.name == "QuitButton")
+                    {
+                        btn.onClick.RemoveAllListeners();
+                        btn.onClick.AddListener(() => QuitGame());
+                    }
                 }
             }
         }
 
-        // 2. Direkte Inspector-Zuweisungen (falls im Inspektor verknüpft)
         if (settingsBackButton != null)
         {
             settingsBackButton.onClick.RemoveAllListeners();
@@ -280,19 +333,26 @@ public class GameManager : MonoBehaviour
             settingsResolutionR.onClick.AddListener(() => IncreaseResolution());
         }
 
-        // Direkte Zuweisung der Text-Felder in den Settings (falls im Inspector verknüpft)
         if (settingsFontSizeDisplayText != null) fontSizeDisplayText = settingsFontSizeDisplayText;
         if (settingsResolutionDisplayText != null) resolutionDisplayText = settingsResolutionDisplayText;
 
-        // 3. TextMeshPro-Komponenten direkt über die Szene finden
         TextMeshProUGUI[] allTexts = Resources.FindObjectsOfTypeAll<TextMeshProUGUI>();
         foreach (TextMeshProUGUI txt in allTexts)
         {
             if (txt.gameObject.scene.name == currentSceneName)
             {
                 string objName = txt.gameObject.name;
+                string parentName = txt.transform.parent != null ? txt.transform.parent.name : "";
 
-                if (objName.Contains("PermanentPoint") || (objName.Contains("Point") && !objName.Contains("PopUp")))
+                if (objName == "FontSizeValue" || parentName == "FontSizeValue")
+                {
+                    fontSizeDisplayText = txt;
+                }
+                else if (objName == "ResolutionValue" || parentName == "ResolutionValue")
+                {
+                    resolutionDisplayText = txt;
+                }
+                else if (objName.Contains("PermanentPoint") || (objName.Contains("Point") && !objName.Contains("PopUp")))
                 {
                     pointsDisplayText = txt;
                 }
@@ -301,18 +361,9 @@ public class GameManager : MonoBehaviour
                     pointPopUpText = txt;
                     pointPopUpText.gameObject.SetActive(false);
                 }
-                else if (objName.Contains("FontSize") || objName.Contains("Font"))
-                {
-                    fontSizeDisplayText = txt;
-                }
-                else if (objName.Contains("Resolution"))
-                {
-                    resolutionDisplayText = txt;
-                }
             }
         }
 
-        // 4. Klick-Listener für den Würfel neu binden
         if (diceButton != null)
         {
             Button btn = diceButton.GetComponent<Button>();
@@ -322,7 +373,7 @@ public class GameManager : MonoBehaviour
                 btn.onClick.AddListener(() => RollW20());
             }
         }
-
+        Debug.Log("Rebind: menuPanel=" + (menuPanel != null) + " in Szene " + currentSceneName);
         UpdatePointsUI();
         UpdateFontSizeUI();
         UpdateResolutionUI();
@@ -349,6 +400,7 @@ public class GameManager : MonoBehaviour
     #region Menu Animation Logic
     public void ToggleMenu()
     {
+        Debug.Log("ToggleMenu aufgerufen, menuPanel = " + (menuPanel != null ? menuPanel.name : "NULL"));
         if (menuPanel == null) return;
 
         if (menuAnimationCoroutine != null)
@@ -423,17 +475,17 @@ public class GameManager : MonoBehaviour
             RebindSceneUI();
         }
 
-        // Status zurücksetzen, damit man beim nächsten Mal wieder würfeln kann
         hasRolled = false;
         isRolling = false;
 
-        // Panels und Würfel aktivieren
         if (choicePanel != null) choicePanel.SetActive(true);
         if (diceButton != null) diceButton.SetActive(true);
 
-        // Antworten erst nach dem Würfeln zeigen
         if (standardAnswerButton != null) standardAnswerButton.SetActive(false);
+        if (mediumAnswerButton != null) mediumAnswerButton.SetActive(false);
         if (specialAnswerButton != null) specialAnswerButton.SetActive(false);
+
+        UpdatePointsUI();
     }
 
     public void RollW20()
@@ -490,6 +542,8 @@ public class GameManager : MonoBehaviour
         }
 
         currentPoints += finalRoll;
+        hasRolled = true;
+
         Debug.Log($"Final Gewürfelt: {finalRoll} | Gesamte Punkte: {currentPoints}");
         UpdatePointsUI();
 
@@ -499,7 +553,7 @@ public class GameManager : MonoBehaviour
 
         if (currentOptions != null)
         {
-            // 1. Standard-Button (Immer da für Option 0)
+            // Standard-Button: erste Option
             if (standardAnswerButton != null && currentOptions.Count > 0)
             {
                 standardAnswerButton.SetActive(true);
@@ -510,14 +564,13 @@ public class GameManager : MonoBehaviour
                 if (btn != null)
                 {
                     btn.onClick.RemoveAllListeners();
-                    string nextId = currentOptions[0].nextId;
-                    int cost = currentOptions[0].cost;
-                    btn.onClick.AddListener(() => OnAnswerOptionSelected(cost, nextId));
-                    btn.interactable = currentPoints >= cost;
+                    var opt = currentOptions[0];
+                    btn.onClick.AddListener(() => OnAnswerOptionSelected(opt));
+                    btn.interactable = currentPoints >= opt.cost;
                 }
             }
 
-            // 2. Medium-Button (Nur wenn es exakt 3 oder mehr Optionen gibt)
+            // Medium-Button: zweite Option (nur bei 3 Optionen)
             if (mediumAnswerButton != null)
             {
                 if (currentOptions.Count >= 3)
@@ -530,10 +583,9 @@ public class GameManager : MonoBehaviour
                     if (btn != null)
                     {
                         btn.onClick.RemoveAllListeners();
-                        string nextId = currentOptions[1].nextId;
-                        int cost = currentOptions[1].cost;
-                        btn.onClick.AddListener(() => OnAnswerOptionSelected(cost, nextId));
-                        btn.interactable = currentPoints >= cost;
+                        var opt = currentOptions[1];
+                        btn.onClick.AddListener(() => OnAnswerOptionSelected(opt));
+                        btn.interactable = currentPoints >= opt.cost;
                     }
                 }
                 else
@@ -542,7 +594,7 @@ public class GameManager : MonoBehaviour
                 }
             }
 
-            // 3. Special-Button (Bei 2 Optionen ist es Index 1, bei 3+ Optionen ist es Index 2)
+            // Special-Button: letzte Option
             if (specialAnswerButton != null)
             {
                 int specialIndex = (currentOptions.Count >= 3) ? 2 : (currentOptions.Count == 2 ? 1 : -1);
@@ -557,10 +609,9 @@ public class GameManager : MonoBehaviour
                     if (btn != null)
                     {
                         btn.onClick.RemoveAllListeners();
-                        string nextId = currentOptions[specialIndex].nextId;
-                        int cost = currentOptions[specialIndex].cost;
-                        btn.onClick.AddListener(() => OnAnswerOptionSelected(cost, nextId));
-                        btn.interactable = currentPoints >= cost;
+                        var opt = currentOptions[specialIndex];
+                        btn.onClick.AddListener(() => OnAnswerOptionSelected(opt));
+                        btn.interactable = currentPoints >= opt.cost;
                     }
                 }
                 else
@@ -569,8 +620,6 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-
-        isRolling = false;
 
         isRolling = false;
     }
@@ -584,7 +633,6 @@ public class GameManager : MonoBehaviour
         if (specialAnswerButton != null) specialAnswerButton.SetActive(false);
     }
 
-    // 1. Standard-Antwort (Immer kostenlos)
     public void SelectStandardAnswer()
     {
         if (choicePanel != null) choicePanel.SetActive(false);
@@ -593,11 +641,10 @@ public class GameManager : MonoBehaviour
         if (storyManager != null && storyManager.currentNode != null && storyManager.currentNode.options.Count > 0)
         {
             string nextId = storyManager.currentNode.options[0].nextId;
-            if (storyManager != null) storyManager.DisplayNode(nextId);
+            storyManager.DisplayNode(nextId);
         }
     }
 
-    // 2. Medium-Antwort (Index 1)
     public void SelectMediumAnswer()
     {
         if (choicePanel != null) choicePanel.SetActive(false);
@@ -606,11 +653,10 @@ public class GameManager : MonoBehaviour
         if (storyManager != null && storyManager.currentNode != null && storyManager.currentNode.options.Count > 1)
         {
             string nextId = storyManager.currentNode.options[1].nextId;
-            if (storyManager != null) storyManager.DisplayNode(nextId);
+            storyManager.DisplayNode(nextId);
         }
     }
 
-    // 3. Special-Antwort (Index 2 bei 3 Optionen, sonst Index 1)
     public void SelectSpecialAnswer()
     {
         if (choicePanel != null) choicePanel.SetActive(false);
@@ -622,32 +668,22 @@ public class GameManager : MonoBehaviour
             if (storyManager.currentNode.options.Count > optionIndex)
             {
                 string nextId = storyManager.currentNode.options[optionIndex].nextId;
-                if (storyManager != null) storyManager.DisplayNode(nextId);
+                storyManager.DisplayNode(nextId);
             }
         }
     }
-    // Hilfsmethode, die das Abziehen und Weiterleiten bündelt
-    private void ApplyChoiceCostAndProceed(int cost, string nextId)
-    {
-        if (cost > 0)
-        {
-            currentPoints -= cost;
-            if (currentPoints < 0) currentPoints = 0;
-            UpdatePointsUI();
-            ShowPointPopUp($"-{cost} Punkte", spendColor);
-        }
 
-        if (storyManager != null)
-        {
-            storyManager.DisplayNode(nextId);
-        }
+    // Neue Methode: wendet Affection an und ruft dann die alte Methode auf
+    public void OnAnswerOptionSelected(DialogueOption opt)
+    {
+        AffectionData.Add(opt.affectionTarget, opt.affectionChange);
+        OnAnswerOptionSelected(opt.cost, opt.nextId);
     }
 
     public void OnAnswerOptionSelected(int cost, string nextId)
     {
         if (choicePanel != null) choicePanel.SetActive(false);
 
-        // Verrechnet exakt die im JSON hinterlegten Kosten (0, 7, 13, 14 etc.)
         if (cost > 0)
         {
             currentPoints -= cost;
@@ -670,6 +706,12 @@ public class GameManager : MonoBehaviour
         if (pointsDisplayText != null)
         {
             pointsDisplayText.text = "Punkte: " + currentPoints;
+        }
+
+        // Steuert die Sichtbarkeit des gesamten Punktesystems basierend darauf, ob gewürfelt wurde
+        if (pointsUIObject != null)
+        {
+            pointsUIObject.SetActive(hasRolled);
         }
     }
 
@@ -720,6 +762,7 @@ public class GameManager : MonoBehaviour
     #region Settings & Preferences
     public void IncreaseFontSize()
     {
+        Debug.Log("FontSize +");
         if (currentSizeIndex < fontSizes.Length - 1)
         {
             currentSizeIndex++;
@@ -729,6 +772,7 @@ public class GameManager : MonoBehaviour
 
     public void DecreaseFontSize()
     {
+        Debug.Log("FontSize -");
         if (currentSizeIndex > 0)
         {
             currentSizeIndex--;
@@ -756,6 +800,7 @@ public class GameManager : MonoBehaviour
 
     public void IncreaseResolution()
     {
+        Debug.Log("Resolution +");
         if (currentResIndex < widths.Length - 1)
         {
             currentResIndex++;
@@ -765,6 +810,7 @@ public class GameManager : MonoBehaviour
 
     public void DecreaseResolution()
     {
+        Debug.Log("Resolution -");
         if (currentResIndex > 0)
         {
             currentResIndex--;

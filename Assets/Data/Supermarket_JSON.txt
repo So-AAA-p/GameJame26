@@ -3,7 +3,7 @@
   "nodes": [
     {
       "id": "supermarket_1",
-      "text": "(Evening. A small supermarket near the café.)",
+      "text": "(Evening. A small supermarket near the cafe.)",
       "isNarration": true,
       "clearBeforeTyping": true,
       "nextId": "supermarket_2"
@@ -17,7 +17,7 @@
     },
     {
       "id": "supermarket_3",
-      "text": "(He reaches for a flour bag on the top shelf and can’t quite get it.)",
+      "text": "(He reaches for a flour bag on the top shelf and can't quite get it.)",
       "isNarration": true,
       "clearBeforeTyping": true,
       "nextId": "supermarket_4"
@@ -27,6 +27,7 @@
       "text": "(from behind, a hand reaches over his shoulder and takes the bag) Let me.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "supermarket_5"
     },
@@ -40,15 +41,16 @@
     },
     {
       "id": "supermarket_6",
-      "text": "Vincent: (grinning) Small world, isn’t it? I was just thinking about my cinnamon roll.",
+      "text": "Vincent: (grinning) Small world, isn't it? I was just thinking about my cinnamon roll.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Chuckle",
       "clearBeforeTyping": true,
       "nextId": "supermarket_7"
     },
     {
       "id": "supermarket_7",
-      "text": "(laughing) That’s tomorrow! You promised to come back tomorrow.",
+      "text": "(laughing) That's tomorrow! You promised to come back tomorrow.",
       "showLoveInterestV": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
@@ -59,6 +61,7 @@
       "text": "Vincent: And I will. This is just a... bonus meeting.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+       "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "supermarket_9"
     },
@@ -75,12 +78,13 @@
       "text": "Vincent: That looks heavy. Are you shopping for an army?",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Normal",
       "clearBeforeTyping": true,
       "nextId": "supermarket_11"
     },
     {
       "id": "supermarket_11",
-      "text": "For the café. Milk, flour, sugar, coffee beans, cinnamon... and I always forget something, so I buy too much.",
+      "text": "For the cafe. Milk, flour, sugar, coffee beans, cinnamon... and I always forget something, so I buy too much.",
       "showLoveInterestV": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
@@ -88,7 +92,7 @@
     },
     {
       "id": "supermarket_12",
-      "text": "Last week I even bought three boxes of napkins and then found two boxes at home. And my neighbor says the best vanilla is from... oh, sorry, I’m talking too much, aren’t I?",
+      "text": "Last week I even bought three boxes of napkins and then found two boxes at home. And my neighbor says the best vanilla is from... oh, sorry, I'm talking too much, aren't I?",
       "showLoveInterestV": true,
       "useMCBubble": true,
       "clearBeforeTyping": true,
@@ -99,6 +103,7 @@
       "text": "Vincent: (softly, genuinely amused) No. Keep going. I like listening to you.",
       "showLoveInterestV": true,
       "useSideCharacterBubble": true,
+      "voiceClip": "Vinc-Flirty",
       "clearBeforeTyping": true,
       "nextId": "supermarket_14"
     },
@@ -116,7 +121,6 @@
       "showLoveInterestV": true,
       "isNarration": true,
       "clearBeforeTyping": true,
-      "fadeToBlack": true,
       "loadScene": "OutsideSupermarketScene",
       "overrideStartNode": "outside_supermarket_1",
       "nextId": ""

@@ -11,6 +11,8 @@ public class DialogueOption
     public string text;
     public int cost;
     public string nextId;
+    public string affectionTarget;   // "Haru" oder "Vincent"
+    public int affectionChange;      // z.B. 3 oder -1
 }
 
 [System.Serializable]
@@ -29,6 +31,7 @@ public class DialogueNode
     public bool showLoveInterestH;
     public bool showLoveInterestV;
     public bool showMafiaMen;
+    public bool showRobber;
     public bool useSideCharacterBubble;
     public bool removeBlur;
     public bool clearBeforeTyping;
@@ -40,6 +43,7 @@ public class DialogueNode
     public bool showPoints;
 
     // Flag-Felder für Weichen & Speicherwerte:
+    public string voiceClip;
     public string resetFlag;
     public string setFlag;
     public string checkFlag;
@@ -95,9 +99,13 @@ public class StoryManager : MonoBehaviour
     public GameObject customerCharacterImage;
     public GameObject mafiaMenImage;
     public GameObject vinkCharacterImage;
+    public GameObject robberCharacterImage;
 
     [Header("UI References - Points System")]
     public GameObject pointsPanel;
+
+    [Header("UI References - Affection")]
+    public AffectionBarUI affectionUI;
 
     private Dictionary<string, DialogueNode> nodeMap = new Dictionary<string, DialogueNode>();
     public DialogueNode currentNode;
@@ -129,6 +137,9 @@ public class StoryManager : MonoBehaviour
         if (introBubblePanel != null) introBubblePanel.SetActive(true);
         if (speechBubblePanel != null) speechBubblePanel.SetActive(false);
         if (sideCharacterBubblePanel != null) sideCharacterBubblePanel.SetActive(false);
+
+        isPointsPanelVisible = PlayerPrefs.GetInt("PointsVisible", 0) == 1;
+        if (pointsPanel != null) pointsPanel.SetActive(isPointsPanelVisible);
 
         currentActiveTextComponent = introText;
 
@@ -216,49 +227,51 @@ public class StoryManager : MonoBehaviour
 
         currentNode = nodeMap[nodeId];
 
-        // 1. Charakterbilder setzen:
         if (elderlyLadysCharacterImage != null) elderlyLadysCharacterImage.SetActive(currentNode.showElderlyLadys);
         if (loveInterestCharacterImage != null) loveInterestCharacterImage.SetActive(currentNode.showLoveInterestH);
         if (vinkCharacterImage != null) vinkCharacterImage.SetActive(currentNode.showLoveInterestV);
         if (customerCharacterImage != null) customerCharacterImage.SetActive(currentNode.showCustomer);
         if (mafiaMenImage != null) mafiaMenImage.SetActive(currentNode.showMafiaMen);
+        if (robberCharacterImage != null) robberCharacterImage.SetActive(currentNode.showRobber);
 
-        /// 2. FLAG-PRÜFUNG (Weiche):
+        // Affection-Leisten beim ersten Auftritt eines Love Interests einblenden:
+        if ((currentNode.showLoveInterestH || currentNode.showLoveInterestV) && !AffectionData.Visible)
+        {
+            AffectionData.Visible = true;
+            if (affectionUI != null) affectionUI.Reveal();
+        }
+
+        /// 2. FLAG ZURÜCKSETZEN (unabhängig von checkFlag):
+        if (!string.IsNullOrEmpty(currentNode.resetFlag))
+        {
+            PlayerPrefs.SetInt(currentNode.resetFlag, 0);
+            PlayerPrefs.Save();
+            Debug.Log("Flag auf 0 zurückgesetzt: " + currentNode.resetFlag);
+        }
+
+        /// 3. FLAG-PRÜFUNG (Weiche):
         if (!string.IsNullOrEmpty(currentNode.checkFlag))
         {
             int hasFlag = PlayerPrefs.GetInt(currentNode.checkFlag, 0);
-            
-            // --- HIER SEHEN WIR GENAU, WAS PASSIERT ---
-            Debug.Log("CHECK-FLAG: " + currentNode.checkFlag + " | Aktueller Wert in PlayerPrefs: " + hasFlag);
-            // ------------------------------------------
+            Debug.Log("CHECK-FLAG: " + currentNode.checkFlag + " | Wert: " + hasFlag);
 
             if (hasFlag == 1 && !string.IsNullOrEmpty(currentNode.flagTrueNextId))
             {
-                Debug.Log("-> Springe zu TRUE: " + currentNode.flagTrueNextId);
                 DisplayNode(currentNode.flagTrueNextId);
                 return;
             }
             else if (hasFlag == 0 && !string.IsNullOrEmpty(currentNode.flagFalseNextId))
             {
-                Debug.Log("-> Springe zu FALSE: " + currentNode.flagFalseNextId);
                 DisplayNode(currentNode.flagFalseNextId);
                 return;
             }
-            if (!string.IsNullOrEmpty(currentNode.resetFlag))
-            {
-                PlayerPrefs.SetInt(currentNode.resetFlag, 0);
-                PlayerPrefs.Save();
-                Debug.Log("Flag auf 0 zurückgesetzt: " + currentNode.resetFlag);
-            }
         }
 
-        // 3. UI Panels umschalten:
         if (introBubblePanel != null) introBubblePanel.SetActive(false);
         if (narratorBubblePanel != null) narratorBubblePanel.SetActive(false);
         if (speechBubblePanel != null) speechBubblePanel.SetActive(false);
         if (sideCharacterBubblePanel != null) sideCharacterBubblePanel.SetActive(false);
 
-        // Textblase zuweisen:
         if (currentNode.isNarration)
         {
             if (narratorBubblePanel != null) narratorBubblePanel.SetActive(true);
@@ -305,14 +318,21 @@ public class StoryManager : MonoBehaviour
         if (typingCoroutine != null) StopCoroutine(typingCoroutine);
         typingCoroutine = StartCoroutine(TypeSentence(formattedCurrentText));
 
-        if (currentNode.showPoints || isPointsPanelVisible)
+        if (currentNode.showPoints && !isPointsPanelVisible)
         {
             isPointsPanelVisible = true;
+            PlayerPrefs.SetInt("PointsVisible", 1);
+            PlayerPrefs.Save();
         }
 
         if (pointsPanel != null)
         {
             pointsPanel.SetActive(isPointsPanelVisible);
+        }
+
+        if (!string.IsNullOrEmpty(currentNode.voiceClip) && AudioManager.Instance != null)
+        {
+            AudioManager.Instance.PlayVoice(currentNode.voiceClip);
         }
 
         // FLAG SETZEN (falls im Knoten definiert):

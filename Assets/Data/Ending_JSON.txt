@@ -1,0 +1,12 @@
+{
+  "startNodeId": "ending_1",
+  "nodes": [
+    {
+      "id": "ending_1",
+      "text": "Complete: Chapter 1",
+      "useIntroPanel": true,
+      "clearBeforeTyping": true,
+      "nextId": ""
+    }
+  ]
+}
